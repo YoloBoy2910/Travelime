@@ -1,0 +1,94 @@
+:root {
+    --White: #FFFFFF;
+    --Gray: #FAF9FF;
+    --DGreen: #123634;
+    --NGreen: #175047;
+    --LGreen: #02FE85;
+    --Purple: #681EDD;
+}
+
+/*#region Navbar & Footer*/
+
+.navbar {
+    background: var(--NGreen);
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.4);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.nav-link {
+    color: var(--Gray);
+    margin-right: 20px;
+    transition: 0.3s ease-in-out;
+}
+
+.navbarLogo {
+    height: 75px;
+    width: 75px;
+}
+
+.logoLink {
+    padding-right: 20px;
+}
+
+.footer {
+    background: var(--NGreen);
+    color: var(--Gray);
+    box-shadow: 0 -2px 4px 0 rgba(0, 0, 0, .4);
+}
+
+.footer a{
+    text-decoration: none;
+    color: var(--Gray);
+}
+
+.footerButton {
+    background: var(--DGreen);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 25px;
+    transition: 0.5s;
+}
+
+.footerTitle {
+    color: var(--LGreen);
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.footerTable td {
+    padding-right: 1rem;
+}
+
+/*#region Hover Effect Links*/
+
+.nav-link:hover {
+    color: var(--LGreen);
+    text-decoration: none;
+}
+
+.nav-link::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: var(--LGreen);
+    transition: width 0.5s;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.footerButton:hover {
+    border-radius: 10px;
+}
+
+/*#endregion Hover Effect Links*/
+
+/*#endregion Navbar & Footer*/
