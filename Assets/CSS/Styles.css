@@ -7,44 +7,90 @@
     --Purple: #681EDD;
 }
 
+/*#region Body*/
+
+.travelime {
+    background: var(--LGreen);
+    color: var(--DGreen);
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.4);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.travelimeDesc {
+    color: var(--Gray);
+    text-transform: uppercase;
+    padding: 10px;
+}
+
+.line {
+    background: var(--LGreen);
+    height: 2px;
+    width: 50%;
+    border-radius: 50px;
+    margin: 20px;
+}
+
+/*#endregion Body*/
+
 /*#region Navbar & Footer*/
 
 .navbar {
-    background: var(--NGreen);
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,.4);
+    background: var(--DGreen);
     position: sticky;
     top: 0;
     z-index: 999;
+    padding: 0;
+}
+
+.navbarContent {
+    background: var(--LGreen);
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.4);
+    border-bottom-right-radius: 50px;
+    display: flex;
+    align-items: center;
+    padding: 7px 20px;
+    margin-right: 20px;
+}
+
+.navbarContent .logoLink {
+    color: var(--DGreen);
+    margin-right: 20px;
+    text-decoration: none;
+}
+
+.navbar h1 {
+    padding: 10px 25px 10px 0;
+    margin: 0;
 }
 
 .nav-link {
     color: var(--Gray);
+    font-size: 1.3rem;
     margin-right: 20px;
     transition: 0.3s ease-in-out;
 }
 
 .navbarLogo {
+    border-bottom-right-radius: 10px;
+    margin: 0 5px;
     height: 75px;
     width: 75px;
 }
 
-.logoLink {
-    padding-right: 20px;
-}
-
 .footer {
-    background: var(--NGreen);
+    background: var(--DGreen);
     color: var(--Gray);
     box-shadow: 0 -2px 4px 0 rgba(0, 0, 0, .4);
 }
 
 .footer a{
-    text-decoration: none;
     color: var(--Gray);
+    text-decoration: none;
 }
 
 .footerButton {
-    background: var(--DGreen);
+    background: var(--NGreen);
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -92,3 +138,204 @@
 /*#endregion Hover Effect Links*/
 
 /*#endregion Navbar & Footer*/
+
+/*#region Index (Age Selector)*/
+
+.ageSelectorLogo {
+    background: url("../IMG/Logo.png") center;
+    background-size: cover;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 999;
+    height: 75px;
+    width: 75px;
+}
+
+.ageSelectorPage {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.ageSelectorBG {
+    background: url('../IMG/PromoDeal.webp') center;
+    background-size: cover;
+    filter: blur(7px);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.ageSelectorHL {
+    background: url('../IMG/lines.avif') center;
+    background-size: cover;
+    opacity: 0.2;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.ageSelectorDiv {
+    background: var(--DGreen);
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.4);
+    height: 500px;
+    width: 500px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: absolute;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.ageSelectorDiv2 {
+    background: var(--NGreen);
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.4);
+    height: 450px;
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: absolute;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.ageSelector {
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.4);
+    font-style: italic;
+    text-align: center;
+    margin-top: 10px;
+    padding: 20px;
+    font-size: 1.3rem;
+    border-radius: 15px;
+    border: none;
+}
+
+.ageSelector:focus {
+    border: none;
+}
+
+/*Hide the arrows for the input type = number*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.ageSelectorBtn {
+    background: var(--LGreen);
+    color: var(--DGreen);
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.4);
+    font-weight: bold;
+    font-style: italic;
+    margin-top: 10px;
+    padding: 20px;
+    font-size: 1.3rem;
+    border-radius: 15px;
+    border: none;
+}
+
+/*#endregion Index (Age Selector)*/
+
+/*#region Home*/
+
+.promoDeal {
+    background: var(--NGreen);
+    overflow: hidden;
+    position: relative; /* Add relative positioning */
+    height: 75vh; /* Set a fixed height */
+}
+
+.searchBar {
+    background: var(--Gray);
+    box-shadow: 0 2px 4px 0 rgba(0,0,0, 0.5);
+    padding: 5px 10px;
+    border-radius: 20px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    margin-bottom: 10px;
+}
+
+.searchBar select, .searchBar input, .searchBar button {
+    border: none;
+    height: 50px;
+    width: 100%;
+    border-radius: 20px;
+    margin: 5px 0;
+}
+
+.searchBar button {
+    background: var(--Purple);
+    color: var(--White);
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.searchBar button:hover {
+    background: var(--White);
+    color: var(--Purple);
+    border: var(--Purple) 2px solid;
+}
+
+.greenCurve {
+    background: var(--DGreen);
+    height: 75vh;
+    border-bottom-right-radius: 50%;
+}
+
+.bannerText {
+    color: var(--Gray);
+    text-transform: uppercase;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.bannerText h2 {
+    margin-top: 20px;
+}
+
+.whiteRight {
+    background: rgb(23,80,71);
+    background: linear-gradient(90deg, rgba(23,80,71,1) 50%, rgba(255,255,255,1) 50%);
+    padding: 0;
+}
+
+.imageCurve {
+    background: url('../IMG/PromoDeal.webp') center;
+    background-size: cover;
+    height: 75vh;
+    border-radius: 0 0 50% 50%;
+    margin-bottom: -1px;
+}
+
+/*#endregion Home*/

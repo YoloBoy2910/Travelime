@@ -27,6 +27,7 @@ function includeHeader() {
             @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
             body {
+                background: var(--DGreen);
                 font-family: "Kanit", sans-serif;
                 font-weight: 500;
                 font-style: italic;
@@ -40,17 +41,19 @@ function includeHeader() {
 function includeNavbar() {
     ?>
     <nav class="navbar navbar-expand-lg">
-        <div class="container">
-            <a href="Index.php" class="logoLink"><img src="Assets/IMG/Logo.png" alt="KappersTotaal" class="navbarLogo"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="TravelAdvise.php">Travel Advise</a></li>
-                    <li class="nav-item"><a class="nav-link" href="HotelComparison.php">Hotel Comparison</a></li>
-                </ul>
-            </div>
+        <div class="navbarContent">
+            <a href="Index.php" class="logoLink">
+                <img src="Assets/IMG/Logo.png" alt="KappersTotaal" class="navbarLogo">
+            </a>
+            <h1><a href="Index.php" class="logoLink">TRAVELIME</a></h1>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="TravelAdvise.php">Travel Advise</a></li>
+            </ul>
         </div>
     </nav>
     <?php
