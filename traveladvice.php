@@ -227,6 +227,23 @@ includeNavbar();
     </div>
 </div>
 
+<div id="scroll-container">
+        <div id="scroll-text"></div>
+    </div>
+    
+    <script>
+        var countries = ["Afghanistan", "Albania", "Algeria", /* ... add all countries here ... */ "Zimbabwe"];
+        var allCountries = countries.join('  ') + '  ' + countries.join('  ') + '  ' + countries.join('  '); // Concatenate country names multiple times with extra spaces for smoother animation
+
+        function displayAllCountries() {
+            var scrollText = document.getElementById('scroll-text');
+            scrollText.textContent = allCountries;
+        }
+
+        // Start the animation
+        displayAllCountries();
+    </script>
+
 <?php
 includeFooter();
 ?>

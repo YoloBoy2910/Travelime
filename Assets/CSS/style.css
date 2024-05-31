@@ -156,7 +156,7 @@
     transition: 0.1s ease-out;
 }
 
-.countriesInput input:focus + button {
+.countriesInput input:focus+button {
     border-bottom-right-radius: 0px;
 }
 
@@ -202,11 +202,11 @@
 
 /* Custom scrollbar styles */
 .countriesInputItems::-webkit-scrollbar {
-    width: 15px; 
+    width: 15px;
 }
 
 .countriesInputItems::-webkit-scrollbar-thumb {
-    background-color: var(--DGreen); 
+    background-color: var(--DGreen);
     border-radius: 6px;
 }
 
@@ -584,17 +584,21 @@ input[type=number] {
 }
 
 .recommendationsIMG {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4);
     width: 100%;
     height: 200px;
     border-radius: 50px;
+    object-fit: cover;
     display: block;
     position: relative;
 }
 
 .recommendationsIMGLarge {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4);
     width: 100%;
     height: 250px;
     border-radius: 50px;
+    object-fit: cover;
     display: block;
     position: relative;
 }
@@ -607,7 +611,7 @@ input[type=number] {
 }
 
 .image-wrapper::before {
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.35);
     content: '';
     position: absolute;
     top: 0;
@@ -624,10 +628,31 @@ input[type=number] {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
     z-index: 2;
     font-weight: bold;
 }
 
+#scroll-container {
+    background: var(--Purple);
+    border-radius: 5px;
+    overflow: hidden;
+    width: 100%; /* Make sure it spans the whole width */
+}
+#scroll-text {
+    /* animation properties */
+    transform: translateX(0%);
+    animation: my-animation 120s linear infinite;
+    white-space: nowrap;
+    display: inline-block;
+}
+
+@keyframes my-animation {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
 
 /*#endregion Traveladvice*/

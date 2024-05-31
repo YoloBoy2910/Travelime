@@ -1,24 +1,5 @@
 <?php
 
-function db_connect_temp()
-{
-
-  $servername = "localhost";
-  $username = "root";
-  $password = "";
-  $dbname = "travellimebootleg";
-
-  // Create connection
-  $conn = mysqli_connect($servername, $username, $password, $dbname);
-
-  // Check connection
-  if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-  }
-
-  return $conn;
-}
-
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
   handlePOST();
 }
@@ -27,6 +8,9 @@ function handlePOST()
 {
   if (isset($_POST['login'])) {
     authenticate();
+  }
+  else if(isset($_POST['age'])) {
+    setAge();
   }
 }
 
@@ -81,49 +65,11 @@ function authenticate()
   exit;
 }
 
-function LoginY()
-{
-?>
-  <div>
-    <div class="ageSelectorBG"></div>
-    <div class="ageSelectorHL"></div>
-    <div class="ageSelectorLogo"></div>
-    <div class="loginY">
-      <form method="POST">
-        <H1>LOG IN.</H1>
-        <input type="text" name="userName" placeholder="Username / Email" required>
-        <input type="password" name="userPassword" placeholder="Password" required>
-        <button type="submit" name="login">Submit</button>
-      </form>
-      <a href="register.php">Register</a>
-      <a href="index.php">Use as a guest</a>
-    </div>
-  </div>
-<?php
+function setAge() {
+  
 }
 
-function LoginA()
-{
-?>
-  <div>
-    <div class="ageSelectorBG"></div>
-    <div class="ageSelectorHL"></div>
-    <div class="ageSelectorLogo"></div>
-    <div class="loginA">
-      <form method="POST">
-        <H1>LOG IN.</H1>
-        <input type="text" name="userName" placeholder="Username / Email" required>
-        <input type="password" name="userPassword" placeholder="Password" required>
-        <button type="submit" name="login">Submit</button>
-      </form>
-      <a href="register.php">Register</a>
-      <a href="index.php">Use as a guest</a>
-    </div>
-  </div>
-<?php
-}
-
-function LoginE()
+function LoginForm()
 {
 ?>
   <div>
@@ -136,6 +82,12 @@ function LoginE()
           <H1>Log In Here</H1>
           <input type="text" name="userName" placeholder="Enter your username or email" required>
           <input type="password" name="userPassword" placeholder="Enter your password" required>
+          <?php 
+            if(isset($_SESSION['message'])) {
+                ?><p><?php echo $_SESSION['message']; ?></p><?php
+                unset($_SESSION['message']);
+            }
+          ?>
           <button type="submit" name="login">Login</button>
         </form>
         <a href="register.php" class="row-md-6">Register a new user</a>

@@ -6,6 +6,12 @@ ensureAgeSubmitted();
 
 includeHeader();
 includeNavbar();
+
+if(isset($_SESSION['message'])) {
+    ?><p><?php echo $_SESSION['message']; ?></p><?php
+    unset($_SESSION['message']);
+}
+
 ?>
 
 <div class="promoDeal">

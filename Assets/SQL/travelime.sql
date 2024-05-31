@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: May 30, 2024 at 07:53 AM
--- Server version: 10.6.16-MariaDB-0ubuntu0.22.04.1
--- PHP Version: 8.2.17
+-- Host: 127.0.0.1
+-- Generation Time: May 31, 2024 at 10:29 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,16 +18,16 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `Travelime`
+-- Database: `travelime`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Traveladvice`
+-- Table structure for table `traveladvice`
 --
 
-CREATE TABLE `Traveladvice` (
+CREATE TABLE `traveladvice` (
   `countryID` int(11) NOT NULL,
   `countryName` varchar(255) NOT NULL,
   `countryDescription` text NOT NULL,
@@ -37,13 +37,13 @@ CREATE TABLE `Traveladvice` (
   `countryLanguages` varchar(255) NOT NULL,
   `countryCurrency` varchar(255) NOT NULL,
   `countryImage` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `Traveladvice`
+-- Dumping data for table `traveladvice`
 --
 
-INSERT INTO `Traveladvice` (`countryID`, `countryName`, `countryDescription`, `countryKeywords`, `countryCapital`, `countryMajorCities`, `countryLanguages`, `countryCurrency`, `countryImage`) VALUES
+INSERT INTO `traveladvice` (`countryID`, `countryName`, `countryDescription`, `countryKeywords`, `countryCapital`, `countryMajorCities`, `countryLanguages`, `countryCurrency`, `countryImage`) VALUES
 (1, 'Afghanistan', 'Nestled in the heart of Asia, Afghanistan is a land of rugged beauty and ancient history. Despite its tumultuous past, it boasts stunning landscapes ranging from towering mountains to fertile valleys. Visitors can explore historic sites like the Bamiyan Buddhas and experience the hospitality of its diverse cultures.', 'Mountains, Kabul, Culture, History, Hospitality', 'Kabul', 'Kabul, Kandahar, Herat, Mazar-i-Sharif', 'Pashto, Dari', 'Afghani', 'https://udayton.edu/magazine/2021/08/images/2108_afganistan_island.jpg'),
 (2, 'Albania', 'Tucked away in southeastern Europe, Albania is a hidden gem with a rich history and natural wonders. From the ancient ruins of Butrint to the pristine beaches of the Albanian Riviera, it offers a mix of cultural heritage and stunning landscapes. Visitors can also explore vibrant cities like Tirana and experience the warmth of Albanian hospitality.', 'Mountains, Riviera, Ancient, Culture, Ottoman', 'Tirana', 'Tirana, Durrës, Vlorë, Shkodër', 'Albanian', 'Lek', 'https://www.state.gov/wp-content/uploads/2018/11/Albania-2218x1406.jpg'),
 (3, 'Algeria', 'With its vast Sahara Desert landscapes and Mediterranean coastlines, Algeria offers a tapestry of contrasts and beauty. Rich in history and culture, it boasts ancient Roman ruins like Timgad and diverse landscapes ranging from the Atlas Mountains to the Tassili n\'Ajjer National Park. Visitors can immerse themselves in Berber traditions, sample delicious Algerian cuisine, and explore the vibrant markets of cities like Algiers.', 'Sahara, Culture, History, Cuisine, Heritage', 'Algiers', 'Algiers, Oran, Constantine, Annaba', 'Arabic, Berber', 'Dinar', 'https://www.state.gov/wp-content/uploads/2019/04/shutterstock_11771813523.jpg'),
@@ -88,7 +88,7 @@ INSERT INTO `Traveladvice` (`countryID`, `countryName`, `countryDescription`, `c
 (42, 'Colombia', 'A country at the northern tip of South America known for its coffee, culture, and diverse landscapes.', 'Coffee, Caribbean, Culture, Nature, Salsa', 'Bogotá', 'Bogotá, Medellín, Cali, Cartagena', 'Spanish', 'Colombian Peso', 'https://media.cntraveler.com/photos/5a00c56ce1a12132221cfac3/16:9/w_2560%2Cc_limit/Colombia_GettyImages-150953681.jpg'),
 (43, 'Congo', 'A central African nation with vast swaths of tropical rainforest and numerous rivers.', 'Rainforest, Wildlife, Culture, Music, Diamonds', 'Brazzaville', 'Brazzaville, Pointe-Noire, Dolisie, Nkayi', 'French, Lingala', 'Central African CFA franc', 'https://borgenproject.org/wp-content/uploads/Congo-2.jpg'),
 (44, 'Cook Islands', 'A nation in the South Pacific, with political links to New Zealand, comprising 15 islands scattered over a vast area.', 'Beaches, Lagoon, Culture, Hospitality, Paradise', 'Avarua', 'Avarua, Arutanga, Omoka, Tauhunu', 'English, Cook Islands Māori', 'New Zealand Dollar', 'https://blog.goway.com/globetrotting/wp-content/uploads/2023/12/Cook-Islands_CI_003_DK_2016.jpg'),
-(45, 'Costa Rica', 'A rugged, rainforested Central American country with coastlines on the Caribbean and Pacific.', 'Rainforest, Wildlife, Eco-tourism, Beaches, Pura Vida', 'San José', 'San José, Limón, Alajuela, Heredia', 'Spanish', 'Costa Rican Colón', 'https://imgproxy.natucate.com/lbFtZYE9cFOnDUOqRNN6YcKkHIYldjkY0gdQ6Pe_o4A/rs:fill/g:ce/w:3840/h:2160/aHR0cHM6Ly93d3cubmF0dWNhdGUuY29tL21lZGlhL3BhZ2VzL3JlaXNlemllbGUvYzFkYzJmNGQtYTc4My00MDQ1LTgyNTUtZTY4OTBlNTNiYmQ0LzI1YmJiMzI0NTAtMTY3OTQ4Njc5Ni9jb2FzdGEtcmljYS1sYWVuZGVyaW5mb3JtYXRpb25lbi1icnVlY2tlLXJlZ2Vud2FsZC1uYXR1Y2F0ZS5qcGc'),
+(45, 'Costa Rica', 'A rugged, rainforested Central American country with coastlines on the Caribbean and Pacific.', 'Rainforest, Wildlife, Eco-tourism, Beaches, Pura Vida', 'San José', 'San José, Limón, Alajuela, Heredia', 'Spanish', 'Costa Rican Colón', 'https://media.weflycheap.be/eyJidWNrZXQiOiJ3ZWZseWNoZWFwIiwia2V5IjoiNmYwZDM4YzI1MThlNGFmMmJiODFmODAxMzk1MjkzNzlfdXJsXzg5MTE1LmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6Mzg0MCwiZml0IjoiaW5zaWRlIiwicXVhbGl0eSI6NzV9fX0='),
 (46, 'Cote D Ivoire', 'A West African country with beach resorts, rainforests, and a French-colonial legacy.', 'Culture, Cocoa, Beaches, Music, Diversity', 'Yamoussoukro', 'Abidjan, Yamoussoukro, Bouaké, Daloa', 'French', 'West African CFA franc', 'https://ongolo.com/wp-content/uploads/2024/01/shutterstock_1091969669-1024x683.jpeg'),
 (47, 'Croatia', 'A country at the crossroads of Central and Southeast Europe on the Adriatic Sea.', 'Coastline, Dubrovnik, Islands, History, Nature', 'Zagreb', 'Zagreb, Split, Rijeka, Osijek', 'Croatian', 'Kuna', 'https://afar.brightspotcdn.com/dims4/default/d2828ee/2147483647/strip/true/crop/3000x1592+0+90/resize/1440x764!/quality/90/?url=https%3A%2F%2Fafar-media-production-web.s3.us-west-2.amazonaws.com%2Fbrightspot%2Fcd%2F68%2F65a13b884896afba4b1cfd6fa0db%2Ftravelguides-crotia-brendanvanson-shutterstock.jpg'),
 (48, 'Cuba', 'A Caribbean island nation under communist rule known for its beaches, colonial architecture, and cigars.', 'Cigars, Music, Culture, Beaches, History', 'Havana', 'Havana, Santiago de Cuba, Camagüey, Holguín', 'Spanish', 'Cuban Peso', 'https://media.weflycheap.nl/eyJidWNrZXQiOiJ3ZWZseWNoZWFwIiwia2V5IjoiNDA4YjNmNjkzYTU2NDk0Mzg2NTU2NmZjNWVjZmI5OTBfdXJsXzMzNjU2LmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6Mzg0MCwiZml0IjoiaW5zaWRlIiwicXVhbGl0eSI6NzV9fX0='),
@@ -161,7 +161,7 @@ INSERT INTO `Traveladvice` (`countryID`, `countryName`, `countryDescription`, `c
 (115, 'Lithuania', 'A Baltic country in Northern Europe known for its medieval towns, castles, and lush forests.', 'Baltic, Vilnius, Culture, Nature, History', 'Vilnius', 'Vilnius, Kaunas, Klaipėda, Šiauliai', 'Lithuanian', 'Euro', 'https://media.nomadicmatt.com/2020/lithuaniaguide1.jpg'),
 (116, 'Luxembourg', 'A small European country known for its medieval castles, rolling countryside, and high standard of living.', 'Castles, Banking, Nature, Culture, Multilingual', 'Luxembourg City', 'Luxembourg City, Esch-sur-Alzette, Dudelange, Differdange', 'Luxembourgish, French, German', 'Euro', 'https://www.sprachcaffe.com/fileadmin/_processed_/6/3/csm_Luxembourg_Header_64863f7e59.png'),
 (117, 'Macau', 'A Special Administrative Region of China known for its vibrant casinos, Portuguese colonial history, and fusion cuisine.', 'Casinos, Culture, Cuisine, History, Entertainment', 'Macau City', 'Macau City', 'Cantonese, Portuguese', 'Macanese Pataca', 'https://media.tacdn.com/media/attractions-content--1x-1/10/5a/89/3a.jpg');
-INSERT INTO `Traveladvice` (`countryID`, `countryName`, `countryDescription`, `countryKeywords`, `countryCapital`, `countryMajorCities`, `countryLanguages`, `countryCurrency`, `countryImage`) VALUES
+INSERT INTO `traveladvice` (`countryID`, `countryName`, `countryDescription`, `countryKeywords`, `countryCapital`, `countryMajorCities`, `countryLanguages`, `countryCurrency`, `countryImage`) VALUES
 (118, 'Macedonia', 'A country in the Balkans known for its diverse culture, historic sites, and scenic landscapes.', 'History, Culture, Nature, Hospitality, Lakes', 'Skopje', 'Skopje, Bitola, Kumanovo, Prilep', 'Macedonian', 'Macedonian Denar', 'https://www.holidayhypermarket.co.uk/wp-content/uploads/2023/01/HH_North_Macedonia_shutterstock_1476848549.png'),
 (119, 'Madagascar', 'An island nation in the Indian Ocean known for its unique wildlife, lush rainforests, and beautiful beaches.', 'Wildlife, Lemurs, Baobabs, Nature, Culture', 'Antananarivo', 'Antananarivo, Toamasina, Antsirabe, Fianarantsoa', 'Malagasy, French', 'Malagasy Ariary', 'https://oryxtravel.nl/wp-content/uploads/2020/05/shutterstock_1125367931-scaled.jpg'),
 (120, 'Malawi', 'A landlocked country in southeastern Africa known for its scenic landscapes, including Lake Malawi.', 'Lake Malawi, Wildlife, Culture, Scenery, Hospitality', 'Lilongwe', 'Lilongwe, Blantyre, Mzuzu, Zomba', 'English, Chewa', 'Malawian Kwacha', 'https://i0.wp.com/www.atelier-africa.com/wp-content/uploads/2018/02/Malawi-Alma-Travel.jpg?fit=1475%2C860&ssl=1'),
@@ -272,9 +272,9 @@ INSERT INTO `Traveladvice` (`countryID`, `countryName`, `countryDescription`, `c
 --
 
 --
--- Indexes for table `Traveladvice`
+-- Indexes for table `traveladvice`
 --
-ALTER TABLE `Traveladvice`
+ALTER TABLE `traveladvice`
   ADD PRIMARY KEY (`countryID`);
 
 --
@@ -282,9 +282,9 @@ ALTER TABLE `Traveladvice`
 --
 
 --
--- AUTO_INCREMENT for table `Traveladvice`
+-- AUTO_INCREMENT for table `traveladvice`
 --
-ALTER TABLE `Traveladvice`
+ALTER TABLE `traveladvice`
   MODIFY `countryID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=222;
 COMMIT;
 
