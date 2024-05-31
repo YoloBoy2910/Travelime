@@ -1,16 +1,17 @@
 <?php
-include('Assets/INC/Includes.php');
-include('Assets/INC/Logins.php');
+include("Assets/INC/includes.php");
+include("Assets/INC/logins.php");
 
 includeHeader();
 
-if (age > 18 && age < 30) {
-    LoginY();
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $age = intval($_POST['age']);
+
+    if ($age >= 18 && $age < 30) {
+        LoginY();
+    } elseif ($age >= 30 && $age <= 60) {
+        LoginA();
+    } else {
+        LoginE();
+    }
 }
-else if (age >= 30 && age < 60) {
-    LoginA();
-}
-else {
-    LoginE();
-}
-?>

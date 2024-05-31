@@ -1,0 +1,633 @@
+:root {
+    --White: #FFFFFF;
+    --Black: #000000;
+    --Gray: #FAF9FF;
+    --DGreen: #123634;
+    --NGreen: #175047;
+    --LGreen: #02FE85;
+    --Purple: #681EDD;
+}
+
+/*#region Body*/
+
+.travelime {
+    background: var(--LGreen);
+    color: var(--DGreen);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.travelimeDesc {
+    color: var(--Gray);
+    text-transform: uppercase;
+    padding: 10px;
+}
+
+.line {
+    background: var(--LGreen);
+    height: 2px;
+    width: 50%;
+    border-radius: 50px;
+    margin: 20px;
+}
+
+/*#endregion Body*/
+
+/*#region Navbar & Footer*/
+
+.navbar {
+    background: var(--DGreen);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    padding: 0;
+}
+
+.navbarContent {
+    background: var(--LGreen);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4);
+    border-bottom-right-radius: 50px;
+    display: flex;
+    align-items: center;
+    padding: 7px 20px;
+    margin-right: 20px;
+}
+
+.navbarContent .logoLink {
+    color: var(--DGreen);
+    margin-right: 20px;
+    text-decoration: none;
+}
+
+.navbar h1 {
+    padding: 10px 25px 10px 0;
+    margin: 0;
+}
+
+.nav-link {
+    color: var(--Gray);
+    font-size: 1.3rem;
+    margin-right: 20px;
+    transition: 0.3s ease-in-out;
+}
+
+.navbarLogo {
+    border-bottom-right-radius: 10px;
+    margin: 0 5px;
+    height: 75px;
+    width: 75px;
+}
+
+.footer {
+    background: var(--DGreen);
+    color: var(--Gray);
+    box-shadow: 0 -2px 4px 0 rgba(0, 0, 0, .4);
+}
+
+.footer a {
+    color: var(--Gray);
+    text-decoration: none;
+}
+
+.footerButton {
+    background: var(--NGreen);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 25px;
+    transition: 0.5s;
+}
+
+.footerTitle {
+    color: var(--LGreen);
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.footerTable td {
+    padding-right: 1rem;
+}
+
+/*#region Input*/
+
+.countriesInput {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 40px;
+    width: 100%;
+}
+
+.countriesInput input {
+    background: var(--White);
+    color: var(--DGreen);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4);
+    border: none;
+    outline: none;
+    border-radius: 15px 0 0 15px;
+    padding: 10px;
+    font-size: 16px;
+    height: 100%;
+    box-sizing: border-box;
+    flex: 1;
+    transition: 0.1s ease-in;
+}
+
+@keyframes ScrollbarOpen {
+    0% {
+        opacity: 0;
+        transform: rotateX(-100deg);
+        transform-origin: top;
+    }
+
+    100% {
+        opacity: 1;
+        transform: rotateX(0deg);
+        transform-origin: top;
+    }
+}
+
+.countriesInput input:focus {
+    border-bottom-left-radius: 0px;
+    transition: 0.1s ease-out;
+}
+
+.countriesInput input:focus + button {
+    border-bottom-right-radius: 0px;
+}
+
+.countriesInput button {
+    background: var(--White);
+    color: var(--Purple);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4);
+    border: none;
+    margin-right: 20px;
+    border-radius: 0 15px 15px 0;
+    padding: 0 20px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    box-sizing: border-box;
+    transition: 0.3s ease-in-out;
+}
+
+.countriesInput button:hover {
+    background: var(--Purple);
+    color: var(--White);
+}
+
+.countriesInputItems {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4);
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    margin-right: 19px;
+    position: absolute;
+    border-bottom: none;
+    border-top: none;
+    z-index: 99;
+    top: 100%;
+    left: 0;
+    right: 0;
+    max-height: 200px;
+    overflow-y: auto;
+    animation: ScrollbarOpen 0.25s ease-in 0s 1 normal forwards;
+}
+
+/* Custom scrollbar styles */
+.countriesInputItems::-webkit-scrollbar {
+    width: 15px; 
+}
+
+.countriesInputItems::-webkit-scrollbar-thumb {
+    background-color: var(--DGreen); 
+    border-radius: 6px;
+}
+
+.countriesInputItems::-webkit-scrollbar-track {
+    background: var(--White);
+    border-radius: 0px 0px 15px 0px;
+}
+
+.countriesInputItems div {
+    background: var(--White);
+    border-bottom: 1px solid #d4d4d4;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.countriesInputItems div:hover {
+    background: var(--LGreen);
+    color: var(--DGreen);
+}
+
+/*#endregion Input*/
+
+/*#region Hover Effect Links*/
+
+.nav-link:hover {
+    color: var(--LGreen);
+    text-decoration: none;
+}
+
+.nav-link::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: var(--LGreen);
+    transition: width 0.5s;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.footerButton:hover {
+    border-radius: 10px;
+}
+
+/*#endregion Hover Effect Links*/
+
+/*#endregion Navbar & Footer*/
+
+/*#region Index (Age Selector)*/
+
+.ageSelectorLogo {
+    background: url("../IMG/Logo.png") center;
+    background-size: cover;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 999;
+    height: 75px;
+    width: 75px;
+}
+
+.ageSelectorPage {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.ageSelectorBG {
+    background: url('../IMG/PromoDeal.webp') center;
+    background-size: cover;
+    filter: blur(7px);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.ageSelectorHL {
+    background: url('../IMG/lines.avif') center;
+    background-size: cover;
+    opacity: 0.2;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.ageSelectorDiv {
+    background: var(--DGreen);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4);
+    height: 500px;
+    width: 500px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: absolute;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.ageSelectorDiv2 {
+    background: var(--NGreen);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4);
+    height: 450px;
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: absolute;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.ageSelector {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4);
+    font-style: italic;
+    text-align: center;
+    margin-top: 10px;
+    padding: 20px;
+    font-size: 1.3rem;
+    border-radius: 15px;
+    border: none;
+}
+
+.ageSelector:focus {
+    border: none;
+}
+
+/*Hide the arrows for the input type = number*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.ageSelectorBtn {
+    background: var(--LGreen);
+    color: var(--DGreen);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4);
+    font-weight: bold;
+    font-style: italic;
+    margin-top: 10px;
+    padding: 20px;
+    font-size: 1.3rem;
+    border-radius: 15px;
+    border: none;
+}
+
+/*#endregion Index (Age Selector)*/
+
+/*#region Home*/
+
+.promoDeal {
+    background: var(--NGreen);
+    overflow: hidden;
+    position: relative;
+    height: 75vh;
+}
+
+.searchBar {
+    background: var(--Gray);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    border-radius: 20px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    margin-bottom: 10px;
+}
+
+.searchBar select,
+.searchBar input,
+.searchBar button {
+    border: none;
+    height: 50px;
+    width: 100%;
+    border-radius: 20px;
+    margin: 5px 0;
+}
+
+.searchBar button {
+    background: var(--Purple);
+    color: var(--White);
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.searchBar button:hover {
+    background: var(--White);
+    color: var(--Purple);
+    border: var(--Purple) 2px solid;
+}
+
+.greenCurve {
+    background: var(--DGreen);
+    height: 75vh;
+    border-bottom-right-radius: 50%;
+}
+
+.bannerText {
+    color: var(--Gray);
+    text-transform: uppercase;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.bannerText h2 {
+    margin-top: 20px;
+}
+
+.whiteRight {
+    background: rgb(23, 80, 71);
+    background: linear-gradient(90deg, rgba(23, 80, 71, 1) 50%, rgba(255, 255, 255, 1) 50%);
+    padding: 0;
+}
+
+.imageCurve {
+    background: url('../IMG/PromoDeal.webp') center;
+    background-size: cover;
+    height: 75vh;
+    border-radius: 0 0 50% 50%;
+    margin-bottom: -1px;
+}
+
+/*#endregion Home*/
+
+/*#region Logins*/
+
+.loginY {
+    background: var(--DGreen);
+}
+
+.loginA {
+    background: var(--DGreen);
+}
+
+.loginE {
+    background: var(--White);
+    color: var(--DGreen);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    width: calc(fit-content + 5px);
+    height: calc(fit-content + 5px);
+    padding: 20px;
+    border-radius: 15px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.loginE input {
+    background: var(--White);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4);
+    text-align: center;
+    border: none;
+    font-size: 1.2rem;
+    width: 100%;
+    padding: 30px;
+    margin: 10px;
+    border-radius: 25px;
+}
+
+.loginE input:focus {
+    outline: none;
+    box-shadow: 0 2px 4px 0 var(--DGreen);
+}
+
+.loginE button {
+    background: var(--Purple);
+    color: var(--White);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4);
+    text-decoration: none;
+    border: none;
+    font-size: 1.3rem;
+    width: 100%;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 25px;
+}
+
+.loginE a {
+    background: var(--NGreen);
+    color: var(--LGreen);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4);
+    text-decoration: none;
+    padding: 25px;
+    border-radius: 25px;
+    font-size: 1.2rem;
+}
+
+/*#endregion Logins*/
+
+/*#region Traveladvice*/
+
+.travel-advice {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+}
+
+.travel-advice::before {
+    background-color: rgba(0, 0, 0, 0.5);
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.travel-advice-content {
+    color: var(--White);
+    position: relative;
+    z-index: 2;
+}
+
+.travel-advice-content h2,
+.travel-advice-content h4,
+.travel-advice-content p,
+.travel-advice-content .badge,
+.travel-advice-content a {
+    background: rgba(255, 255, 255, 0.5);
+    color: #000;
+    text-transform: uppercase;
+    text-decoration: none;
+    width: fit-content;
+    max-width: 60vw;
+    padding: 3px;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+.travel-advice-content .badge {
+    background: var(--White);
+    margin-right: 5px;
+    display: inline-block;
+}
+
+.recommendations {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.recommendationsIMG {
+    width: 100%;
+    height: 200px;
+    border-radius: 50px;
+    display: block;
+    position: relative;
+}
+
+.recommendationsIMGLarge {
+    width: 100%;
+    height: 250px;
+    border-radius: 50px;
+    display: block;
+    position: relative;
+}
+
+.image-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    font-size: 1.3rem;
+}
+
+.image-wrapper::before {
+    background: rgba(0, 0, 0, 0.3);
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    border-radius: 50px;
+    pointer-events: none;
+}
+
+.overlay-text {
+    color: var(--White);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    font-weight: bold;
+}
+
+
+/*#endregion Traveladvice*/

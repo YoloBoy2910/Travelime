@@ -1,6 +1,6 @@
 <?php
-include("Assets/INC/Includes.php");
-include("Assets/INC/Functions.php");
+include("Assets/INC/includes.php");
+include("Assets/INC/functions.php");
 
 ensureAgeSubmitted();
 
@@ -52,7 +52,10 @@ includeNavbar();
 <script>
     function initAutocomplete() {
         const map = new google.maps.Map(document.getElementById("map"), {
-            center: { lat: -33.8688, lng: 151.2195 },
+            center: {
+                lat: -33.8688,
+                lng: 151.2195
+            },
             zoom: 13,
             mapTypeId: "roadmap",
         });
@@ -84,4 +87,3 @@ includeNavbar();
 <?php
 includeFooter();
 ?>
-
