@@ -1,6 +1,6 @@
 <?php
-include("Assets/INC/includes.php");
-include("Assets/INC/functions.php");
+include("src/INC/includes.php");
+include("src/INC/functions.php");
 
 includeHeader();
 includeNavbar();

@@ -1,16 +1,9 @@
 <?php
-include("Assets/INC/includes.php");
-include("Assets/INC/functions.php");
-
-ensureAgeSubmitted();
+include("src/INC/includes.php");
+include("src/INC/functions.php");
 
 includeHeader();
 includeNavbar();
-
-if(isset($_SESSION['message'])) {
-    ?><p><?php echo $_SESSION['message']; ?></p><?php
-    unset($_SESSION['message']);
-}
 
 ?>
 

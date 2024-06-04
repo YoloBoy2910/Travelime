@@ -1,21 +1,55 @@
 <?php
-include("Assets/INC/includes.php");
 
-includeHeader();
-?>
+//Start the session.
+session_start();
 
-<div class="ageSelectorPage">
-    <div class="ageSelectorBG"></div>
-    <div class="ageSelectorHL"></div>
-    <div class="ageSelectorLogo"></div>
-    <div class="ageSelectorDiv">
-        <div class="ageSelectorDiv2">
-            <h1 class="travelime">TRAVELIME</h1>
-            <h2 class="travelimeDesc">Please enter your age for the best user experience.</h2>
-            <form action="login.php" method="POST">
-                <input class="ageSelector" type="number" name="age" min="18" max="120" placeholder="ENTER AGE HERE" required>
-                <button class="ageSelectorBtn" type="submit">CONTINUE</button>
-            </form>
-        </div>
-    </div>
-</div>
+//Router, model, controller and database base models.
+require "src/router.php";
+require "src/model.php";
+require "src/controller.php";
+require "src/database.php";
+
+//Controllers.
+require "src/controllers/indexcontroller.php";
+require "src/controllers/logincontroller.php";
+require "src/controllers/registercontroller.php";
+require "src/controllers/homecontroller.php";
+require "src/controllers/traveladvicecontroller.php";
+
+//Models.
+require "src/models/users.php";
+
+use App\Router;
+use App\Database;
+use App\Model;
+
+use App\Controllers\IndexController;
+use App\Controllers\HomeController;
+use App\Controllers\LoginController;
+use App\Controllers\RegisterController;
+use App\Controllers\TravelAdviceController;
+
+use App\Models\User;
+
+$router = new Router();
+
+//Index routes.
+$router->get('/', IndexController::class, 'index');
+$router->post('/guestage', IndexController::class, 'enterGuestAge');
+
+//Login related routes.
+$router->get('/login', LoginController::class, 'index');
+$router->post('/login/authenticate', LoginController::class, 'authenticate');
+$router->post('/logout', LoginController::class, 'logout');
+
+//Register related routes.
+$router->get('/register', RegisterController::class, 'index');
+$router->post('/register/createuser', RegisterController::class, 'register');
+
+//Routes related to home.
+$router->get('/home', HomeController::class, 'index');
+
+//Routes related to traveladvice.
+$router->get('/traveladvice', TravelAdviceController::class, 'index');
+
+$router->dispatch();

@@ -3,11 +3,6 @@
 function includeHeader()
 {
 ?>
-
-    <?php
-    session_start();
-    ?>
-
     <!doctype html>
     <html lang="en">
 
@@ -21,10 +16,10 @@ function includeHeader()
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
         <!-- CSS -->
-        <link rel="stylesheet" href="Assets/CSS/style.css">
+        <link rel="stylesheet" href="src/CSS/style.css">
 
         <!-- Favicon -->
-        <link rel="icon" href="Assets/IMG/Logo.ico">
+        <link rel="icon" href="src/IMG/Logo.ico">
 
         <!-- Icons -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -51,17 +46,17 @@ function includeNavbar()
     ?>
         <nav class="navbar navbar-expand-lg">
             <div class="navbarContent">
-                <a href="index.php" class="logoLink">
-                    <img src="Assets/IMG/Logo.png" alt="Travelime" class="navbarLogo">
+                <a href="/home" class="logoLink">
+                    <img src="src/IMG/Logo.png" alt="Travelime" class="navbarLogo">
                 </a>
-                <h1><a href="index.php" class="logoLink">TRAVELIME</a></h1>
+                <h1><a href="/home" class="logoLink">TRAVELIME</a></h1>
             </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="traveladvice.php">Travel Advice</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/traveladvice">Travel Advice</a></li>
                     <li class="nav-item">
                         <div class="searchContainer">
                             <form countriesInput="off" method="get" action="traveladvice.php">
@@ -72,6 +67,11 @@ function includeNavbar()
                             </form>
                         </div>
                     </li>
+                    <li>
+                    <?php if(isset($_SESSION['message'])) {
+                                ?><p><?php echo $_SESSION['message']; ?></p><?php
+                                unset($_SESSION['message']);
+                            }?></li>
                 </ul>
             </div>
         </nav>
