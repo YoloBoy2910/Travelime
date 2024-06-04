@@ -206,7 +206,7 @@
 }
 
 .countriesInputItems::-webkit-scrollbar-thumb {
-    background-color: var(--DGreen);
+    background: var(--DGreen);
     border-radius: 6px;
 }
 
@@ -352,17 +352,6 @@
     border: none;
 }
 
-/*Hide the arrows for the input type = number*/
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-input[type=number] {
-    -moz-appearance: textfield;
-}
-
 .ageSelectorBtn {
     background: var(--LGreen);
     color: var(--DGreen);
@@ -501,8 +490,8 @@ input[type=number] {
 }
 
 .loginE input:focus {
-    outline: none;
     box-shadow: 0 2px 4px 0 var(--DGreen);
+    outline: none;
 }
 
 .loginE button {
@@ -530,57 +519,75 @@ input[type=number] {
 
 /*#endregion Logins*/
 
-/*#region Traveladvice*/
+/*#region Travel Advice*/
 
-.travel-advice {
+/*#region Information*/
+
+.travelAdvice {
     position: relative;
     background-size: cover;
     background-position: center;
     padding: 20px;
 }
 
-.travel-advice::before {
-    background-color: rgba(0, 0, 0, 0.5);
-    content: "";
-    position: absolute;
+.travelAdvice::before {
+    background: rgba(0, 0, 0, 0.5);
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: 1;
+    content: "";
+    position: absolute;
 }
 
-.travel-advice-content {
+.travelAdviceContent {
     color: var(--White);
-    position: relative;
     z-index: 2;
+    position: relative;
 }
 
-.travel-advice-content h2,
-.travel-advice-content h4,
-.travel-advice-content p,
-.travel-advice-content .badge,
-.travel-advice-content a {
+.travelAdviceContent h2,
+.travelAdviceContent h4,
+.travelAdviceContent p,
+.travelAdviceContent .badge,
+.travelAdviceContent a {
     background: rgba(255, 255, 255, 0.5);
-    color: #000;
-    text-transform: uppercase;
-    text-decoration: none;
-    width: fit-content;
+    color: var(--Black);
     max-width: 60vw;
     padding: 3px;
     border-radius: 10px;
     margin: 10px 0;
+    text-transform: uppercase;
+    text-decoration: none;
+    width: fit-content;
 }
 
-.travel-advice-content .badge {
+.travelAdviceContent .badge {
     background: var(--White);
     margin-right: 5px;
     display: inline-block;
 }
 
+/*#endregion Information*/
+
+/*#region Recommendations*/
+
 .recommendations {
+    background: var(--White);
     text-align: center;
     text-transform: uppercase;
+}
+
+.recommendationsHeader {
+    background: var(--NGreen);
+    color: var(--Gray);
+    display: flex;
+    justify-content: center;
+    border-radius: 50px;
+    width: fit-content;
+    padding: 10px;
+    margin: 20px 0;
 }
 
 .recommendationsIMG {
@@ -603,56 +610,103 @@ input[type=number] {
     position: relative;
 }
 
-.image-wrapper {
-    position: relative;
-    display: inline-block;
+.imageWrapper {
     width: 100%;
     font-size: 1.3rem;
+    position: relative;
+    display: inline-block;
 }
 
-.image-wrapper::before {
+.imageWrapper::before {
     background: rgba(0, 0, 0, 0.35);
-    content: '';
-    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: 1;
     border-radius: 50px;
+    content: '';
+    position: absolute;
     pointer-events: none;
 }
 
-.overlay-text {
+.textOverlay {
     color: var(--White);
-    position: absolute;
     top: 50%;
     left: 50%;
+    transform: translate(-50%, -50%);
     z-index: 2;
+    position: absolute;
     font-weight: bold;
+    text-align: center;
 }
 
-#scroll-container {
+/*#endregion Recommendations*/
+
+/*#region Scroll Text*/
+
+#scrollContainer {
     background: var(--Purple);
-    border-radius: 5px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4);
+    width: 100%;
     overflow: hidden;
-    width: 100%; /* Make sure it spans the whole width */
 }
-#scroll-text {
-    /* animation properties */
+
+#scrollText {
+    font-size: 1.5rem;
     transform: translateX(0%);
-    animation: my-animation 120s linear infinite;
+    text-transform: uppercase;
+    animation: Scroll 600s linear infinite;
     white-space: nowrap;
     display: inline-block;
 }
 
-@keyframes my-animation {
+#scrollText a {
+    color: var(--LGreen);
+    text-decoration: none;
+    transition: ease-in-out 0.2s;
+}
+
+#scrollText a:hover {
+    color: var(--White);
+}
+
+@keyframes Scroll {
     0% {
-        transform: translateX(100%);
+        transform: translateX(0%);
     }
+
     100% {
         transform: translateX(-100%);
     }
 }
 
-/*#endregion Traveladvice*/
+/*#endregion Scroll Text*/
+
+/*#region Surprise Me*/
+
+.surpriseMe {
+    background: var(--White);
+}
+
+#surpriseMeButton {
+    background: var(--Purple);
+    color: var(--White);
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+#surpriseMeButton:hover {
+    background: var(--LGreen);
+}
+
+/*#endregion Surprise Me*/
+
+/*#endregion Travel Advice*/

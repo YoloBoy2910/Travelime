@@ -127,8 +127,8 @@ function includeFooter()
                         <ul class="list-unstyled">
                             <li>Check our socials!</li>
                             <li>
-                                <a href="" target="_blank" class="footerButton"><i class="fa-brands fa-facebook-f"></i></a>
-                                <a href="" target="_blank" class="footerButton"><i class="fab fa-instagram"></i></a>
+                                <a href="https://nl-nl.facebook.com/" target="_blank" class="footerButton"><i class="fa-brands fa-facebook-f"></i></a>
+                                <a href="https://www.instagram.com/" target="_blank" class="footerButton"><i class="fab fa-instagram"></i></a>
                             </li>
                         </ul>
                     </div>
