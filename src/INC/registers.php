@@ -8,11 +8,11 @@ function registerForm()
         <div class="ageSelectorLogo"></div>
         <div class="container">
             <div class="loginE">
-                <form method="POST">
+                <form method="POST" action="/Travelime/register/createuser">
                     <H1>Register here</H1>
-                    <input type="text" name="userName" placeholder="Enter your username or email" required>
-                    <input type="password" name="userPassword" placeholder="Enter your password" required>
-                    <input type="password" name="userPasswordCheck" placeholder="confirm password" required>
+                    <input type="text" name="username" placeholder="Enter your username or email" required>
+                    <input type="password" name="password" placeholder="Enter your password" required>
+                    <input type="password" name="passwordcheck" placeholder="confirm password" required>
                     <?php
                     if (isset($_SESSION['message'])) {
                     ?><p><?php echo $_SESSION['message']; ?></p><?php
@@ -21,8 +21,8 @@ function registerForm()
                                                             ?>
                     <button type="submit" name="register">Create new user</button>
                 </form>
-                <a href="login.php" class="row-md-6">Already registered? Click here to login.</a>
-                <a href="traveladvice.php" class="row-md-6">Prefer to go as guest?</a>
+                <a href="/Travelime/login" class="row-md-6">Already registered? Click here to login.</a>
+                <a href="/Travelime/traveladvice" class="row-md-6">Prefer to go as guest?</a>
             </div>
         </div>
     </div>

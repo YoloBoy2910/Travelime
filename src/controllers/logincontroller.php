@@ -9,7 +9,7 @@ class LoginController extends Controller {
 
     public function index() {
         if(isset($_SESSION['logged-in']) && $_SESSION['logged-in'] == 1) {
-            header("Location: /home"); 
+            header("Location: /Travelime/home"); 
             exit;
         }
         else $this->render('login');
@@ -29,16 +29,16 @@ class LoginController extends Controller {
                 $_SESSION['logged-in'] = 1;
                 $_SESSION['username'] = $username;
                 $_SESSION['message'] = "Succesfully logged in. Welcome back " . $username . "!";
-                header("Location: /");
+                header("Location: /Travelime/");
                 exit;
             } else {
-                header("Location: /login");
+                header("Location: /Travelime/login");
                 $_SESSION['message'] = "Password is invalid.";
                 exit;
             }
         } else {
             $_SESSION['message'] = "The user: " . $username . " does not exist.";
-            header("Location: /login");
+            header("Location: /Travelime/login");
             exit;
         }
     }
@@ -46,6 +46,6 @@ class LoginController extends Controller {
     public function logout() {
         if(isset($_POST['logout']) && isset($_SESSION['username'])) unset($_SESSION['username']);
         $_SESSION['logged-in'] = 0;
-        header("Location: /");
+        header("Location: /Travelime/");
     }
 }

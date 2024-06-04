@@ -18,7 +18,7 @@ includeHeader();
                     unset($_SESSION['message']);
                 }
             ?>
-            <form action="/guestage" method="POST">
+            <form action="/Travelime/guestage" method="POST">
                 <input class="ageSelector" type="number" name="age" min="18" max="120" placeholder="ENTER AGE HERE" required>
                 <button class="ageSelectorBtn" type="submit">CONTINUE</button>
             </form>

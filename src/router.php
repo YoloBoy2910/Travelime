@@ -6,8 +6,10 @@ namespace App;
     protected $routes = [];
 
     private function addRoute($route, $controller, $action, $method) {
-        $this->routes[$method][$route] = ['controller' => $controller, 'action' => $action];
-    }
+        //Look parts between curly brackets and replace them with a dynamic capture group.
+        $route = preg_replace('/\{([^\/]+)}/', '([^\/]+)', $route);
+        $this->routes[$method][$route] = ['controller' => $controller, 'action' => $action, 'name' => $route];
+    } 
 
     public function get($route, $controller, $action) {
         $this->addRoute($route, $controller, $action, 'GET');

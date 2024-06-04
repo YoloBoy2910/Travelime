@@ -277,7 +277,7 @@
 }
 
 .ageSelectorBG {
-    background: url('../IMG/PromoDeal.webp') center;
+    background: url('src/IMG/PromoDeal.webp') center;
     background-size: cover;
     filter: blur(7px);
     height: 100%;
@@ -577,17 +577,19 @@
     background: var(--White);
     text-align: center;
     text-transform: uppercase;
+    padding-top: 20px;
 }
 
 .recommendationsHeader {
     background: var(--NGreen);
     color: var(--Gray);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4) inset;
     display: flex;
     justify-content: center;
     border-radius: 50px;
     width: fit-content;
     padding: 10px;
-    margin: 20px 0;
+    margin: 15px 0;
 }
 
 .recommendationsIMG {
@@ -612,6 +614,7 @@
 
 .imageWrapper {
     width: 100%;
+    margin-top: 0;
     font-size: 1.3rem;
     position: relative;
     display: inline-block;
@@ -649,11 +652,13 @@
     background: var(--Purple);
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4);
     width: 100%;
+    padding: 10px 0;
+    height: fit-content;
     overflow: hidden;
 }
 
 #scrollText {
-    font-size: 1.5rem;
+    font-size: 2rem;
     transform: translateX(0%);
     text-transform: uppercase;
     animation: Scroll 600s linear infinite;
@@ -687,20 +692,36 @@
 
 .surpriseMe {
     background: var(--White);
+    padding-top: 20px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.surpriseMeHeader {
+    background: var(--NGreen);
+    color: var(--Gray);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4) inset;
+    padding: 10px;
+    margin: 15px 0;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+
 }
 
 #surpriseMeButton {
     background: var(--Purple);
     color: var(--White);
-    border: none;
     padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
     font-size: 16px;
     margin: 4px 2px;
-    cursor: pointer;
     border-radius: 4px;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    display: inline-block;
+    cursor: pointer;
 }
 
 #surpriseMeButton:hover {
@@ -710,3 +731,116 @@
 /*#endregion Surprise Me*/
 
 /*#endregion Travel Advice*/
+
+/*#region Chatbot*/
+
+#chatbot_button {
+    background: var(--Gray);
+    border: 3px solid var(--NGreen);
+    box-shadow: 0 2px 4px 0 rgb(190, 178, 178);
+    bottom: 10px;
+    right: 10px;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    padding: 0;
+    z-index: 9999;
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+    position: fixed;
+    overflow: hidden;
+    display: block;
+}
+
+#chatbot_button:hover {
+    border: 3px solid var(--Purple);
+}
+
+#chatbotLogo {
+    height: 80%;
+    width: 80%;
+    object-fit: cover;
+}
+
+#chatbot {
+    background-color: rgba(173 169 169 / 88%);
+    border: var(--DGreen) 2px solid;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    height: 300px;
+    display: none;
+    position: fixed;
+    z-index: 99999;
+    flex-direction: column;
+}
+
+#chatbot .close {
+    top: 0px;
+    left: 0px;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    font-weight: 900;
+    border: 0px;
+    border-bottom: var(--DGreen) 2px solid;
+    border-right: var(--DGreen) 2px solid;
+    border-bottom-right-radius: 25px;
+    background-color: var(--LGreen);
+}
+
+#outputContainer {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: overlay;
+}
+
+.output {
+    background-color: deepskyblue; /*hey nick, flikker op*/
+    margin: 6px auto 6px 5px;
+}
+
+.input {
+    background-color: var(--LGreen);
+    margin: 6px 5px 6px auto;
+}
+
+.input, .output {
+    border-radius: 12px;
+    padding: 5px 12px;
+    max-width: 200px;
+    width: fit-content;
+    word-wrap: break-word;
+}
+
+#chatbot .UI {
+    width: 100%;
+    display: flex;
+    max-height: 50px;
+    bottom: 0px;
+}
+
+.UI input {
+    width: 100%;
+    font-size: 1.4rem;
+}
+
+.UI button {
+    cursor: pointer;
+    max-width: 40px;
+}
+
+.UI button:hover {
+    background-color: var(--NGreen);
+}
+
+button {
+    background-color: var(--LGreen);
+}
+
+img {
+    width: 100%;
+}
+
+/*#endregion Chatbot*/

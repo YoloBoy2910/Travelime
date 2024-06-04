@@ -22,7 +22,7 @@ class RegisterController extends Controller {
 
         if($user) {
             $_SESSION['message'] = "User " . $username . " already exists.";
-            header("Location: /register");
+            header("Location: /Travelime/register");
             exit;
         } else if($password == $passcheck) {
             $result = $User->createNewUser($username, $password);
@@ -30,16 +30,16 @@ class RegisterController extends Controller {
                 $_SESSION['logged-in'] = 1;
                 $_SESSION['username'] = $username;
                 $_SESSION['message'] = "Succesfully created new user " . $username . "! Welcome to Travellime!";
-                header("Location: /home");
+                header("Location: /Travelime/home");
                 exit;
             } else {
                 $_SESSION['message'] = "Something went wrong couldn't create new user. Error: " . $result;
-                header("Location: /register");
+                header("Location: /Travelime/register");
                 exit;
             }
         } else {
             $_SESSION['message'] = "Passwords don't match.";
-            header("Location: /register");
+            header("Location: /Travelime/register");
             exit;
         }
     }

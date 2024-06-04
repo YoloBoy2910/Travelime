@@ -18,6 +18,7 @@ require "src/controllers/traveladvicecontroller.php";
 
 //Models.
 require "src/models/users.php";
+require "src/models/traveladvice.php";
 
 use App\Router;
 use App\Database;
@@ -30,26 +31,28 @@ use App\Controllers\RegisterController;
 use App\Controllers\TravelAdviceController;
 
 use App\Models\User;
+use App\Models\TravelAdvice;
 
 $router = new Router();
 
 //Index routes.
-$router->get('/', IndexController::class, 'index');
-$router->post('/guestage', IndexController::class, 'enterGuestAge');
+$router->get('/Travelime/', IndexController::class, 'index');
+$router->post('/Travelime/guestage', IndexController::class, 'enterGuestAge');
 
 //Login related routes.
-$router->get('/login', LoginController::class, 'index');
-$router->post('/login/authenticate', LoginController::class, 'authenticate');
-$router->post('/logout', LoginController::class, 'logout');
+$router->get('/Travelime/login', LoginController::class, 'index');
+$router->post('/Travelime/login/authenticate', LoginController::class, 'authenticate');
+$router->post('/Travelime/logout', LoginController::class, 'logout');
 
 //Register related routes.
-$router->get('/register', RegisterController::class, 'index');
-$router->post('/register/createuser', RegisterController::class, 'register');
+$router->get('/Travelime/register', RegisterController::class, 'index');
+$router->post('/Travelime/register/createuser', RegisterController::class, 'register');
 
 //Routes related to home.
-$router->get('/home', HomeController::class, 'index');
+$router->get('/Travelime/home', HomeController::class, 'index');
 
 //Routes related to traveladvice.
-$router->get('/traveladvice', TravelAdviceController::class, 'index');
+$router->get('/Travelime/traveladvice', TravelAdviceController::class, 'index');
+$router->get('/Travelime/traveladvice/{country}', TravelAdviceController::class, 'test');
 
 $router->dispatch();

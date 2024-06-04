@@ -11,7 +11,7 @@ class HomeController extends Controller {
         isset($_SESSION['guest-age'])) {
             $this->render('home');
         } else {
-            header("Location: /");
+            header("Location: /Travelime/");
             exit;
         }
     }

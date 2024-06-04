@@ -1,8 +1,11 @@
 <?php
 
+include("functions.php");
+
 function includeHeader()
 {
-?>
+    ?>
+
     <!doctype html>
     <html lang="en">
 
@@ -17,7 +20,6 @@ function includeHeader()
 
         <!-- CSS -->
         <link rel="stylesheet" href="src/CSS/style.css">
-
         <!-- Favicon -->
         <link rel="icon" href="src/IMG/Logo.ico">
 
@@ -43,23 +45,24 @@ function includeHeader()
 
 function includeNavbar()
 {
+    includeChatbot()
     ?>
         <nav class="navbar navbar-expand-lg">
             <div class="navbarContent">
-                <a href="/home" class="logoLink">
+                <a href="/Travelime/home" class="logoLink">
                     <img src="src/IMG/Logo.png" alt="Travelime" class="navbarLogo">
                 </a>
-                <h1><a href="/home" class="logoLink">TRAVELIME</a></h1>
+                <h1><a href="/Travelime/home" class="logoLink">TRAVELIME</a></h1>
             </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="/traveladvice">Travel Advice</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/Travelime/traveladvice">Travel Advice</a></li>
                     <li class="nav-item">
                         <div class="searchContainer">
-                            <form countriesInput="off" method="get" action="traveladvice.php">
+                            <form countriesInput="off" method="get" action="/Travelime/traveladvice">
                                 <div class="countriesInput">
                                     <input id="myInput" type="text" name="myCountry" placeholder="Country" autocomplete="off">
                                     <button type="submit" class="searchButton"><i class="fas fa-search"></i></button>
@@ -68,10 +71,10 @@ function includeNavbar()
                         </div>
                     </li>
                     <li>
-                    <?php if(isset($_SESSION['message'])) {
-                                ?><p><?php echo $_SESSION['message']; ?></p><?php
-                                unset($_SESSION['message']);
-                            }?></li>
+                        <?php if (isset($_SESSION['message'])) {
+                        ?><p><?php echo $_SESSION['message']; ?></p><?php
+                                                                    unset($_SESSION['message']);
+                                                                } ?></li>
                 </ul>
             </div>
         </nav>
@@ -141,8 +144,30 @@ function includeFooter()
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-aTmCaqDl6M5GzAVrV+OXC5eXZOpjno9vZ7vByc4dPpPZR10a5+C49HE42V6uNOZn" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-b21VaE9r9GY4nEJN/Axpx9QTEB3+P9oU1veH3J8QzojN1VHlme/JY58Kb5nfmm9v" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <script src="src/JS/main.js"></script>
     </body>
 
     </html>
-<?php
+    <?php
+}
+
+function includeChatbot()
+{
+    ?>
+    <button id="chatbot_button" onclick="chatbot_box()">
+        <img id="chatbotLogo" src="src/IMG/Support.png" alt="chatbot">
+    </button>
+    <div id="chatbot">
+        <button onclick="chatbot_box()" class="close">&#x2715;</button>
+        <div class="outputContainer" id="outputContainer">
+            <?php foreach ($_SESSION["messages"] as $output) { ?>
+                <div class="output"><?php echo htmlspecialchars($output); ?></div>
+            <?php } ?> 
+        </div>
+        <div class="UI">
+            <input type="text" name="userInput" id="userInput">
+            <button onclick="Press()"><img src="src/IMG/send.png" alt="send"></button>
+        </div>
+    </div>
+    <?php
 }
