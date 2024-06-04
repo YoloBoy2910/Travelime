@@ -27,8 +27,8 @@ includeNavbar();
                 // Display the travel advice only if it matches the input country
                 if (strtolower(trim($travelAdvice['countryName'])) == strtolower($countryInput)) {
         ?>
-                    <div class="travel-advice" style="background-image: url('<?php echo $travelAdvice['countryImage']; ?>');">
-                        <div class="travel-advice-content">
+                    <div class="travelAdvice" style="background-image: url('<?php echo $travelAdvice['countryImage']; ?>');">
+                        <div class="travelAdviceContent">
                             <h2><?php echo $travelAdvice['countryName']; ?></h2>
                             <h4>Capital: <?php echo $travelAdvice['countryCapital']; ?></h4>
                             <p><?php echo $travelAdvice['countryDescription']; ?></p>
@@ -184,21 +184,19 @@ includeNavbar();
 
 <div style="height: auto;background: white;">
     <div class="container recommendations">
-        <p class="d-block mb-4">Other destinations you might like</p>
+        <h2 class="recommendationsHeader d-block mb-4">destinations you might like</h2>
         <div class="row justify-content-center">
             <?php
-            // Shuffle the travel advices for randomness
             shuffle($travelAdvices);
 
-            // Get a subset of unique travel advices for "You might also like" section
             $uniqueTravelAdvices = array_slice($travelAdvices, 0, 3); // Change 3 to the number of recommendations you need
 
             foreach ($uniqueTravelAdvices as $advice) {
             ?>
                 <div class="col-4 col-md-4 mb-3">
-                    <a href="traveladvice.php?myCountry=<?php echo urlencode($advice['countryName']); ?>" class="image-wrapper">
+                    <a href="traveladvice.php?myCountry=<?php echo urlencode($advice['countryName']); ?>" class="imageWrapper">
                         <img src="<?php echo $advice['countryImage']; ?>" alt="<?php echo $advice['countryName']; ?>" class="img-fluid recommendationsIMG">
-                        <p class="overlay-text"><?php echo $advice['countryName']; ?></p>
+                        <p class="textOverlay"><?php echo $advice['countryName']; ?></p>
                     </a>
                 </div>
             <?php
@@ -209,15 +207,14 @@ includeNavbar();
     <div class="container recommendations">
         <div class="row justify-content-center">
             <?php
-            // Get another subset of unique travel advices for "You might also like" section
             $uniqueTravelAdvices = array_slice($travelAdvices, 3, 2); // Adjust the start and length as needed
 
             foreach ($uniqueTravelAdvices as $advice) {
             ?>
                 <div class="col-4 col-md-6 mb-3">
-                    <a href="traveladvice.php?myCountry=<?php echo urlencode($advice['countryName']); ?>" class="image-wrapper">
+                    <a href="traveladvice.php?myCountry=<?php echo urlencode($advice['countryName']); ?>" class="imageWrapper">
                         <img src="<?php echo $advice['countryImage']; ?>" alt="<?php echo $advice['countryName']; ?>" class="img-fluid recommendationsIMG">
-                        <p class="overlay-text"><?php echo $advice['countryName']; ?></p>
+                        <p class="textOverlay"><?php echo $advice['countryName']; ?></p>
                     </a>
                 </div>
             <?php
@@ -227,22 +224,53 @@ includeNavbar();
     </div>
 </div>
 
-<div id="scroll-container">
-        <div id="scroll-text"></div>
-    </div>
-    
-    <script>
-        var countries = ["Afghanistan", "Albania", "Algeria", /* ... add all countries here ... */ "Zimbabwe"];
-        var allCountries = countries.join('  ') + '  ' + countries.join('  ') + '  ' + countries.join('  '); // Concatenate country names multiple times with extra spaces for smoother animation
+<div id="scrollContainer">
+    <div id="scrollText"></div>
+</div>
 
-        function displayAllCountries() {
-            var scrollText = document.getElementById('scroll-text');
-            scrollText.textContent = allCountries;
+<script>
+    var countries = ["Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Anguilla", "Antigua & Barbuda", "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bermuda", "Bhutan", "Bolivia", "Bosnia & Herzegovina", "Botswana", "Brazil", "British Virgin Islands", "Brunei", "Bulgaria", "Burkina Faso", "Burundi", "Cambodia", "Cameroon", "Canada", "Cape Verde", "Cayman Islands", "Central Arfrican Republic", "Chad", "Chile", "China", "Colombia", "Congo", "Cook Islands", "Costa Rica", "Cote D Ivoire", "Croatia", "Cuba", "Curacao", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Ethiopia", "Falkland Islands", "Faroe Islands", "Fiji", "Finland", "France", "French Polynesia", "French West Indies", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Gibraltar", "Greece", "Greenland", "Grenada", "Guam", "Guatemala", "Guernsey", "Guinea", "Guinea Bissau", "Guyana", "Haiti", "Honduras", "Hong Kong", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Isle of Man", "Israel", "Italy", "Jamaica", "Japan", "Jersey", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Kosovo", "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Macau", "Macedonia", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Mauritania", "Mauritius", "Mexico", "Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro", "Montserrat", "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauro", "Nepal", "Netherlands", "Netherlands Antilles", "New Caledonia", "New Zealand", "Nicaragua", "Niger", "Nigeria", "Norway", "Oman", "Pakistan", "Palau", "Palestine", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal", "Puerto Rico", "Qatar", "Reunion", "Romania", "Russia", "Rwanda", "Saint Pierre & Miquelon", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Korea", "South Sudan", "Spain", "Sri Lanka", "St Kitts & Nevis", "St Lucia", "St Vincent", "Sudan", "Suriname", "Swaziland", "Sweden", "Switzerland", "Syria", "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Timor Leste", "Togo", "Tonga", "Trinidad & Tobago", "Tunisia", "Turkey", "Turkmenistan", "Turks & Caicos", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States of America", "Uruguay", "Uzbekistan", "Vanuatu", "Vatican City", "Venezuela", "Vietnam", "US Virgin Islands", "Yemen", "Zambia", "Zimbabwe"];
+
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            let j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
         }
+    }
 
-        // Start the animation
-        displayAllCountries();
-    </script>
+    shuffleArray(countries);
+
+    function createCountryLinks(array) {
+        return array.map(country => `<a href="?myCountry=${encodeURIComponent(country)}">${country}</a>`).join('&nbsp;&nbsp;&nbsp;&nbsp;');
+    }
+
+    var allCountries = createCountryLinks(countries) + '&nbsp;&nbsp;&nbsp;&nbsp;' + createCountryLinks(countries) + '&nbsp;&nbsp;&nbsp;&nbsp;' + createCountryLinks(countries);
+
+    function displayAllCountries() {
+        var scrollText = document.getElementById('scrollText');
+        scrollText.innerHTML = allCountries;
+    }
+
+    displayAllCountries();
+</script>
+
+<div class="surpriseMe">
+    <div class="container">
+        <div class="col-md-6">
+            <p>Surprise Me</p>
+        </div>
+        <div class="col-md-6">
+            <button id="surpriseMeButton">Surprise Me!</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById("surpriseMeButton").addEventListener("click", function() {
+        var randomCountry = countries[Math.floor(Math.random() * countries.length)];
+        window.location.href = "?myCountry=" + encodeURIComponent(randomCountry);
+    });
+</script>
 
 <?php
 includeFooter();
