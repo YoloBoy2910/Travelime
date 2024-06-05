@@ -277,7 +277,7 @@
 }
 
 .ageSelectorBG {
-    background: url('src/IMG/PromoDeal.webp') center;
+    background: url('../IMG/PromoDeal.webp') center;
     background-size: cover;
     filter: blur(7px);
     height: 100%;
@@ -737,7 +737,7 @@
 #chatbot_button {
     background: var(--Gray);
     border: 3px solid var(--NGreen);
-    box-shadow: 0 2px 4px 0 rgb(190, 178, 178);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4);
     bottom: 10px;
     right: 10px;
     width: 75px;
@@ -763,12 +763,14 @@
 }
 
 #chatbot {
-    background-color: rgba(173 169 169 / 88%);
-    border: var(--DGreen) 2px solid;
-    bottom: 20px;
-    right: 20px;
+    background: var(--White);
+    border: var(--NGreen) 2px solid;
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
+    bottom: 15px;
+    right: 15px;
     width: 300px;
-    height: 300px;
+    height: 400px;
     display: none;
     position: fixed;
     z-index: 99999;
@@ -776,6 +778,7 @@
 }
 
 #chatbot .close {
+    background: var(--LGreen);
     top: 0px;
     left: 0px;
     width: 40px;
@@ -783,10 +786,8 @@
     font-size: 1.2rem;
     font-weight: 900;
     border: 0px;
-    border-bottom: var(--DGreen) 2px solid;
-    border-right: var(--DGreen) 2px solid;
     border-bottom-right-radius: 25px;
-    background-color: var(--LGreen);
+    border-top-left-radius: 25px;
 }
 
 #outputContainer {
@@ -797,13 +798,17 @@
 }
 
 .output {
-    background-color: deepskyblue; /*hey nick, flikker op*/
-    margin: 6px auto 6px 5px;
+    background: var(--LGreen);
+    color: var(--DGreen);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4);
+    margin: 6px auto 6px 10px;
 }
 
 .input {
-    background-color: var(--LGreen);
-    margin: 6px 5px 6px auto;
+    background: var(--Purple);
+    color: var(--White);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4);
+    margin: 6px 10px 6px auto;
 }
 
 .input, .output {
@@ -822,22 +827,26 @@
 }
 
 .UI input {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4) inset;
     width: 100%;
+    border-top-right-radius: 15px;
     font-size: 1.4rem;
+    border: none;
+    outline: none;
 }
 
 .UI button {
+    background: var(--White);
     cursor: pointer;
     max-width: 40px;
+    border: none;
+    outline: none;
+    transition: 0.3s ease-in-out;
 }
 
-.UI button:hover {
-    background-color: var(--NGreen);
-}
-
-button {
-    background-color: var(--LGreen);
-}
+/* .UI button:hover {
+    background: var(--NGreen);
+} */
 
 img {
     width: 100%;

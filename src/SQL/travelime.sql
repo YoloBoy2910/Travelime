@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 31, 2024 at 10:29 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.0.30
+-- Generation Time: Jun 05, 2024 at 11:32 AM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,15 +29,15 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `traveladvice` (
   `countryID` int(11) NOT NULL,
-  `countryName` varchar(255) NOT NULL,
-  `countryDescription` text NOT NULL,
-  `countryKeywords` varchar(255) NOT NULL,
-  `countryCapital` varchar(255) NOT NULL,
-  `countryMajorCities` varchar(255) NOT NULL,
-  `countryLanguages` varchar(255) NOT NULL,
-  `countryCurrency` varchar(255) NOT NULL,
-  `countryImage` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+  `countryName` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `countryDescription` text CHARACTER SET utf8 NOT NULL,
+  `countryKeywords` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `countryCapital` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `countryMajorCities` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `countryLanguages` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `countryCurrency` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `countryImage` text CHARACTER SET utf8 NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `traveladvice`
@@ -267,6 +267,26 @@ INSERT INTO `traveladvice` (`countryID`, `countryName`, `countryDescription`, `c
 (220, 'Zambia', 'A country in Southern Africa known for its stunning Victoria Falls, diverse wildlife, and vast wilderness areas.', 'Wildlife, Victoria Falls, Culture, Nature, Adventure', 'Lusaka', 'Lusaka, Kitwe, Ndola, Kabwe', 'English', 'Zambian Kwacha', 'https://www.intrepidtravel.com/adventures/wp-content/uploads/2018/10/3.-Intrepid-Travel-zambia_victoria-falls-sunset.jpg'),
 (221, 'Zimbabwe', 'A landlocked country in Southern Africa known for its diverse landscapes, including the Zambezi River, and its rich cultural heritage.', 'Wildlife, Victoria Falls, Culture, Nature, History', 'Harare', 'Harare, Bulawayo, Chitungwiza, Mutare', 'English, Shona, Ndebele', 'Zimbabwean Dollar', 'https://media.tacdn.com/media/attractions-content--1x-1/12/4e/ef/c2.jpg');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `password`) VALUES
+(1, 'Nick', '$2y$10$s.ZuyK/TjcCIupAKut1GJOlvz61CQ7oX1TCM3Dt9QQ6ElWRfO1SFu'),
+(2, 'Jur', '$2y$10$XjXmBOZg3w11lrF6BzQNL.hZyRlrygaFl99DE8TD9DAsLrgorlDSW');
+
 --
 -- Indexes for dumped tables
 --
@@ -278,6 +298,12 @@ ALTER TABLE `traveladvice`
   ADD PRIMARY KEY (`countryID`);
 
 --
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -286,6 +312,12 @@ ALTER TABLE `traveladvice`
 --
 ALTER TABLE `traveladvice`
   MODIFY `countryID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=222;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
