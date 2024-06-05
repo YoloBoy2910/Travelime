@@ -119,20 +119,18 @@ function Press() {
     else {
         return false;
     }
-
 }
-
 
 function chatbot_box() {
     num++;
     var box = document.getElementById("chatbot");
     var button = document.getElementById("chatbot_button");
-    console.log(`Display style of box: ${button.style.display}`);
-    if(num === 1) {
+    console.log(`Display style of box: ${box.style.display}`);
+    
+    if (num === 1) {
         box.style.display = "flex";
         button.style.display = "none";
-    }
-    if(num === 2) {
+    } else if (num === 2) {
         box.style.display = "none";
         button.style.display = "block";
         num = 0;
