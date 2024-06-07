@@ -15,6 +15,7 @@ require "src/controllers/logincontroller.php";
 require "src/controllers/registercontroller.php";
 require "src/controllers/homecontroller.php";
 require "src/controllers/traveladvicecontroller.php";
+require "src/controllers/chatbotcontroller.php";
 
 //Models.
 require "src/models/users.php";
@@ -29,6 +30,7 @@ use App\Controllers\HomeController;
 use App\Controllers\LoginController;
 use App\Controllers\RegisterController;
 use App\Controllers\TravelAdviceController;
+use App\controllers\ChatbotController;
 
 use App\Models\User;
 use App\Models\TravelAdvice;
@@ -54,5 +56,8 @@ $router->get('/Travelime/home', HomeController::class, 'index');
 //Routes related to traveladvice.
 $router->get('/Travelime/traveladvice', TravelAdviceController::class, 'index');
 $router->get('/Travelime/traveladvice/{country}', TravelAdviceController::class, 'test');
+
+//Chatbot route to communicate with tygo's Chinese friend.
+//$router->post('/Travelime/sendchatbotmessage', ChatbotController::class, 'sendMessage');
 
 $router->dispatch();

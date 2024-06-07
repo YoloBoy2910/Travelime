@@ -7,6 +7,12 @@ includeNavbar();
 includeChatbot();
 ?>
 
+<style>
+    body {
+        background: var(--White);
+    }
+</style>
+
 <!-- <div style="height:1vh;background:white;"></div> -->
 
 <div style="height:auto;">
@@ -14,8 +20,6 @@ includeChatbot();
         <?php
 
         $countryInput = isset($_GET['myCountry']) ? trim($_GET['myCountry']) : '';
-
-        $travelAdvices = $data;
 
         if (!empty($travelAdvices)) {
 
@@ -60,7 +64,7 @@ includeChatbot();
                             <a href="/Travelime/traveladvice">Check for hotels</a>
                         </div>
                     </div>
-                <?php }
+        <?php }
             }
         } else {
             echo "No travel advices available.";
@@ -189,7 +193,7 @@ includeChatbot();
             foreach ($uniqueTravelAdvices as $advice) {
             ?>
                 <div class="col-4 col-md-4 mb-3">
-                    <a href="traveladvice?myCountry=<?php echo urlencode($advice['countryName']); ?>" class="imageWrapper">
+                    <a href="traveladvice?myCountry=<?php echo urlencode($advice['countryName']); ?>" class="imageWrapper">                        
                         <img src="<?php echo $advice['countryImage']; ?>" alt="<?php echo $advice['countryName']; ?>" class="img-fluid recommendationsIMG">
                         <p class="textOverlay"><?php echo $advice['countryName']; ?></p>
                     </a>
@@ -252,7 +256,7 @@ includeChatbot();
 <div class="surpriseMe">
     <div class="container">
         <div class="col-md-6">
-        <h2 class="recommendationsHeader d-block mb-4">Can't make a decision?</h2>
+            <h2 class="recommendationsHeader d-block mb-4">Can't make a decision?</h2>
         </div>
         <div class="col-md-6">
             <button id="surpriseMeButton">Surprise Me!</button>
@@ -266,6 +270,8 @@ includeChatbot();
         window.location.href = "?myCountry=" + encodeURIComponent(randomCountry);
     });
 </script>
+
+<div style="height:10vh;"></div>
 
 <?php
 includeFooter();

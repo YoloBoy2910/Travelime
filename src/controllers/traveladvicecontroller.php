@@ -7,9 +7,14 @@ use App\Models\TravelAdvice;
 
 class TravelAdviceController extends Controller {
 
-    public function index() {
+    public function index($country = null) {
         $TravelAdvice = new TravelAdvice();
         $travelAdvices = $TravelAdvice->getTravelAdvice();
-        $this->render("traveladvice", $travelAdvices);
+        if($country) {
+            $countryAdvice = $TravelAdvice->getAdviceByCountry($country);
+            $this->render("traveladvice", ["travelAdvices" => $travelAdvices, "countryAdvice" => $countryAdvice]);
+        } else {
+            $this->render("traveladvice", ["travelAdvices" => $travelAdvices]);
+        }
     }
 }

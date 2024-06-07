@@ -81,7 +81,7 @@ function Press() {
         userOutput.classList.add('input');
         userOutput.innerText = userInput;
         outputContainer.appendChild(userOutput);
-        fetch('func/main.php', {
+        fetch('/Travelime/sendchatbotmessage', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
@@ -89,7 +89,8 @@ function Press() {
             body: 'question=' + encodeURIComponent(userInput)
         })
         .then(response => {
-            console.log('Response Status:', response.status); // Debugging
+            console.log('Response Status:', response.status);
+            console.log(response) // Debugging
             return response.text();
         })
         .then(data => {

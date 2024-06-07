@@ -7,7 +7,11 @@ namespace App;
 
     private function addRoute($route, $controller, $action, $method) {
         //Look parts between curly brackets and replace them with a dynamic capture group.
-        $route = preg_replace('/\{([^\/]+)}/', '([^\/]+)', $route);
+        if(preg_match("/\{(\w+)\}/", $route, $matches)) {
+            $param = $matches[1];
+            $route = preg_replace('/{[^\/]+}/', "(?<{$param}>[^/]+)", $route);
+            $route = addcslashes($route, "/");
+        }
         $this->routes[$method][$route] = ['controller' => $controller, 'action' => $action, 'name' => $route];
     } 
 

@@ -12,4 +12,11 @@ Class TravelAdvice extends Model {
         $items = $resource->fetch_all(MYSQLI_ASSOC);
         return $items;
     }
+
+    public function getAdviceByCountry($country) {
+        $sql = "SELECT * FROM traveladvice WHERE country = $country";
+        $resource = $this->db->conn()->query($sql) or die($this->db->conn()->error);
+        $items = $resource->fetch_all(MYSQLI_ASSOC);
+        return $items;
+    }
 }
