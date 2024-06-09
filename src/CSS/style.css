@@ -200,6 +200,33 @@
     animation: ScrollbarOpen 0.25s ease-in 0s 1 normal forwards;
 }
 
+/*testing search bar options */
+
+#countryOptions { 
+    list-style: none; 
+    padding: 0; 
+    max-height: 250px; 
+    overflow-y: auto; 
+    position: relative;
+    width: 100%;
+    position: absolute;
+    display: none;
+} 
+
+#countryOptions li { 
+    padding: 20px; 
+    cursor: pointer; 
+    border: 1px solid grey;
+    margin: 2px;
+    background: white;
+    border-radius: 6px;
+    padding: 5px;
+} 
+  
+.options li:hover { 
+    background-color: #f0f0f0; 
+} 
+
 /* Custom scrollbar styles */
 .countriesInputItems::-webkit-scrollbar {
     width: 15px;
@@ -664,6 +691,10 @@
     animation: Scroll 600s linear infinite;
     white-space: nowrap;
     display: inline-block;
+}
+
+#scrollText:hover {
+    animation-play-state: paused;
 }
 
 #scrollText a {

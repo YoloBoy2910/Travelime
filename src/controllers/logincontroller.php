@@ -32,7 +32,7 @@ class LoginController extends Controller {
                 header("Location: /Travelime/");
                 exit;
             } else {
-                header("Location: /Travelime/login");
+                header("Location: /login");
                 $_SESSION['message'] = "Password is invalid.";
                 exit;
             }

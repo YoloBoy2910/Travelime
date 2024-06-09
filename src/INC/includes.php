@@ -19,9 +19,9 @@ function includeHeader()
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
         <!-- CSS -->
-        <link rel="stylesheet" href="src/CSS/style.css">
+        <link rel="stylesheet" href="/src/CSS/style.css">
         <!-- Favicon -->
-        <link rel="icon" href="src/IMG/Logo.ico">
+        <link rel="icon" href="/src/IMG/Logo.ico">
 
         <!-- Icons -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -43,14 +43,14 @@ function includeHeader()
     <?php
 }
 
-function includeNavbar()
+function includeNavbar($travelAdvices = null)
 {
     includeChatbot()
     ?>
         <nav class="navbar navbar-expand-lg">
             <div class="navbarContent">
                 <a href="/Travelime/home" class="logoLink">
-                    <img src="src/IMG/Logo.png" alt="Travelime" class="navbarLogo">
+                    <img src="/src/IMG/Logo.png" alt="Travelime" class="navbarLogo">
                 </a>
                 <h1><a href="/Travelime/home" class="logoLink">TRAVELIME</a></h1>
             </div>
@@ -61,13 +61,23 @@ function includeNavbar()
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link" href="/Travelime/traveladvice">Travel Advice</a></li>
                     <li class="nav-item">
-                        <div class="searchContainer">
-                            <form countriesInput="off" method="get" action="/Travelime/traveladvice">
+                        <div class="searchContainer d-flex flex-column">
+                            <div class="d-flex">
                                 <div class="countriesInput">
-                                    <input id="myInput" type="text" name="myCountry" placeholder="Country" autocomplete="off">
-                                    <button type="submit" class="searchButton"><i class="fas fa-search"></i></button>
+                                <input id="country-search" type="text" name="myCountry" placeholder="Country" autocomplete="off">
+                                <button id="country-search-button" class="searchButton"><i class="fas fa-search"></i></button>
                                 </div>
-                            </form>
+                            </div> 
+                            <div class="position-relative">
+                                    <ul id="countryOptions">
+                                    <?php
+                                        foreach($travelAdvices as $travelAdvice) {
+                                            ?><li data-value="<?php echo $travelAdvice['countryName'];?>"><?php echo $travelAdvice['countryName'];?></li> 
+                                            <?php
+                                        }
+                                    ?>
+                                </ul>
+                            </div>
                         </div>
                     </li>
                     <li>
@@ -144,7 +154,8 @@ function includeFooter()
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-aTmCaqDl6M5GzAVrV+OXC5eXZOpjno9vZ7vByc4dPpPZR10a5+C49HE42V6uNOZn" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-b21VaE9r9GY4nEJN/Axpx9QTEB3+P9oU1veH3J8QzojN1VHlme/JY58Kb5nfmm9v" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-        <script src="src/JS/main.js"></script>
+        <script src="/src/JS/main.js"></script>
+        <script src="/src/JS/traveladvice.js"></script>
     </body>
 
     </html>

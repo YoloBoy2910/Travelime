@@ -72,6 +72,7 @@ window.initAutocomplete = initAutocomplete;
 
 var num = 0;
 
+/*
 function Press() {
     const userInput = document.getElementById('userInput').value;
     if (userInput != "") {
@@ -81,7 +82,7 @@ function Press() {
         userOutput.classList.add('input');
         userOutput.innerText = userInput;
         outputContainer.appendChild(userOutput);
-        fetch('func/main.php', {
+        fetch('src/main.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
@@ -136,3 +137,4 @@ function chatbot_box() {
         num = 0;
     }
 }
+    */
