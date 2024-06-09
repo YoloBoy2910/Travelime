@@ -176,7 +176,7 @@ function includeChatbot()
             <?php } ?> 
         </div>
         <div class="UI">
-            <input type="text" name="userInput" id="userInput">
+            <input type="text" name="userInput" id="userInput" autocomplete="off">
             <button onclick="Press()"><img src="src/IMG/send.png" alt="send"></button>
         </div>
     </div>

@@ -1,4 +1,4 @@
-from g4f.client import Client
+from g4f.client import Client # type: ignore
 import sys
 
 if len(sys.argv) > 1:

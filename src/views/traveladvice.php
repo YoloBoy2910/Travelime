@@ -7,6 +7,12 @@ includeNavbar($travelAdvices);
 includeChatbot();
 ?>
 
+<style>
+    body {
+        background: var(--White);
+    }
+</style>
+
 <!-- <div style="height:1vh;background:white;"></div> -->
 
 <!-- Start traveladvice container. -->
@@ -125,7 +131,7 @@ includeChatbot();
 <div class="surpriseMe">
     <div class="container">
         <div class="col-md-6">
-        <h2 class="recommendationsHeader d-block mb-4">Can't make a decision?</h2>
+            <h2 class="recommendationsHeader d-block mb-4">Can't make a decision?</h2>
         </div>
         <div class="col-md-6">
             <a href="/Travelime/traveladvice/random" id="surpriseMeButton">Surprise Me!</a>
@@ -133,6 +139,8 @@ includeChatbot();
     </div>
 </div>
 <!-- End surprise me button. -->
+
+<div style="height:10vh;"></div>
 
 <?php
 includeFooter();

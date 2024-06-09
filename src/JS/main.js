@@ -90,7 +90,8 @@ function Press() {
             body: 'question=' + encodeURIComponent(userInput)
         })
         .then(response => {
-            console.log('Response Status:', response.status); // Debugging
+            console.log('Response Status:', response.status);
+            console.log(response) // Debugging
             return response.text();
         })
         .then(data => {

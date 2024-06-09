@@ -24,19 +24,11 @@ includeNavbar($travelAdvices);
 
         <div class="searchBar">
             <div class="row">
-                <div class="col-md-4">
-                    <!--                    <i class="fa-solid fa-hotel"></i>-->
-                    <select id="category" class="form-control">
-                        <option value="Hotel">Hotel</option>
-                        <option value="Cruise">Cruise</option>
-                        <option value="Camping">Camping</option>
-                    </select>
-                </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <!--                    <i class="fa-solid fa-location-dot"></i>-->
                     <input type="text" id="place" class="form-control" placeholder="Enter a place">
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <button id="searchButton">Search</button>
                 </div>
             </div>
