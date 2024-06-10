@@ -5,14 +5,17 @@ namespace App\Controllers;
 use App\Controller;
 use App\Models\User;
 
-class RegisterController extends Controller {
+class RegisterController extends Controller
+{
 
-    public function index() {
-        if(isset($_SESSION['logged-in']) && $_SESSION['logged-in'] == 1) header("Location: /");
+    public function index()
+    {
+        if (isset($_SESSION['logged-in']) && $_SESSION['logged-in'] == 1) header("Location: /");
         else $this->render('register');
     }
 
-    public function register() {
+    public function register()
+    {
         $username = $_POST['username'];
         $password = $_POST['password'];
         $passcheck = $_POST['passwordcheck'];
@@ -20,13 +23,13 @@ class RegisterController extends Controller {
         $User = new User();
         $user = $User->getUserByUsername($username);
 
-        if($user) {
+        if ($user) {
             $_SESSION['message'] = "User " . $username . " already exists.";
             header("Location: /Travelime/register");
             exit;
-        } else if($password == $passcheck) {
+        } else if ($password == $passcheck) {
             $result = $User->createNewUser($username, $password);
-            if($result) {
+            if ($result) {
                 $_SESSION['logged-in'] = 1;
                 $_SESSION['username'] = $username;
                 $_SESSION['message'] = "Succesfully created new user " . $username . "! Welcome to Travellime!";

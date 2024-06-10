@@ -55,6 +55,7 @@ $router->get('/Travelime/home', HomeController::class, 'index');
 
 //Routes related to traveladvice.
 $router->get('/Travelime/traveladvice', TravelAdviceController::class, 'index');
+$router->get('/Travelime/traveladvice/', TravelAdviceController::class, 'index');
 $router->get('/Travelime/traveladvice/{country}', TravelAdviceController::class, 'index');
 
 //Chatbot route to communicate with tygo's Chinese friend.

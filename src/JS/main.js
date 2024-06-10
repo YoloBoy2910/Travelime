@@ -72,11 +72,10 @@ window.initAutocomplete = initAutocomplete;
 
 var num = 0;
 
-/*
 function Press() {
     const userInput = document.getElementById('userInput').value;
     if (userInput != "") {
-        
+
         console.log('User Input:', userInput); // Debugging
         const userOutput = document.createElement('div');
         userOutput.classList.add('input');
@@ -89,34 +88,34 @@ function Press() {
             },
             body: 'question=' + encodeURIComponent(userInput)
         })
-        .then(response => {
-            console.log('Response Status:', response.status);
-            console.log(response) // Debugging
-            return response.text();
-        })
-        .then(data => {
-            if (data != "") {
-                console.log('Response Text:', data); // Debugging
-                const outputContainer = document.getElementById('outputContainer');
-                if (outputContainer) {
+            .then(response => {
+                console.log('Response Status:', response.status);
+                console.log(response) // Debugging
+                return response.text();
+            })
+            .then(data => {
+                if (data != "") {
+                    console.log('Response Text:', data); // Debugging
+                    const outputContainer = document.getElementById('outputContainer');
+                    if (outputContainer) {
+                        const newOutput = document.createElement('div');
+                        newOutput.classList.add('output');
+                        newOutput.innerText = data;
+                        outputContainer.appendChild(newOutput);
+                    } else {
+                        console.error('Output container not found');
+                    }
+                }
+                else {
                     const newOutput = document.createElement('div');
                     newOutput.classList.add('output');
-                    newOutput.innerText = data;
+                    newOutput.innerText = "I'm sorry, it appears something went wrong.";
                     outputContainer.appendChild(newOutput);
-                } else {
-                    console.error('Output container not found');
                 }
-            }
-            else {
-                const newOutput = document.createElement('div');
-                newOutput.classList.add('output');
-                newOutput.innerText = "I'm sorry, it appears something went wrong.";
-                outputContainer.appendChild(newOutput);
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
     }
     else {
         return false;
@@ -128,7 +127,7 @@ function chatbot_box() {
     var box = document.getElementById("chatbot");
     var button = document.getElementById("chatbot_button");
     console.log(`Display style of box: ${box.style.display}`);
-    
+
     if (num === 1) {
         box.style.display = "flex";
         button.style.display = "none";
@@ -138,4 +137,3 @@ function chatbot_box() {
         num = 0;
     }
 }
-    */

@@ -6,9 +6,18 @@ let countrySearchForm = document.getElementById("countries-form");
 let countrySearchButton = document.getElementById("country-search-button");
 
 //Event listener to make the search bar appear.
-countrySearch.addEventListener("click", () => {
+countrySearch.addEventListener("mousedown", () => {
     let styleDisplay = window.getComputedStyle(countryOptionsList).display;
     countryOptionsList.style.display = styleDisplay !== "none" ? "none" : "block";
+});
+
+//Window eventlistener to check if there is clicked outside the searchbar.
+window.addEventListener("mouseup", (event) => {
+    let element = event.target.id;
+    let styleDisplay = window.getComputedStyle(countryOptionsList).display;
+    if (element !== "country-search" && styleDisplay === "block") {
+        countryOptionsList.style.display = "none";
+    }
 });
 
 //Only show countries similar to the entered input.
@@ -27,7 +36,7 @@ function populateSearchBar() {
 function getMatchingCountries() {
     let userInput = countrySearch.value.toLowerCase();
     countryOptions.filter((countryOption) => {
-        if(countryOption.innerHTML.toLowerCase().includes(userInput)) {
+        if (countryOption.innerHTML.toLowerCase().includes(userInput)) {
             countryOption.style.display = "block"
         } else {
             countryOption.style.display = "none";
@@ -39,6 +48,6 @@ function getMatchingCountries() {
 countrySearchButton.addEventListener("click", () => {
     let country = countrySearch.value.toLowerCase();
     country = country.charAt(0).toUpperCase() + country.slice(1);
-    document.location.href = `/traveladvice/${country}`; 
+    document.location.href = `/Travelime/traveladvice/${country}`;
 });
 

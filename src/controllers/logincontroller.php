@@ -5,17 +5,19 @@ namespace App\Controllers;
 use App\Controller;
 use App\Models\User;
 
-class LoginController extends Controller {
+class LoginController extends Controller
+{
 
-    public function index() {
-        if(isset($_SESSION['logged-in']) && $_SESSION['logged-in'] == 1) {
-            header("Location: /Travelime/home"); 
+    public function index()
+    {
+        if (isset($_SESSION['logged-in']) && $_SESSION['logged-in'] == 1) {
+            header("Location: /Travelime/home");
             exit;
-        }
-        else $this->render('login');
+        } else $this->render('login');
     }
 
-    public function authenticate() {
+    public function authenticate()
+    {
         $User = new User();
 
         $username = $_POST['username'];
@@ -23,9 +25,9 @@ class LoginController extends Controller {
 
         $user = $User->getUserByUsername($username);
 
-        if($user) {
+        if ($user) {
             $userPassword = $user['password'];
-            if($User->checkPassword($userPassword, $password)) {
+            if ($User->checkPassword($userPassword, $password)) {
                 $_SESSION['logged-in'] = 1;
                 $_SESSION['username'] = $username;
                 $_SESSION['message'] = "Succesfully logged in. Welcome back " . $username . "!";
@@ -43,8 +45,9 @@ class LoginController extends Controller {
         }
     }
 
-    public function logout() {
-        if(isset($_POST['logout']) && isset($_SESSION['username'])) unset($_SESSION['username']);
+    public function logout()
+    {
+        if (isset($_POST['logout']) && isset($_SESSION['username'])) unset($_SESSION['username']);
         $_SESSION['logged-in'] = 0;
         header("Location: /Travelime/");
     }

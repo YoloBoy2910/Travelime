@@ -5,7 +5,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $command = "python src\\python\\text.py $escaped_question";
     $output = shell_exec($command);
-    
+
     $_SESSION['messages'][] = $output;
     echo $output;
 }
