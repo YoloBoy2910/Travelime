@@ -1,39 +1,43 @@
+function applyAgeGroupStyles() {
+    if (ageGroup === 'Elder') {
+        document.body.classList.add('elder');
+    } else if (ageGroup === 'Young') {
+        document.body.classList.add('young');
+    } else {}
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    applyAgeGroupStyles();
+    scrollToBottom();
+});
+
 function initAutocomplete() {
     const map = new google.maps.Map(document.getElementById("map"), {
         center: { lat: -33.8688, lng: 151.2195 },
         zoom: 13,
         mapTypeId: "roadmap",
     });
-    // Create the search box and link it to the UI element.
     const input = document.getElementById("pac-input");
     const searchBox = new google.maps.places.SearchBox(input);
 
     map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-    // Bias the SearchBox results towards current map's viewport.
     map.addListener("bounds_changed", () => {
         searchBox.setBounds(map.getBounds());
     });
 
     let markers = [];
-
-    // Listen for the event fired when the user selects a prediction and retrieve
-    // more details for that place.
     searchBox.addListener("places_changed", () => {
         const places = searchBox.getPlaces();
-
         if (places.length == 0) {
             return;
         }
 
-        // Clear out the old markers.
         markers.forEach((marker) => {
             marker.setMap(null);
         });
         markers = [];
 
-        // For each place, get the icon, name and location.
         const bounds = new google.maps.LatLngBounds();
-
         places.forEach((place) => {
             if (!place.geometry || !place.geometry.location) {
                 console.log("Returned place contains no geometry");
@@ -48,17 +52,16 @@ function initAutocomplete() {
                 scaledSize: new google.maps.Size(25, 25),
             };
 
-            // Create a marker for each place.
             markers.push(
                 new google.maps.Marker({
                     map,
                     icon,
                     title: place.name,
                     position: place.geometry.location,
-                }),
+                })
             );
+
             if (place.geometry.viewport) {
-                // Only geocodes have viewport.
                 bounds.union(place.geometry.viewport);
             } else {
                 bounds.extend(place.geometry.location);
@@ -75,13 +78,12 @@ var num = 0;
 function Press() {
     const userInput = document.getElementById('userInput').value;
     if (userInput != "") {
-
-        console.log('User Input:', userInput); // Debugging
+        console.log('User Input:', userInput);
         const userOutput = document.createElement('div');
         userOutput.classList.add('input');
         userOutput.innerText = userInput;
         outputContainer.appendChild(userOutput);
-        fetch('src/main.php', {
+        fetch('/Travelime/sendchatbotmessage', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
@@ -90,23 +92,23 @@ function Press() {
         })
             .then(response => {
                 console.log('Response Status:', response.status);
-                console.log(response) // Debugging
+                console.log(response);
                 return response.text();
             })
             .then(data => {
                 if (data != "") {
-                    console.log('Response Text:', data); // Debugging
+                    console.log('Response Text:', data);
                     const outputContainer = document.getElementById('outputContainer');
                     if (outputContainer) {
                         const newOutput = document.createElement('div');
                         newOutput.classList.add('output');
                         newOutput.innerText = data;
                         outputContainer.appendChild(newOutput);
+                        scrollToBottom();
                     } else {
                         console.error('Output container not found');
                     }
-                }
-                else {
+                } else {
                     const newOutput = document.createElement('div');
                     newOutput.classList.add('output');
                     newOutput.innerText = "I'm sorry, it appears something went wrong.";
@@ -116,11 +118,18 @@ function Press() {
             .catch(error => {
                 console.error('Error:', error);
             });
-    }
-    else {
+    } else {
         return false;
     }
+    scrollToBottom();
 }
+
+function scrollToBottom() {
+    var outputContainer = document.getElementById('outputContainer');
+    outputContainer.scrollTop = outputContainer.scrollHeight;
+}
+
+document.addEventListener('DOMContentLoaded', scrollToBottom);
 
 function chatbot_box() {
     num++;

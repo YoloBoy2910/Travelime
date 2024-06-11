@@ -21,22 +21,24 @@ class IndexController extends Controller
     {
         if (isset($_POST['age'])) {
             $age = $_POST['age'];
+            $ageGroup = '';
 
-            if ($age >= 16 && $age <= 120) {
+            if ($age >= 16 && $age <= 35) {
+                $ageGroup = 'Young';
+            } elseif ($age > 35 && $age <= 65) {
+                $ageGroup = 'Adult';
+            } elseif ($age > 65 && $age <= 120) {
+                $ageGroup = 'Elder';
+            }
+
+            if (!empty($ageGroup)) {
                 $_SESSION['guest-age'] = $age;
-
-                if ($age < 18) {
-                    $_SESSION['age-group'] = 'young';
-                } elseif ($age <= 65) {
-                    $_SESSION['age-group'] = 'adult';
-                } else {
-                    $_SESSION['age-group'] = 'elder';
-                }
-
+                $_SESSION['guest-age-group'] = $ageGroup;
+                echo "testing";
                 header("Location: /Travelime/login");
                 exit;
             } else {
-                $_SESSION['message'] = $age . " is invalid. Pls enter an age between 0 and 120.";
+                $_SESSION['message'] = $age . " is invalid. Pls enter an age between 18 and 120.";
                 header("Location: /Travelime/");
                 exit;
             }

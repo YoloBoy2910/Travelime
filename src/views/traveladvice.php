@@ -27,8 +27,16 @@ $ageGroup = isset($_SESSION['age-group']) ? $_SESSION['age-group'] : '';
                     <div class="travelAdvice" style="background-image: url('<?php echo $countryAdvice['countryImage']; ?>');">
                         <div class="travelAdviceContent">
                             <h2><?php echo $countryAdvice['countryName']; ?></h2>
-                            <h4>Capital: <?php echo $countryAdvice['countryCapital']; ?></h4>
                             <p><?php echo $countryAdvice['countryDescription']; ?></p>
+
+                            <p>Capital(s):
+                                <?php
+                                $capitals = explode(',', $countryAdvice['countryCapital']);
+                                foreach ($capitals as $capital) {
+                                    echo '<span class="badge badge-info">' . trim($capital) . '</span> ';
+                                }
+                                ?>
+                            </p>
 
                             <p>Known For:
                                 <?php
@@ -58,7 +66,7 @@ $ageGroup = isset($_SESSION['age-group']) ? $_SESSION['age-group'] : '';
                             </p>
 
                             <p>Currency: <span class="badge badge-secondary"><?php echo $countryAdvice['countryCurrency']; ?></span></p>
-                            <a href="/Travelime/traveladvice">Check for hotels</a>
+                            <a href="/Travelime/hotels/<?php echo $countryAdvice['countryName']; ?>">Check for hotels</a>
                         </div>
                     </div>
             <?php
@@ -162,7 +170,9 @@ $ageGroup = isset($_SESSION['age-group']) ? $_SESSION['age-group'] : '';
         </div>
     </div>
     <!-- End surprise me button. -->
-
+    <script>
+        var ageGroup = "<?php echo isset($_SESSION['guest-age-group']) ? $_SESSION['guest-age-group'] : ''; ?>";
+    </script>
     <?php
     includeFooter();
     ?>

@@ -1,7 +1,7 @@
 <?php
 
 //Start the session.
-session_start();
+@session_start();
 
 //Router, model, controller and database base models.
 require "src/router.php";
@@ -16,6 +16,7 @@ require "src/controllers/registercontroller.php";
 require "src/controllers/homecontroller.php";
 require "src/controllers/traveladvicecontroller.php";
 require "src/controllers/chatbotcontroller.php";
+require "src/controllers/hotelcontroller.php";
 
 //Models.
 require "src/models/users.php";
@@ -31,6 +32,7 @@ use App\Controllers\LoginController;
 use App\Controllers\RegisterController;
 use App\Controllers\TravelAdviceController;
 use App\controllers\ChatbotController;
+use App\controllers\HotelController;
 
 use App\Models\User;
 use App\Models\TravelAdvice;
@@ -59,6 +61,10 @@ $router->get('/Travelime/traveladvice/', TravelAdviceController::class, 'index')
 $router->get('/Travelime/traveladvice/{country}', TravelAdviceController::class, 'index');
 
 //Chatbot route to communicate with tygo's Chinese friend.
-//$router->post('/Travelime/sendchatbotmessage', ChatbotController::class, 'sendMessage');
+$router->post('/Travelime/sendchatbotmessage', ChatbotController::class, 'sendMessage');
+
+//Routes for searching for hotels.
+$router->get('/Travelime/hotels', HotelController::class, 'index');
+$router->get('/Travelime/hotels/{country}', HotelController::class, 'index');
 
 $router->dispatch();

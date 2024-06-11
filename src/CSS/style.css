@@ -462,9 +462,9 @@ img {
 
 /*#region Young*/
 
-/*#region Body*/
+/*#region Home*/
 
-.travelime {
+.young .travelime {
     background: var(--LGreen);
     color: var(--DGreen);
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4);
@@ -472,13 +472,13 @@ img {
     border-radius: 10px;
 }
 
-.travelimeDesc {
+.young .travelimeDesc {
     color: var(--Gray);
     text-transform: uppercase;
     padding: 10px;
 }
 
-.line {
+.young .line {
     background: var(--LGreen);
     height: 2px;
     width: 50%;
@@ -486,18 +486,14 @@ img {
     margin: 20px;
 }
 
-/*#endregion Body*/
-
-/*#region Home*/
-
-.promoDeal {
+.young .promoDeal {
     background: var(--NGreen);
     overflow: hidden;
     position: relative;
     height: 75vh;
 }
 
-.searchBar {
+.young .searchBar {
     background: var(--Gray);
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
     padding: 5px 10px;
@@ -510,9 +506,9 @@ img {
     margin-bottom: 10px;
 }
 
-.searchBar select,
-.searchBar input,
-.searchBar button {
+.young .searchBar select,
+.young .searchBar input,
+.young .searchBar button {
     border: none;
     height: 50px;
     width: 100%;
@@ -520,26 +516,26 @@ img {
     margin: 5px 0;
 }
 
-.searchBar button {
+.young .searchBar button {
     background: var(--Purple);
     color: var(--White);
     cursor: pointer;
     transition: 0.3s ease-in-out;
 }
 
-.searchBar button:hover {
+.young .searchBar button:hover {
     background: var(--White);
     color: var(--Purple);
     border: var(--Purple) 2px solid;
 }
 
-.greenCurve {
+.young .greenCurve {
     background: var(--DGreen);
     height: 75vh;
     border-bottom-right-radius: 50%;
 }
 
-.bannerText {
+.young .bannerText {
     color: var(--Gray);
     text-transform: uppercase;
     text-align: center;
@@ -550,17 +546,17 @@ img {
     height: 100%;
 }
 
-.bannerText h2 {
+.young .bannerText h2 {
     margin-top: 20px;
 }
 
-.whiteRight {
+.young .whiteRight {
     background: rgb(23, 80, 71);
     background: linear-gradient(90deg, rgba(23, 80, 71, 1) 50%, rgba(255, 255, 255, 1) 50%);
     padding: 0;
 }
 
-.imageCurve {
+.young .imageCurve {
     background: url('../IMG/PromoDeal.webp') center;
     background-size: cover;
     height: 75vh;
@@ -574,7 +570,7 @@ img {
 
 /*#region Information*/
 
-.travelAdvice {
+.young .travelAdvice {
     position: relative;
     background-size: cover;
     background-position: center;
@@ -594,7 +590,7 @@ img {
     }
 }
 
-.travelAdvice::before {
+.young .travelAdvice::before {
     background: rgba(0, 0, 0, 0.5);
     top: 0;
     left: 0;
@@ -605,17 +601,17 @@ img {
     position: absolute;
 }
 
-.travelAdviceContent {
+.young .travelAdviceContent {
     color: var(--White);
     z-index: 2;
     position: relative;
 }
 
-.travelAdviceContent h2,
-.travelAdviceContent h4,
-.travelAdviceContent p,
-.travelAdviceContent .badge,
-.travelAdviceContent a {
+.young .travelAdviceContent h2,
+.young .travelAdviceContent h4,
+.young .travelAdviceContent p,
+.young .travelAdviceContent .badge,
+.young .travelAdviceContent a {
     background: rgba(255, 255, 255, 0.6);
     color: var(--Black);
     max-width: 60vw;
@@ -627,7 +623,7 @@ img {
     width: fit-content;
 }
 
-.travelAdviceContent .badge {
+.young .travelAdviceContent .badge {
     background: var(--White);
     margin-right: 5px;
     display: inline-block;
@@ -637,7 +633,7 @@ img {
 
 /*#region Recommendations*/
 
-.recommendations {
+.young .recommendations {
     background: var(--White);
     text-align: center;
     text-transform: uppercase;
@@ -645,7 +641,7 @@ img {
     padding-bottom: 20px;
 }
 
-.recommendationsHeader {
+.young .recommendationsHeader {
     background: var(--NGreen);
     color: var(--Gray);
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4) inset;
@@ -658,7 +654,7 @@ img {
     margin: 15px 0;
 }
 
-.recommendationsIMG {
+.young .recommendationsIMG {
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4);
     width: 100%;
     height: 200px;
@@ -668,7 +664,7 @@ img {
     position: relative;
 }
 
-.recommendationsIMGLarge {
+.young .recommendationsIMGLarge {
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4);
     width: 100%;
     height: 250px;
@@ -678,7 +674,7 @@ img {
     position: relative;
 }
 
-.imageWrapper {
+.young .imageWrapper {
     width: 100%;
     margin-top: 0;
     font-size: 1.3rem;
@@ -686,7 +682,7 @@ img {
     display: inline-block;
 }
 
-.imageWrapper::before {
+.young .imageWrapper::before {
     background: rgba(0, 0, 0, 0.35);
     top: 0;
     left: 0;
@@ -699,7 +695,7 @@ img {
     pointer-events: none;
 }
 
-.textOverlay {
+.young .textOverlay {
     color: var(--White);
     top: 50%;
     left: 50%;
@@ -714,7 +710,7 @@ img {
 
 /*#region Scroll Text*/
 
-#scrollContainer {
+.young #scrollContainer {
     background: var(--Purple);
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4);
     width: 100%;
@@ -723,7 +719,7 @@ img {
     overflow: hidden;
 }
 
-#scrollText {
+.young #scrollText {
     font-size: 2rem;
     transform: translateX(0%);
     text-transform: uppercase;
@@ -732,17 +728,17 @@ img {
     display: inline-block;
 }
 
-#scrollText:hover {
+.young #scrollText:hover {
     animation-play-state: paused;
 }
 
-#scrollText a {
+.young #scrollText a {
     color: var(--LGreen);
     text-decoration: none;
     transition: ease-in-out 0.2s;
 }
 
-#scrollText a:hover {
+.young #scrollText a:hover {
     color: var(--White);
 }
 
@@ -764,7 +760,7 @@ img {
 
 /*#region Adult*/
 
-/*#region Body*/
+/*#region Home*/
 
 .travelime {
     background: var(--LGreen);
@@ -787,10 +783,6 @@ img {
     border-radius: 50px;
     margin: 20px;
 }
-
-/*#endregion Body*/
-
-/*#region Home*/
 
 .promoDeal {
     background: var(--NGreen);
@@ -1064,48 +1056,53 @@ img {
 
 /*#endregion Adult*/
 
-/*#region Elderly*/
+/*#region Elder*/
 
-/*#region Body*/
+/*#region Chatbot*/
 
-.travelime {
-    background: var(--LGreen);
+.elder #chatbot_button {
+    width: 100px;
+    height: 100px;
+}
+
+/*#endregion Chatbot*/
+
+/*#region Home*/
+
+.elder .travelime {
+    background: var(--White);
     color: var(--DGreen);
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4);
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
-.travelimeDesc {
+.elder .travelimeDesc {
     color: var(--Gray);
     text-transform: uppercase;
     padding: 10px;
 }
 
-.line {
-    background: var(--LGreen);
+.elder .line {
+    background: var(--White);
     height: 2px;
     width: 50%;
     border-radius: 50px;
     margin: 20px;
 }
 
-/*#endregion Body*/
-
-/*#region Home*/
-
-.promoDeal {
-    background: var(--NGreen);
+.elder .promoDeal {
+    background: var(--White);
     overflow: hidden;
     position: relative;
     height: 75vh;
 }
 
-.searchBar {
+.elder .searchBar {
     background: var(--Gray);
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
     padding: 5px 10px;
-    border-radius: 20px;
+    border-radius: 5px;
     position: absolute;
     bottom: 0;
     left: 50%;
@@ -1114,36 +1111,36 @@ img {
     margin-bottom: 10px;
 }
 
-.searchBar select,
-.searchBar input,
-.searchBar button {
+.elder .searchBar select,
+.elder .searchBar input,
+.elder .searchBar button {
     border: none;
     height: 50px;
     width: 100%;
-    border-radius: 20px;
+    border-radius: 5px;
     margin: 5px 0;
 }
 
-.searchBar button {
-    background: var(--Purple);
-    color: var(--White);
+.elder .searchBar button {
+    background: var(--White);
+    color: var(--DGreen);
+    border: var(--DGreen) 2px solid;
     cursor: pointer;
     transition: 0.3s ease-in-out;
 }
 
-.searchBar button:hover {
-    background: var(--White);
-    color: var(--Purple);
-    border: var(--Purple) 2px solid;
+.elder .searchBar button:hover {
+    background: var(--LGreen);
+    color: var(--DGreen);
 }
 
-.greenCurve {
+.elder .greenCurve {
     background: var(--DGreen);
     height: 75vh;
-    border-bottom-right-radius: 50%;
+    border-bottom-right-radius: 0%;
 }
 
-.bannerText {
+.elder .bannerText {
     color: var(--Gray);
     text-transform: uppercase;
     text-align: center;
@@ -1154,21 +1151,21 @@ img {
     height: 100%;
 }
 
-.bannerText h2 {
+.elder .bannerText h2 {
     margin-top: 20px;
 }
 
-.whiteRight {
+.elder .whiteRight {
     background: rgb(23, 80, 71);
-    background: linear-gradient(90deg, rgba(23, 80, 71, 1) 50%, rgba(255, 255, 255, 1) 50%);
+    background: linear-gradient(90deg, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 1) 50%);
     padding: 0;
 }
 
-.imageCurve {
+.elder .imageCurve {
     background: url('../IMG/PromoDeal.webp') center;
     background-size: cover;
     height: 75vh;
-    border-radius: 0 0 50% 50%;
+    border-radius: 0;
     margin-bottom: -1px;
 }
 
@@ -1178,7 +1175,7 @@ img {
 
 /*#region Information*/
 
-.travelAdvice {
+.elder .travelAdvice {
     position: relative;
     background-size: cover;
     background-position: center;
@@ -1198,7 +1195,7 @@ img {
     }
 }
 
-.travelAdvice::before {
+.elder .travelAdvice::before {
     background: rgba(0, 0, 0, 0.5);
     top: 0;
     left: 0;
@@ -1209,29 +1206,41 @@ img {
     position: absolute;
 }
 
-.travelAdviceContent {
+.elder .travelAdviceContent {
+    background: rgb(255,255,255,0.6);
+    border-radius: 5px;
+    width: fit-content;
+    padding: 10px;
     color: var(--White);
     z-index: 2;
     position: relative;
 }
 
-.travelAdviceContent h2,
-.travelAdviceContent h4,
-.travelAdviceContent p,
-.travelAdviceContent .badge,
-.travelAdviceContent a {
-    background: rgba(255, 255, 255, 0.6);
+
+.elder .travelAdviceContent h4,
+.elder .travelAdviceContent p,
+.elder .travelAdviceContent .badge,
+.elder .travelAdviceContent a {
+    background: transparent;
     color: var(--Black);
     max-width: 60vw;
-    padding: 3px;
+    padding: 4px 15px 4px 15px;
     border-radius: 10px;
     margin: 10px 0;
+    font-size: 1rem;
     text-transform: uppercase;
     text-decoration: none;
     width: fit-content;
 }
 
-.travelAdviceContent .badge {
+.elder .travelAdviceContent h2 {
+    background: transparent;
+    margin: 0 0 0 10px;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.elder .travelAdviceContent .badge {
     background: var(--White);
     margin-right: 5px;
     display: inline-block;
@@ -1241,7 +1250,7 @@ img {
 
 /*#region Recommendations*/
 
-.recommendations {
+.elder .recommendations {
     background: var(--White);
     text-align: center;
     text-transform: uppercase;
@@ -1249,40 +1258,40 @@ img {
     padding-bottom: 20px;
 }
 
-.recommendationsHeader {
+.elder .recommendationsHeader {
     background: var(--NGreen);
     color: var(--Gray);
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4) inset;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4);
     display: flex;
     justify-content: center;
     text-align: center;
-    border-radius: 50px;
+    border-radius: 0;
     width: fit-content;
     padding: 10px;
     margin: 15px 0;
 }
 
-.recommendationsIMG {
+.elder .recommendationsIMG {
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4);
     width: 100%;
     height: 200px;
-    border-radius: 50px;
+    border-radius: 0;
     object-fit: cover;
     display: block;
     position: relative;
 }
 
-.recommendationsIMGLarge {
+.elder .recommendationsIMGLarge {
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4);
     width: 100%;
     height: 250px;
-    border-radius: 50px;
+    border-radius: 0;
     object-fit: cover;
     display: block;
     position: relative;
 }
 
-.imageWrapper {
+.elder .imageWrapper {
     width: 100%;
     margin-top: 0;
     font-size: 1.3rem;
@@ -1290,20 +1299,20 @@ img {
     display: inline-block;
 }
 
-.imageWrapper::before {
+.elder .imageWrapper::before {
     background: rgba(0, 0, 0, 0.35);
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: 1;
-    border-radius: 50px;
+    border-radius: 0;
     content: '';
     position: absolute;
     pointer-events: none;
 }
 
-.textOverlay {
+.elder .textOverlay {
     color: var(--White);
     top: 50%;
     left: 50%;
@@ -1318,50 +1327,12 @@ img {
 
 /*#region Scroll Text*/
 
-#scrollContainer {
-    background: var(--Purple);
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4);
-    width: 100%;
-    padding: 10px 0;
-    height: fit-content;
-    overflow: hidden;
-}
-
-#scrollText {
-    font-size: 2rem;
-    transform: translateX(0%);
-    text-transform: uppercase;
-    animation: Scroll 600s linear infinite;
-    white-space: nowrap;
-    display: inline-block;
-}
-
-#scrollText:hover {
-    animation-play-state: paused;
-}
-
-#scrollText a {
-    color: var(--LGreen);
-    text-decoration: none;
-    transition: ease-in-out 0.2s;
-}
-
-#scrollText a:hover {
-    color: var(--White);
-}
-
-@keyframes Scroll {
-    0% {
-        transform: translateX(0%);
-    }
-
-    100% {
-        transform: translateX(-100%);
-    }
+.elder #scrollContainer {
+    display: none;
 }
 
 /*#endregion Scroll Text*/
 
 /*#endregion Travel Advice*/
 
-/*#endregion Elderly*/
+/*#endregion Elder*/

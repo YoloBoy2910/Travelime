@@ -5,7 +5,6 @@ include("functions.php");
 function includeHeader()
 {
 ?>
-
     <!doctype html>
     <html lang="en">
 
@@ -39,7 +38,6 @@ function includeHeader()
             }
         </style>
     </head>
-
 <?php
 }
 
@@ -55,7 +53,7 @@ function includeNavbar($travelAdvices = null)
             <h1><a href="/Travelime/home" class="logoLink">TRAVELIME</a></h1>
         </div>
         <button class="navbarHamburger navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon" ></span>
+            <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
@@ -176,7 +174,7 @@ function includeChatbot()
             <?php } ?>
         </div>
         <div class="UI">
-            <input type="text" name="userInput" id="userInput" autocomplete="off">
+            <input type="text" name="userInput" id="userInput" autocomplete="off" autoscroll="on">
             <button onclick="Press()"><img src="/Travelime/src/IMG/send.png" alt="send"></button>
         </div>
     </div>

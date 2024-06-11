@@ -5,5 +5,4 @@ include("src/INC/logins.php");
 
 includeHeader();
 
-//Changed to one form based on feedback from Nick.
 LoginForm();
