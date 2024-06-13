@@ -35,7 +35,7 @@ class IndexController extends Controller
                 $_SESSION['guest-age'] = $age;
                 $_SESSION['guest-age-group'] = $ageGroup;
                 echo "testing";
-                header("Location: /Travelime/login");
+                header("Location: /Travelime/home");
                 exit;
             } else {
                 $_SESSION['message'] = $age . " is invalid. Pls enter an age between 18 and 120.";

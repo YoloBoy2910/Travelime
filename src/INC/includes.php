@@ -57,35 +57,52 @@ function includeNavbar($travelAdvices = null)
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" href="/Travelime/traveladvice">Travel Advice</a></li>
                 <li class="nav-item">
-                    <div class="searchContainer d-flex flex-column">
-                        <div class="d-flex">
-                            <div class="countriesInput">
-                                <input id="country-search" type="text" name="myCountry" placeholder="Country" autocomplete="off">
-                                <button id="country-search-button" class="searchButton"><i class="fas fa-search"></i></button>
-                            </div>
-                        </div>
-                        <div class="position-relative">
-                            <ul id="countryOptions">
-                                <?php
-                                foreach ($travelAdvices as $travelAdvice) {
-                                ?><li data-value="<?php echo $travelAdvice['countryName']; ?>"><?php echo $travelAdvice['countryName']; ?></li>
-                                <?php
-                                }
-                                ?>
-                            </ul>
-                        </div>
-                    </div>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Travelime/traveladvice">Travel Advice</a>
                 </li>
-                <li>
-                    <?php if (isset($_SESSION['message'])) {
-                    ?><p><?php echo $_SESSION['message']; ?></p><?php
-                                                                unset($_SESSION['message']);
-                                                            } ?></li>
-            </ul>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Travelime/hotels">Hotels</a>
+                </li>
+                <div class="searchContainer d-flex flex-column me-auto">
+                <div class="d-flex">
+                    <div class="countriesInput">
+                        <input id="country-search" type="text" name="myCountry" placeholder="Country" autocomplete="off" class="form-control">
+                        <button id="country-search-button" class="btn btn-outline-secondary"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+                <div class="position-relative">
+                    <ul id="countryOptions" class="list-group">
+                        <?php foreach ($travelAdvices as $travelAdvice) { ?>
+                            <li class="list-group-item" data-value="<?php echo $travelAdvice['countryName']; ?>"><?php echo $travelAdvice['countryName']; ?></li>
+                        <?php } ?>
+                    </ul>
+                </div>
+            </div>
+            <div class="ms-auto">
+                <?php if (!isset($_SESSION['logged-in'])) { ?>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Travelime/login">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Travelime/register">Register</a>
+                        </li>
+                    </ul>
+                <?php } else { ?>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <span class="navbar-text me-2"><?php echo $_SESSION['message']; ?></span>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Travelime/logout">Logout</a>
+                        </li>
+                    </ul>
+                <?php } ?>
+            </div>
         </div>
-    </nav>
+    </div>
+</nav>
 <?php
 }
 

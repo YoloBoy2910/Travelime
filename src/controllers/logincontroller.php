@@ -30,11 +30,11 @@ class LoginController extends Controller
             if ($User->checkPassword($userPassword, $password)) {
                 $_SESSION['logged-in'] = 1;
                 $_SESSION['username'] = $username;
-                $_SESSION['message'] = "Succesfully logged in. Welcome back " . $username . "!";
+                $_SESSION['message'] = "Welcome back " . $username . "!";
                 header("Location: /Travelime/");
                 exit;
             } else {
-                header("Location: /login");
+                header("Location: /Travelime/login");
                 $_SESSION['message'] = "Password is invalid.";
                 exit;
             }
@@ -48,7 +48,8 @@ class LoginController extends Controller
     public function logout()
     {
         if (isset($_POST['logout']) && isset($_SESSION['username'])) unset($_SESSION['username']);
-        $_SESSION['logged-in'] = 0;
+        unset($_SESSION['message']);
+        unset($_SESSION['logged-in']);
         header("Location: /Travelime/");
     }
 }

@@ -46,7 +46,7 @@ $router->post('/Travelime/guestage', IndexController::class, 'enterGuestAge');
 //Login related routes.
 $router->get('/Travelime/login', LoginController::class, 'index');
 $router->post('/Travelime/login/authenticate', LoginController::class, 'authenticate');
-$router->post('/Travelime/logout', LoginController::class, 'logout');
+$router->get('/Travelime/logout', LoginController::class, 'logout');
 
 //Register related routes.
 $router->get('/Travelime/register', RegisterController::class, 'index');

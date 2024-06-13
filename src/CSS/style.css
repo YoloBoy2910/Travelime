@@ -67,6 +67,12 @@
     width: 75px;
 }
 
+.welcome-message {
+    color: var(--LGreen);
+    font-size: 1.3rem;
+    margin: auto;
+    margin-right: 15px;
+}
 /*#region Input*/
 
 .countriesInput {
