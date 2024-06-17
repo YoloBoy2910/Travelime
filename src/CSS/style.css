@@ -67,12 +67,19 @@
     width: 75px;
 }
 
-.welcome-message {
+.nav-text {
     color: var(--LGreen);
     font-size: 1.3rem;
     margin: auto;
-    margin-right: 15px;
+    margin-right: 20px;
 }
+
+.navbar-right {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+
 /*#region Input*/
 
 .countriesInput {
@@ -144,8 +151,6 @@
     color: var(--White);
 }
 
-/*testing search bar options */
-
 #countryOptions {
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4);
     list-style: none;
@@ -153,17 +158,16 @@
     top: 100%;
     max-height: 250px;
     overflow-y: auto;
-    border-bottom: none;
-    border-top: none;
     position: relative;
-    width: 93%;
+    width: calc(100% - 20px); 
     z-index: 99;
     left: 0;
     right: 0;
     position: absolute;
     display: none;
     max-height: 200px;
-    border-bottom-left-radius: 15px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
     animation: ScrollbarOpen 0.25s ease-in 0s 1 normal forwards;
 }
 
@@ -420,6 +424,10 @@
     color: var(--White);
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4);
     margin: 6px 10px 6px auto;
+}
+
+.form-control:focus{
+    box-shadow: none;
 }
 
 .input,
@@ -919,7 +927,7 @@ img {
     background: rgba(255, 255, 255, 0.6);
     color: var(--Black);
     max-width: 60vw;
-    padding: 3px;
+    padding: 4px 10px 4px 10px;
     border-radius: 10px;
     margin: 10px 0;
     text-transform: uppercase;
@@ -929,8 +937,15 @@ img {
 
 .travelAdviceContent .badge {
     background: var(--White);
+    font-size: 1rem;
     margin-right: 5px;
     display: inline-block;
+}
+
+.checkHotels {
+    text-decoration: none; 
+    color: var(--Purple);
+    padding: 20px;
 }
 
 /*#endregion Information*/
