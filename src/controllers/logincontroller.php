@@ -30,7 +30,6 @@ class LoginController extends Controller
             if ($User->checkPassword($userPassword, $password)) {
                 $_SESSION['logged-in'] = 1;
                 $_SESSION['username'] = $username;
-                $_SESSION['message'] =  $username;
                 header("Location: /Travelime/");
                 exit;
             } else {

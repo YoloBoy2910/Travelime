@@ -17,6 +17,7 @@ require "src/controllers/homecontroller.php";
 require "src/controllers/traveladvicecontroller.php";
 require "src/controllers/chatbotcontroller.php";
 require "src/controllers/hotelcontroller.php";
+require "src/controllers/accountcontroller.php";
 
 //Models.
 require "src/models/users.php";
@@ -33,6 +34,7 @@ use App\Controllers\RegisterController;
 use App\Controllers\TravelAdviceController;
 use App\controllers\ChatbotController;
 use App\controllers\HotelController;
+use App\controllers\Accountcontroller;
 
 use App\Models\User;
 use App\Models\TravelAdvice;
@@ -66,5 +68,9 @@ $router->post('/Travelime/sendchatbotmessage', ChatbotController::class, 'sendMe
 //Routes for searching for hotels.
 $router->get('/Travelime/hotels', HotelController::class, 'index');
 $router->get('/Travelime/hotels/{country}', HotelController::class, 'index');
+
+//Routes for account.
+$router->get('/Travelime/account', Accountcontroller::class, 'index');
+$router->post('/Travelime/account', Accountcontroller::class, 'uploadImage');
 
 $router->dispatch();

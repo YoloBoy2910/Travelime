@@ -45,63 +45,64 @@ function includeNavbar($travelAdvices = null)
 {
     includeChatbot()
 ?>
-<nav class="navbar navbar-expand-lg">
-    <div class="navbarContent">
-        <a href="/Travelime/home" class="logoLink">
-            <img src="/Travelime/src/IMG/Logo.png" alt="Travelime" class="navbarLogo">
-        </a>
-        <h1><a href="/Travelime/home" class="logoLink">TRAVELIME</a></h1>
-    </div>
-    <button class="navbarHamburger navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav me-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="/Travelime/traveladvice">Travel</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/Travelime/hotels">Hotels</a>
-            </li>
-        </ul>
-        <div class="searchContainer d-flex flex-column me-auto">
-            <div class="d-flex">
-                <div class="countriesInput">
-                    <input id="country-search" type="text" name="myCountry" placeholder="Country" autocomplete="off" class="form-control">
-                    <button id="country-search-button" class="btn btn-outline-secondary"><i class="fas fa-search"></i></button>
+    <nav class="navbar navbar-expand-lg">
+        <div class="navbarContent">
+            <a href="/Travelime/home" class="logoLink">
+                <img src="/Travelime/src/IMG/Logo.png" alt="Travelime" class="navbarLogo">
+            </a>
+            <h1><a href="/Travelime/home" class="logoLink">TRAVELIME</a></h1>
+        </div>
+        <button class="navbarHamburger navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/Travelime/traveladvice">Travel</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Travelime/hotels">Hotels</a>
+                </li>
+            </ul>
+            <div class="searchContainer d-flex flex-column me-auto">
+                <div class="d-flex">
+                    <div class="countriesInput">
+                        <input id="country-search" type="text" name="myCountry" placeholder="Country" autocomplete="off" class="form-control">
+                        <button id="country-search-button" class="btn btn-outline-secondary"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+                <div class="position-relative">
+                    <ul id="countryOptions" class="list-group">
+                        <?php foreach ($travelAdvices as $travelAdvice) { ?>
+                            <li class="list-group-item" data-value="<?php echo $travelAdvice['countryName']; ?>"><?php echo $travelAdvice['countryName']; ?></li>
+                        <?php } ?>
+                    </ul>
                 </div>
             </div>
-            <div class="position-relative">
-                <ul id="countryOptions" class="list-group">
-                    <?php foreach ($travelAdvices as $travelAdvice) { ?>
-                        <li class="list-group-item" data-value="<?php echo $travelAdvice['countryName']; ?>"><?php echo $travelAdvice['countryName']; ?></li>
-                    <?php } ?>
-                </ul>
+            <div class="navbar-right ms-auto">
+                <?php if (!isset($_SESSION['logged-in'])) { ?>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Travelime/login">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Travelime/register">Register</a>
+                        </li>
+                    </ul>
+                <?php } else { ?>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Travelime/logout">Logout</a>
+                        </li>
+                        <li class="nav-item">
+                            <a alt="No" href="/Travelime/account"><img class="profilePicture" src="src/IMG/account.jpg"></a>
+                            <!-- <p class="nav-text nav-link"><?php echo $_SESSION['message']; ?></p> -->
+                        </li>
+                    </ul>
+                <?php } ?>
             </div>
         </div>
-        <div class="navbar-right ms-auto">
-            <?php if (!isset($_SESSION['logged-in'])) { ?>
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Travelime/login">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Travelime/register">Register</a>
-                    </li>
-                </ul>
-            <?php } else { ?>
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Travelime/logout">Logout</a>
-                    </li>
-                    <li class="nav-item">
-                        <p class="nav-text nav-link"><?php echo $_SESSION['message']; ?></p>
-                    </li>
-                </ul>
-            <?php } ?>
-        </div>
-    </div>
-</nav>
+    </nav>
 <?php
 }
 
@@ -195,4 +196,14 @@ function includeChatbot()
         </div>
     </div>
 <?php
+}
+
+function dd($var, $die = false)
+{
+    echo "<pre style='background-color: #fff; border: 1px solid #000;'>";
+    var_dump($var);
+    echo "</pre>";
+    if ($die) {
+        die("End of dump!");
+    }
 }

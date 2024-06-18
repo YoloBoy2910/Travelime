@@ -14,5 +14,6 @@ includeNavbar($travelAdvices);
         }
     ?>
 </div>
+
 <?php
 includeFooter();

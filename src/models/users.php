@@ -9,7 +9,7 @@ class User extends Model
 
     public function getUserByUsername($username)
     {
-        $sql = "SELECT username, `password` FROM users WHERE username = ?";
+        $sql = "SELECT username, `password` , picture FROM users WHERE username = ?";
         $statement = $this->db->conn()->prepare($sql);
         $statement->bind_param("s", $username);
         $statement->execute();
@@ -23,12 +23,12 @@ class User extends Model
         if (password_verify($enteredpass, $userpass)) return true;
     }
 
-    public function createNewUser($username, $password)
+    public function createNewUser($username, $password, $picture)
     {
         $hash = $this->hash($password);
-        $sql = "INSERT INTO users (username, `password`) values (?, ?)";
+        $sql = "INSERT INTO users (username, `password`, picture) values (?, ?, ?)";
         $statement = $this->db->conn()->prepare($sql);
-        $statement->bind_param("ss", $username, $hash);
+        $statement->bind_param("sss", $username, $hash, $picture);
         if ($statement->execute()) return true;
         else return false;
     }

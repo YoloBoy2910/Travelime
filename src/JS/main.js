@@ -90,34 +90,29 @@ function Press() {
             },
             body: 'question=' + encodeURIComponent(userInput)
         })
-            .then(response => {
-                console.log('Response Status:', response.status);
-                console.log(response);
-                return response.text();
-            })
-            .then(data => {
-                if (data != "") {
-                    console.log('Response Text:', data);
-                    const outputContainer = document.getElementById('outputContainer');
-                    if (outputContainer) {
-                        const newOutput = document.createElement('div');
-                        newOutput.classList.add('output');
-                        newOutput.innerText = data;
-                        outputContainer.appendChild(newOutput);
-                        scrollToBottom();
-                    } else {
-                        console.error('Output container not found');
-                    }
-                } else {
+        .then(response => {
+            console.log('Response Status:', response.status);
+            console.log(response);
+            return response.text();
+        })
+        .then(data => {
+            if (data != "") {
+                console.log('Response Text:', data);
+                const outputContainer = document.getElementById('outputContainer');
+                if (outputContainer) {
                     const newOutput = document.createElement('div');
                     newOutput.classList.add('output');
-                    newOutput.innerText = "I'm sorry, it appears something went wrong.";
+                    newOutput.innerText = data;
                     outputContainer.appendChild(newOutput);
+                    scrollToBottom();
+                } else {
+                    console.error('Output container not found');
                 }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
     } else {
         return false;
     }

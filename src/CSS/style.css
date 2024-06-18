@@ -80,6 +80,14 @@
     align-items: center;
 }
 
+.profilePicture {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4);
+    height:50px;
+    width:50px;
+    border-radius: 50%;
+    margin-right: 25px;
+}
+
 /*#region Input*/
 
 .countriesInput {
@@ -351,8 +359,8 @@
     background: var(--Gray);
     border: 3px solid var(--NGreen);
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4);
-    bottom: 10px;
-    right: 10px;
+    bottom: 15px;
+    right: 15px;
     width: 75px;
     height: 75px;
     border-radius: 50%;
@@ -362,7 +370,7 @@
     cursor: pointer;
     position: fixed;
     overflow: hidden;
-    display: block;
+    display: block !important;
 }
 
 #chatbot_button:hover {
@@ -377,12 +385,9 @@
 
 #chatbot {
     background: var(--White);
-    border: var(--NGreen) 3.5px solid;
-    border-bottom: none;
-    border-top-right-radius: 25px;
-    border-top-left-radius: 25px;
-    bottom: 0;
-    right: 7px;
+    border: green 3.5px solid;
+    bottom: 15px;
+    right: 15px;
     width: 300px;
     height: 400px;
     display: none;
@@ -402,7 +407,6 @@
     font-weight: 900;
     border: 0px;
     border-bottom-right-radius: 15px;
-    border-top-left-radius: 25px;
 }
 
 #outputContainer {
@@ -1075,6 +1079,39 @@ img {
 
 /*#endregion Travel Advice*/
 
+/*#region Account*/
+
+.account {
+    background: var(--White);
+    height: fit-content;
+    min-height: 100vh;
+}
+
+.account h2 {
+    background: var(--NGreen);
+    color: var(--Gray);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4) inset;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    border-radius: 50px;
+    width: fit-content;
+    padding: 10px;
+    margin: 25px 0;
+}
+
+.account button {
+    background: var(--Purple);
+    color: var(--White);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4);
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+
+}
+
+/*#endregion Account*/
+
 /*#endregion Adult*/
 
 /*#region Elder*/
@@ -1357,3 +1394,11 @@ img {
 /*#endregion Travel Advice*/
 
 /*#endregion Elder*/
+
+/*#region account*/
+
+.account {
+
+}
+
+/*#endregion account

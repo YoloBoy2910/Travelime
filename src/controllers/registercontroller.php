@@ -28,7 +28,7 @@ class RegisterController extends Controller
             header("Location: /Travelime/register");
             exit;
         } else if ($password == $passcheck) {
-            $result = $User->createNewUser($username, $password);
+            $result = $User->createNewUser($username, $password, "account.jpg");
             if ($result) {
                 $_SESSION['logged-in'] = 1;
                 $_SESSION['username'] = $username;
