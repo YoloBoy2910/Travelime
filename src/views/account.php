@@ -1,7 +1,7 @@
 <?php
 include("src/INC/includes.php");
 includeHeader();
-includeNavbar($travelAdvices, $user);
+includeNavbar();
 
 // var_dump($user);
 // die();
@@ -64,12 +64,29 @@ if (isset($_POST["submit"])) {
         </div>
         <div class="accountBox">
             <h2>Your bookmarks</h2>
-            <?php foreach ($_SESSION["bookmarks"] as $bookmark) {
-                echo "<p>$bookmark</p>";
-            } ?>
+            <div id=bookmarks>
+                <?php
+                    if(isset($hotels) && count($hotels) > 0) {
+                        foreach($hotels as $hotel) {
+                        ?>
+                        <div>
+                            <h4><?php echo $hotel['hotelName'];?></h4>
+                            <img src="<?php echo $hotel['hotelImage'];?>" alt="" width="300" height="200">
+                            <p><?php echo $hotel['hotelRating'];?></p>
+                            <button class="remove-hotel-button" id="<?php echo $hotel['hotelId'];?>">Remove bookmark</button>
+                        </div>
+                        <?php
+                        }
+                    } else {
+                        ?>
+                        <h3>No hotels bookmarked yet. Time to search for some hotels!</h3>
+                        <?php
+                    }
+                ?>
+            </div>
         </div>
     </div>
 </div>
 
 <?php
-includeFooter();
+includeFooter(["account"]);

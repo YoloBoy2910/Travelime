@@ -68,6 +68,9 @@ $router->post('/Travelime/sendchatbotmessage', ChatbotController::class, 'sendMe
 //Routes for searching for hotels.
 $router->get('/Travelime/hotels', HotelController::class, 'index');
 $router->get('/Travelime/hotels/{country}', HotelController::class, 'index');
+$router->get('/Travelime/getBookmarkedHotels', HotelController::class, 'getBookmarkedHotels');
+$router->post('/Travelime/updateBookmarkState', HotelController::class, 'updateBookmarkState');
+$router->post('/Travelime/removeBookmark', Accountcontroller::class, 'removeBookmark');
 
 //Routes for account.
 $router->get('/Travelime/account', Accountcontroller::class, 'index');

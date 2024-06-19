@@ -3,7 +3,7 @@ include("src/INC/includes.php");
 include("src/INC/functions.php");
 
 includeHeader();
-includeNavbar($travelAdvices);
+includeNavbar();
 
 $ageGroup = isset($_SESSION['age-group']) ? $_SESSION['age-group'] : '';
 ?>
@@ -110,5 +110,5 @@ $ageGroup = isset($_SESSION['age-group']) ? $_SESSION['age-group'] : '';
         }
     </script>
     <?php
-    includeFooter();
+    includeFooter(["account"]);
     ?>

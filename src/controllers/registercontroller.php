@@ -30,11 +30,16 @@ class RegisterController extends Controller
         } else if ($password == $passcheck) {
             $result = $User->createNewUser($username, $password, "account.jpg");
             if ($result) {
-                $_SESSION['logged-in'] = 1;
-                $_SESSION['username'] = $username;
-                $_SESSION['message'] = "Succesfully created new user " . $username . "! Welcome to Travellime!";
-                header("Location: /Travelime/home");
-                exit;
+                //Gather the new user and create a hotels instance.
+                $newUser = $User->getUserByUsername($username);
+                $userId = $newUser['id'];
+                if($User->createHotelsInstance($userId)) {
+                    $_SESSION['logged-in'] = 1;
+                    $_SESSION['username'] = $username;
+                    $_SESSION['message'] = "Succesfully created new user " . $username . "! Welcome to Travellime!";
+                    header("Location: /Travelime/home");
+                    exit;
+                }
             } else {
                 $_SESSION['message'] = "Something went wrong couldn't create new user. Error: " . $result;
                 header("Location: /Travelime/register");

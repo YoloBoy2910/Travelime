@@ -79,6 +79,29 @@ $ageGroup = isset($_SESSION['age-group']) ? $_SESSION['age-group'] : '';
     </div>
     <!-- End traveladvice container. -->
 
+    <!-- Start search bar traveladvice. -->
+    <div class="container">
+        <h2>Don't see a country you like in the recommendations?</h2>
+        <p>Conveniently select one yourself with our search bar!</p>
+        <div class="searchContainer d-flex flex-column me-auto w-50">
+            <div class="d-flex">
+                <div class="countriesInput">
+                    <input id="country-search" type="text" name="myCountry" placeholder="Country" autocomplete="off" class="form-control">
+                    <button id="country-search-button" class="btn btn-outline-secondary"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+            <div class="position-relative">
+                <ul id="countryOptions" class="list-group">
+                    <?php foreach ($travelAdvices as $travelAdvice) { ?>
+                        <li class="list-group-item" data-value="<?php echo $travelAdvice['countryName']; ?>"><?php echo $travelAdvice['countryName']; ?></li>
+                    <?php } ?>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <!-- End search bar traveladvice. -->
+
     <!-- Start recommendations. -->
     <div class="recommendations">
         <div class="container">
@@ -174,5 +197,5 @@ $ageGroup = isset($_SESSION['age-group']) ? $_SESSION['age-group'] : '';
         var ageGroup = "<?php echo isset($_SESSION['guest-age-group']) ? $_SESSION['guest-age-group'] : ''; ?>";
     </script>
     <?php
-    includeFooter();
+    includeFooter(["traveladvice"]);
     ?>

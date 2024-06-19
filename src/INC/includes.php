@@ -2,7 +2,9 @@
 
 include("functions.php");
 
-function includeHeader()
+use App\Models\User;
+
+function includeHeader($optionalScripts = [])
 {
 ?>
     <!doctype html>
@@ -18,10 +20,27 @@ function includeHeader()
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
         <!-- CSS -->
-        <link rel="stylesheet" href="/Travelime/src/CSS/style.css">
+        <link rel="stylesheet" href="/src/CSS/style.css">
+
+        <?php
+            if($optionalScripts != []) {
+                foreach($optionalScripts as $optionalScript) {
+                    if($optionalScript == "hotelmap") {
+                    ?>
+                        <!-- Google maps api script. -->
+                        <script async
+                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzabKtWQq9f72-mTg661g_KQQGdgO7Sq8&loading=async&libraries=places,marker&callback=initAutocomplete">
+                        </script>
+                    <?php
+                    } else {
+                        ?><link rel="stylesheet" href="/src/CSS/<?php echo $optionalScript;?>.css"><?php
+                    }
+                }
+            }
+        ?>
 
         <!-- Favicon -->
-        <link rel="icon" href="/Travelime/src/IMG/Logo.ico">
+        <link rel="icon" href="/src/IMG/Logo.ico">
 
         <!-- Icons -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -31,7 +50,7 @@ function includeHeader()
             @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
             body {
-                background: var(--DGreen);
+                background: var(--white);
                 font-family: "Kanit", sans-serif;
                 font-weight: 500;
                 font-style: italic;
@@ -41,14 +60,14 @@ function includeHeader()
 <?php
 }
 
-function includeNavbar($travelAdvices = null, $user = null)
+function includeNavbar()
 {
     includeChatbot();
 ?>
     <nav class="navbar navbar-expand-lg">
         <div class="navbarContent">
             <a href="/Travelime/home" class="logoLink">
-                <img src="/Travelime/src/IMG/Logo.png" alt="Travelime" class="navbarLogo">
+                <img src="/src/IMG/Logo.png" alt="Travelime" class="navbarLogo">
             </a>
             <h1><a href="/Travelime/home" class="logoLink">TRAVELIME</a></h1>
         </div>
@@ -64,21 +83,6 @@ function includeNavbar($travelAdvices = null, $user = null)
                     <a class="nav-link" href="/Travelime/hotels">Hotels</a>
                 </li>
             </ul>
-            <div class="searchContainer d-flex flex-column me-auto">
-                <div class="d-flex">
-                    <div class="countriesInput">
-                        <input id="country-search" type="text" name="myCountry" placeholder="Country" autocomplete="off" class="form-control">
-                        <button id="country-search-button" class="btn btn-outline-secondary"><i class="fas fa-search"></i></button>
-                    </div>
-                </div>
-                <div class="position-relative">
-                    <ul id="countryOptions" class="list-group">
-                        <?php foreach ($travelAdvices as $travelAdvice) { ?>
-                            <li class="list-group-item" data-value="<?php echo $travelAdvice['countryName']; ?>"><?php echo $travelAdvice['countryName']; ?></li>
-                        <?php } ?>
-                    </ul>
-                </div>
-            </div>
             <div class="navbar-right ms-auto">
                 <?php if (!isset($_SESSION['logged-in'])) { ?>
                     <ul class="navbar-nav">
@@ -89,13 +93,17 @@ function includeNavbar($travelAdvices = null, $user = null)
                             <a class="nav-link" href="/Travelime/register">Register</a>
                         </li>
                     </ul>
-                <?php } else { ?>
+                <?php } else if(isset($_SESSION['username'])) {
+                        $User = new User();
+                        $username = $_SESSION['username'];
+                        $userData = $User->getUserByUsername($username);
+                    ?>
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link" href="/Travelime/logout">Logout</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/Travelime/account"><img class="profilePicture" src="/Travelime/src/IMG/PROFILEIMG/<?php echo $user['picture']; ?>"></a>
+                            <a href="/Travelime/account"><img class="profilePicture" src="/src/IMG/PROFILEIMG/<?php echo $userData['picture']; ?>"></a>
                         </li>
                     </ul>
                 <?php } ?>
@@ -105,7 +113,7 @@ function includeNavbar($travelAdvices = null, $user = null)
 <?php
 }
 
-function includeFooter()
+function includeFooter($optionalScripts = [])
 {
 ?>
     <footer class="footer py-4">
@@ -168,8 +176,14 @@ function includeFooter()
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-aTmCaqDl6M5GzAVrV+OXC5eXZOpjno9vZ7vByc4dPpPZR10a5+C49HE42V6uNOZn" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-b21VaE9r9GY4nEJN/Axpx9QTEB3+P9oU1veH3J8QzojN1VHlme/JY58Kb5nfmm9v" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="/Travelime/src/JS/main.js"></script>
-    <script src="/Travelime/src/JS/traveladvice.js"></script>
+    <script src="/src/JS/main.js"></script>
+    <?php
+    if($optionalScripts != []) {
+        foreach($optionalScripts as $optionalScript) {
+            ?><script src="/src/JS/<?php echo $optionalScript;?>.js"></script><?php
+        }
+    }
+    ?>
     </body>
 
     </html>
@@ -180,18 +194,21 @@ function includeChatbot()
 {
 ?>
     <button id="chatbot_button" onclick="chatbot_box()">
-        <img id="chatbotLogo" src="/Travelime/src/IMG/Support.png" alt="chatbot">
+        <img id="chatbotLogo" src="/src/IMG/Support.png" alt="chatbot">
     </button>
     <div id="chatbot">
         <button onclick="chatbot_box()" class="close">&#x2715;</button>
         <div class="outputContainer" id="outputContainer">
-            <?php foreach ($_SESSION["messages"] as $output) { ?>
+            <?php if(isset($_SESSION['messages'])) {
+                foreach ($_SESSION["messages"] as $output) { ?>
                 <div class="output"><?php echo htmlspecialchars($output); ?></div>
-            <?php } ?>
+                <?php } 
+            } 
+            ?>
         </div>
         <div class="UI">
             <input type="text" name="userInput" id="userInput" autocomplete="off" autoscroll="on">
-            <button onclick="Press()"><img src="/Travelime/src/IMG/send.png" alt="send"></button>
+            <button onclick="Press()"><img src="/src/IMG/send.png" alt="send"></button>
         </div>
     </div>
 <?php

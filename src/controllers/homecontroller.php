@@ -14,9 +14,7 @@ class HomeController extends Controller
             isset($_SESSION['logged-in']) && $_SESSION['logged-in'] == 1 ||
             isset($_SESSION['guest-age'])
         ) {
-            $TravelAdvice = new TravelAdvice();
-            $travelAdvices = $TravelAdvice->getTravelAdvice();
-            $this->render('home', ["travelAdvices" => $travelAdvices]);
+            $this->render('home');
         } else {
             header("Location: /Travelime/");
             exit;
