@@ -1084,7 +1084,13 @@ img {
 .account {
     background: var(--White);
     height: fit-content;
-    min-height: 100vh;
+}
+
+.account h1 {
+    font-size: 3rem;
+    padding-top: 20px;
+    text-align: center;
+    text-transform: uppercase;
 }
 
 .account h2 {
@@ -1094,20 +1100,56 @@ img {
     display: flex;
     justify-content: center;
     text-align: center;
-    border-radius: 50px;
+    text-transform: uppercase;
+    border-radius: 5px;
     width: fit-content;
     padding: 10px;
-    margin: 25px 0;
+    margin-bottom: 20px;
 }
 
 .account button {
     background: var(--Purple);
     color: var(--White);
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4);
-    padding: 5px;
+    padding: 10px;
+    font-size: 1.3rem;
     border-radius: 5px;
     border: none;
+}
 
+.account input {
+    background: var(--White);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4) inset;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: none;
+}
+
+.account img {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4);
+    width: 200px;
+    height: 200px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    object-fit: cover;
+}
+
+.accountLine {
+    background: var(--DGreen);
+    height: 2px;
+    width: 100%;
+    border-radius: 5px;
+    margin: 20px;
+}
+
+.accountBox {
+    background: var(--White);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4);
+    border-radius: 5px;
+    margin-top: 20px;
+    padding: 20px;
+    transition: 0.4s;
 }
 
 /*#endregion Account*/

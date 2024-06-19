@@ -41,9 +41,9 @@ function includeHeader()
 <?php
 }
 
-function includeNavbar($travelAdvices = null)
+function includeNavbar($travelAdvices = null, $user = null)
 {
-    includeChatbot()
+    includeChatbot();
 ?>
     <nav class="navbar navbar-expand-lg">
         <div class="navbarContent">
@@ -95,8 +95,7 @@ function includeNavbar($travelAdvices = null)
                             <a class="nav-link" href="/Travelime/logout">Logout</a>
                         </li>
                         <li class="nav-item">
-                            <a alt="No" href="/Travelime/account"><img class="profilePicture" src="src/IMG/account.jpg"></a>
-                            <!-- <p class="nav-text nav-link"><?php echo $_SESSION['message']; ?></p> -->
+                            <a href="/Travelime/account"><img class="profilePicture" src="/Travelime/src/IMG/PROFILEIMG/<?php echo $user['picture']; ?>"></a>
                         </li>
                     </ul>
                 <?php } ?>

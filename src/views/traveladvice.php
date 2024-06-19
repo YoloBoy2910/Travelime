@@ -82,7 +82,7 @@ $ageGroup = isset($_SESSION['age-group']) ? $_SESSION['age-group'] : '';
     <!-- Start recommendations. -->
     <div class="recommendations">
         <div class="container">
-            <h2 class="recommendationsHeader d-block mb-4">destinations you might like</h2>
+            <h2 class="recommendationsHeader d-block mb-4">DESTINATIONS YOU MIGHT LIKE</h2>
             <div class="row justify-content-center">
                 <?php
                 shuffle($travelAdvices);
@@ -140,7 +140,7 @@ $ageGroup = isset($_SESSION['age-group']) ? $_SESSION['age-group'] : '';
     <div class="surpriseMe">
         <div class="container">
             <div class="col-md-6">
-                <h2 class="recommendationsHeader d-block mb-4">Can't make a decision?</h2>
+                <h2 class="recommendationsHeader d-block mb-4">CAN'T MAKE A DECISION?</h2>
             </div>
 
             <div class="row gx-5 text-center">
