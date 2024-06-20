@@ -44,4 +44,8 @@ class IndexController extends Controller
             }
         }
     }
+
+    public function getAgeGroup() {
+        echo json_encode($_SESSION['guest-age-group']);
+    }
 }

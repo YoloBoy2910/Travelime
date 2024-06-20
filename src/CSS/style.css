@@ -128,6 +128,7 @@
 }
 
 .countriesInput input:focus {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4);
     border-bottom-left-radius: 0px;
     transition: 0.1s ease-out;
 }
@@ -141,7 +142,6 @@
     color: var(--Purple);
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4);
     border: none;
-    margin-right: 20px;
     border-radius: 0 15px 15px 0;
     padding: 0 20px;
     font-size: 16px;
@@ -884,6 +884,19 @@ img {
 
 /*#region Travel Advice*/
 
+/*#region Searchbar*/
+
+.searchBarBox {
+    background: var(--Gray);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4);
+    padding: 30px;
+    margin-bottom: 20px;
+    border-bottom-right-radius: 500px;
+    height: fit-content;
+}
+
+/*#endregion Searchbar*/
+
 /*#region Information*/
 
 .travelAdvice {
@@ -960,7 +973,6 @@ img {
     background: var(--White);
     text-align: center;
     text-transform: uppercase;
-    padding-top: 20px;
     padding-bottom: 20px;
 }
 

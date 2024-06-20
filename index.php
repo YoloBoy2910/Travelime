@@ -44,6 +44,7 @@ $router = new Router();
 //Index routes.
 $router->get('/Travelime/', IndexController::class, 'index');
 $router->post('/Travelime/guestage', IndexController::class, 'enterGuestAge');
+$router->get('/Travelime/getAgeGroup', IndexController::class, 'getAgeGroup');
 
 //Login related routes.
 $router->get('/Travelime/login', LoginController::class, 'index');
@@ -67,6 +68,7 @@ $router->post('/Travelime/sendchatbotmessage', ChatbotController::class, 'sendMe
 
 //Routes for searching for hotels.
 $router->get('/Travelime/hotels', HotelController::class, 'index');
+$router->get('/Travelime/hotels/', HotelController::class, 'index');
 $router->get('/Travelime/hotels/{country}', HotelController::class, 'index');
 $router->get('/Travelime/getBookmarkedHotels', HotelController::class, 'getBookmarkedHotels');
 $router->post('/Travelime/updateBookmarkState', HotelController::class, 'updateBookmarkState');

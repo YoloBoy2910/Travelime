@@ -16,7 +16,7 @@ includeHeader();
                         <div class="row g-0">
 
                             <div class="col-md-6 col-lg-5 d-none d-md-block">
-                                <img class="loginBanner" src="/src/IMG/PromoDeal.webp" alt="login form" />
+                                <img class="loginBanner" src="src/IMG/PromoDeal.webp" alt="login form" />
                             </div>
 
                             <div class="col-md-6 col-lg-7 d-flex align-items-center">

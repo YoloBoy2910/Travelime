@@ -5,6 +5,7 @@ let map;
 let markers = [];
 let hotels = [];
 let bookmarkedHotels = [];
+let selectedCountry = document.getElementById("current-country");
 
 function getBookmarkedHotels() {
 
@@ -16,10 +17,7 @@ function getBookmarkedHotels() {
     })
     .then(response => response.json())
     .then(data => {
-        console.log(`The data: ${data}`);
-    
         bookmarkedHotels = data;
-        console.log(bookmarkedHotels)
     })
     .catch(error => {
         console.log(`Error couldn't fetch data. Error: ${error}`);
@@ -35,7 +33,7 @@ function bookMarkHotel(hotel) {
     if(hotel.photos && hotel.photos.length > 0) {
         hotelImage = hotel.photos[0].getUrl();
     } else {
-        hotelImage = "images/hotelicon.jpg"
+        hotelImage = "/Travelime/src/IMG/HotelPlaceholder.png";
     }
 
     const data = {
@@ -46,7 +44,7 @@ function bookMarkHotel(hotel) {
         hotelRating: hotel.rating
     }
     
-    fetch("/updateBookmarkState", {
+    fetch("/Travelime/updateBookmarkState", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json'
@@ -59,12 +57,10 @@ function bookMarkHotel(hotel) {
         switch(response) {
             case "bookmarked":
             bookmarkedHotels.push(data);
-            console.log(bookmarkedHotels);
             break;
 
             case "removed":
             bookmarkedHotels = bookmarkedHotels.filter(bookmarkedHotel => bookmarkedHotel.hotelId !== hotel.place_id);
-            console.log(bookmarkedHotels)
             break;
 
             default:
@@ -76,44 +72,59 @@ function bookMarkHotel(hotel) {
     })
 }
 
-function initAutocomplete() {
-   const center = { lat: 50.064192, lng: -130.605469 };
-// Create a bounding box with sides ~10km away from the center point
+async function initAutocomplete() {
+    const center = { lat: 50.064192, lng: -130.605469 };
+    let options;
+    // Create a bounding box with sides ~10km away from the center point
     const defaultBounds = {
-    north: center.lat + 0.1,
-    south: center.lat - 0.1,
-    east: center.lng + 0.1,
-    west: center.lng - 0.1,
-};
+        north: center.lat + 0.1,
+        south: center.lat - 0.1,
+        east: center.lng + 0.1,
+        west: center.lng - 0.1,
+    };
 
-// Create a new map and set its initial options
+    // Create a new map and set its initial options
     map = new google.maps.Map(document.getElementById('map'), {
-    center: center,
-    zoom: 100
-});
+        center: center,
+        zoom: 8 // Adjust the zoom level as needed
+    });
 
     const input = document.getElementById("pac-input");
+    if (!input) {
+        console.error("Autocomplete input element not found");
+        return;
+    }
 
-    const options = {
-    bounds: defaultBounds,
-    componentRestrictions: { country: "us" },
-    fields: ["address_components", "geometry", "icon", "name"],
-    strictBounds: false,
-    };
+    if(selectedCountry) {
+        const countryCode = selectedCountry.querySelector("p").id;
+        options = {
+            bounds: defaultBounds,
+            componentRestrictions: { country: `${countryCode}` },
+            fields: ["address_components", "geometry", "icon", "name"],
+            strictBounds: false,
+        };
+    } else {
+        options = {
+            bounds: defaultBounds,
+            fields: ["address_components", "geometry", "icon", "name"],
+            strictBounds: false,
+        };
+    }
     
-    const autocomplete = new google.maps.places.Autocomplete(input, options); 
-
+    
+    const autocomplete = new google.maps.places.Autocomplete(input, options);
     autocomplete.bindTo('bounds', map);
 
-    let hotelSearchButton = document.getElementById("hotel-search-button");
+    const hotelSearchButton = document.getElementById("hotel-search-button");
+    if (!hotelSearchButton) {
+        console.error("Hotel search button element not found");
+        return;
+    }
 
-    hotelSearchButton.addEventListener("click", function() {
-
+    hotelSearchButton.addEventListener("click", function () {
         const place = autocomplete.getPlace();
 
-        console.log(bookmarkedHotels);
-
-        if(!place.geometry) {
+        if (!place.geometry) {
             console.log(`No details available for input: ${place.name}`);
             return;
         }
@@ -129,11 +140,15 @@ function initAutocomplete() {
             map.setZoom(13);
         } else {
             map.setCenter(place.geometry.location);
-            //map.setZoom(); // Adjust zoom level as needed
+            map.setZoom(13); // Adjust zoom level as needed
         }
 
         fetchHotelData(location);
     });
+}
+
+function initAutocompleteMap() {
+    
 }
 
 function fetchHotelData(location) {
@@ -197,7 +212,7 @@ function displayHotel(hotel) {
         const photoUrl = hotel.photos[0].getUrl();
         hotelImage.src = photoUrl;
     } else {
-        hotelImage.src = "images/hotelicon.jpg";
+        hotelImage.src = "/Travelime/src/IMG/HotelPlaceholder.png";
     }
 
     //Append them to their respective containers.
@@ -402,7 +417,7 @@ function createHotelDetailsContainer(hotel) {
         const photoUrl = hotel.photos[0].getUrl();
         hotelImage.src = photoUrl;
     } else {
-        hotelImage.src = "images/hotelicon.jpg";
+        hotelImage.src = "/Travelime/src/IMG/HotelPlaceholder.png";
     }
     hotelImagesContainer.appendChild(hotelImage);
 
@@ -498,7 +513,7 @@ let countrySearchForm = document.getElementById("countries-form");
 let countrySearchButton = document.getElementById("country-search-button");
 
 //Event listener to make the search bar appear.
-countrySearch.addEventListener("mousedown", () => {
+countrySearch.addEventListener("click", () => {
     let styleDisplay = window.getComputedStyle(countryOptionsList).display;
     countryOptionsList.style.display = styleDisplay !== "none" ? "none" : "block";
 });

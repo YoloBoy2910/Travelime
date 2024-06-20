@@ -1,4 +1,18 @@
-function applyAgeGroupStyles() {
+function getAgeGroup() {
+    fetch('/Travelime/getAgeGroup', {
+        method: "GET",
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => response.json())
+    .then(ageGroup => applyAgeGroupStyles(ageGroup))
+    .catch(error => {
+        console.log(`Error coudln't get age group. Error: ${error}`)
+    })
+}
+
+function applyAgeGroupStyles(ageGroup) {
     if (ageGroup === 'Elder') {
         document.body.classList.add('elder');
     } else if (ageGroup === 'Young') {
@@ -7,7 +21,7 @@ function applyAgeGroupStyles() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    applyAgeGroupStyles();
+    getAgeGroup();
     scrollToBottom();
 });
 

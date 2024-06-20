@@ -6,7 +6,7 @@ let countrySearchForm = document.getElementById("countries-form");
 let countrySearchButton = document.getElementById("country-search-button");
 
 //Event listener to make the search bar appear.
-countrySearch.addEventListener("mousedown", () => {
+countrySearch.addEventListener("click", () => {
     let styleDisplay = window.getComputedStyle(countryOptionsList).display;
     countryOptionsList.style.display = styleDisplay !== "none" ? "none" : "block";
 });

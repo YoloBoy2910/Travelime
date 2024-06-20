@@ -19,7 +19,12 @@ class HotelController extends Controller
             $TravelAdvice = new TravelAdvice();
             $travelAdvices = $TravelAdvice->getTravelAdvice();
             $countryAdvice = $TravelAdvice->getAdviceByCountry($country);
-            $this->render('hotels', ["travelAdvices" => $travelAdvices, "countryAdvice" => $countryAdvice]);
+            if($countryAdvice != "404") {
+                $this->render('hotels', ["travelAdvices" => $travelAdvices, "countryAdvice" => $countryAdvice]);
+            } else {
+                header("Location: /Travelime/hotels");
+                exit;
+            }
         } else {
             $TravelAdvice = new TravelAdvice();
             $travelAdvices = $TravelAdvice->getTravelAdvice();
