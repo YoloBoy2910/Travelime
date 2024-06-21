@@ -55,6 +55,8 @@ class HotelController extends Controller
         $json = file_get_contents('php://input');
         $data = json_decode($json, true);
         $hotelFound = false;
+        $keyToRemove = null;
+        $hotelId = $data['hotelId'];
 
         $incomingHotel = [
             "hotelName" => $data['hotelName'],
@@ -95,13 +97,14 @@ class HotelController extends Controller
         } else if(isset($_SESSION['bookmarked-hotels-guest'])) {
             foreach($_SESSION['bookmarked-hotels-guest'] as $key => $hotel) {
                 if($hotel['hotelId'] == $hotelId) {
-                    $hotelfound = true;
+                    $hotelFound = true;
                     $keyToRemove = $key;
                     break;
                 }
             }
-            if($hotelfound) {
+            if($hotelFound) {
                 unset($_SESSION['bookmarked-hotels-guest'][$keyToRemove]);
+                $_SESSION['bookmarked-hotels-guest'] = array_values($_SESSION['bookmarked-hotels-guest']);
                 echo json_encode("removed");
             } else {
                 $_SESSION['bookmarked-hotels-guest'][] = $incomingHotel;

@@ -9,12 +9,21 @@ use App\Models\TravelAdvice;
 class Accountcontroller extends Controller {
 
     public function index() {
-        $User = new User();
-        $username = $_SESSION['username'];
-        $userData = $User->getUserByUsername($username);
-        $userId = $userData['id'];
-        $hotels = json_decode($User->getHotelsJSONByUserId($userId), true);
-        $this->render('account', ["user" => $userData, "hotels" => $hotels]);
+        if(isset($_SESSION['username'])) {
+            $User = new User();
+            $username = $_SESSION['username'];
+            $userData = $User->getUserByUsername($username);
+            $userId = $userData['id'];
+            $hotels = json_decode($User->getHotelsJSONByUserId($userId), true);
+            $this->render('account', ["user" => $userData, "hotels" => $hotels]);
+        } else if(isset($_SESSION['bookmarked-hotels-guest'])) {
+            $hotels = $_SESSION['bookmarked-hotels-guest'];
+            $this->render('account', ["hotels" => $hotels]);
+        } else {
+            $_SESSION['bookmarked-hotels-guest'] = [];
+            $hotels = $_SESSION['bookmarked-hotels-guest'];
+            $this->render('account', ["hotels" => $hotels]);
+        }
     }
 
     public function uploadImage(){
@@ -56,6 +65,20 @@ class Accountcontroller extends Controller {
             echo json_encode("Succesfully removed bookmark");
         } else {
             //Implement for the guest.
+            foreach($_SESSION['bookmarked-hotels-guest'] as $key => $hotel) {
+                if($hotel['hotelId'] == $hotelId) {
+                    $hotelFound = true;
+                    $keyToRemove = $key;
+                    break;
+                }
+            }
+
+            if($hotelFound) {
+                unset($_SESSION['bookmarked-hotels-guest'][$keyToRemove]);
+                echo json_encode("Succesfully removed bookmark!");
+            } else {
+                return "Error couldn't find hotel in user data";
+            }
         }
     }
 }

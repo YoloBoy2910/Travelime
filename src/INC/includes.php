@@ -92,6 +92,9 @@ function includeNavbar()
                         <li class="nav-item">
                             <a class="nav-link" href="/Travelime/register">Register</a>
                         </li>
+                        <li class="nav-item">
+                            <a href="/Travelime/account"><img class="profilePicture" src="/Travelime/src/IMG/HotelPlaceholder.png"></a>
+                        </li>
                     </ul>
                 <?php } else if (isset($_SESSION['username'])) {
                     $User = new User();

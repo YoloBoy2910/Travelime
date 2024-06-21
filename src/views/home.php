@@ -23,18 +23,6 @@ $ageGroup = isset($_SESSION['age-group']) ? $_SESSION['age-group'] : '';
             <div class="col-md-6 whiteRight">
                 <div class="imageCurve"></div>
             </div>
-
-            <div class="searchBar">
-                <div class="row">
-                    <div class="col-md-6">
-                        <!--                    <i class="fa-solid fa-location-dot"></i>-->
-                        <input type="text" id="place" class="form-control" placeholder="Enter a place">
-                    </div>
-                    <div class="col-md-6">
-                        <button id="searchButton">Search</button>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 

@@ -46,7 +46,7 @@ class LoginController extends Controller
 
     public function logout()
     {
-        if (isset($_POST['logout']) && isset($_SESSION['username'])) unset($_SESSION['username']);
+        if(isset($_SESSION['username'])) unset($_SESSION['username']);
         unset($_SESSION['message']);
         unset($_SESSION['logged-in']);
         header("Location: /Travelime/");

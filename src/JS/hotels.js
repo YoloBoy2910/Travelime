@@ -15,13 +15,13 @@ function getBookmarkedHotels() {
             'Content-Type': 'application/json'
         }
     })
-    .then(response => response.json())
-    .then(data => {
-        bookmarkedHotels = data;
-    })
-    .catch(error => {
-        console.log(`Error couldn't fetch data. Error: ${error}`);
-    })
+        .then(response => response.json())
+        .then(data => {
+            bookmarkedHotels = data;
+        })
+        .catch(error => {
+            console.log(`Error couldn't fetch data. Error: ${error}`);
+        })
 }
 
 getBookmarkedHotels();
@@ -30,7 +30,7 @@ getBookmarkedHotels();
 function bookMarkHotel(hotel) {
     let hotelImage;
 
-    if(hotel.photos && hotel.photos.length > 0) {
+    if (hotel.photos && hotel.photos.length > 0) {
         hotelImage = hotel.photos[0].getUrl();
     } else {
         hotelImage = "/Travelime/src/IMG/HotelPlaceholder.png";
@@ -43,7 +43,7 @@ function bookMarkHotel(hotel) {
         hotelImage: hotelImage,
         hotelRating: hotel.rating
     }
-    
+
     fetch("/Travelime/updateBookmarkState", {
         method: "POST",
         headers: {
@@ -51,25 +51,25 @@ function bookMarkHotel(hotel) {
         },
         body: JSON.stringify(data)
     })
-    .then(response => response.json())
-    .then(response => {
-        //Add or remove the new added hotel from our bookmarked hotels array.
-        switch(response) {
-            case "bookmarked":
-            bookmarkedHotels.push(data);
-            break;
+        .then(response => response.json())
+        .then(response => {
+            //Add or remove the new added hotel from our bookmarked hotels array.
+            switch (response) {
+                case "bookmarked":
+                    bookmarkedHotels.push(data);
+                    break;
 
-            case "removed":
-            bookmarkedHotels = bookmarkedHotels.filter(bookmarkedHotel => bookmarkedHotel.hotelId !== hotel.place_id);
-            break;
+                case "removed":
+                    bookmarkedHotels = bookmarkedHotels.filter(bookmarkedHotel => bookmarkedHotel.hotelId !== hotel.place_id);
+                    break;
 
-            default:
-            console.log(`Message unknown: ${response}`);
-        }
-    })
-    .catch(error => {
-        console.log(`Error couldn't update bookmark state. Error: ${error}`);
-    })
+                default:
+                    console.log(`Message unknown: ${response}`);
+            }
+        })
+        .catch(error => {
+            console.log(`Error couldn't update bookmark state. Error: ${error}`);
+        })
 }
 
 async function initAutocomplete() {
@@ -95,8 +95,9 @@ async function initAutocomplete() {
         return;
     }
 
-    if(selectedCountry) {
-        const countryCode = selectedCountry.querySelector("p").id;
+    const countryCode = selectedCountry.querySelector("p").id;
+
+    if (countryCode) {
         options = {
             bounds: defaultBounds,
             componentRestrictions: { country: `${countryCode}` },
@@ -110,8 +111,8 @@ async function initAutocomplete() {
             strictBounds: false,
         };
     }
-    
-    
+
+
     const autocomplete = new google.maps.places.Autocomplete(input, options);
     autocomplete.bindTo('bounds', map);
 
@@ -147,12 +148,8 @@ async function initAutocomplete() {
     });
 }
 
-function initAutocompleteMap() {
-    
-}
-
 function fetchHotelData(location) {
-    
+
     const radiusSelect = document.getElementById("radius-select");
     const radius = radiusSelect.value;
     const map = new google.maps.Map(document.createElement('div'));
@@ -163,8 +160,8 @@ function fetchHotelData(location) {
         type: ['lodging']
     };
 
-    placeService.nearbySearch(request, function(results, status) {
-        if(status === google.maps.places.PlacesServiceStatus.OK) {
+    placeService.nearbySearch(request, function (results, status) {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
             //Clear hotels if a new search query is done.
             resultsDiv.innerHTML = "";
 
@@ -176,23 +173,23 @@ function fetchHotelData(location) {
             setTimeout(() => {
                 hotelLoggingText.classList.remove("fade-in");
             }, 2000)
-        
-            if(markers.length > 0) {
+
+            if (markers.length > 0) {
                 markers.forEach(marker => {
                     marker.setMap(null);
                 });
             }
 
-            if(hotels.length > 0) {
+            if (hotels.length > 0) {
                 hotels = [];
             }
 
-            results.forEach(hotel => { 
+            results.forEach(hotel => {
                 displayHotel(hotel);
             });
 
         } else {
-            console.log("no hotels found...");
+            resultsDiv.innerHTML = `<h3>No hotels found...</h3>`;
         }
     });
 }
@@ -207,7 +204,7 @@ function displayHotel(hotel) {
     hotelImageDiv.classList.add("hotel-image");
 
     let hotelImage = document.createElement("img");
-    
+
     if (hotel.photos && hotel.photos.length > 0) {
         const photoUrl = hotel.photos[0].getUrl();
         hotelImage.src = photoUrl;
@@ -218,7 +215,7 @@ function displayHotel(hotel) {
     //Append them to their respective containers.
     hotelImageDiv.appendChild(hotelImage);
     hotelDiv.appendChild(hotelImageDiv);
-    
+
     //Create hotelcontainer.
     let hotelContainer = document.createElement("div");
     hotelContainer.classList.add("hotel-container");
@@ -240,11 +237,11 @@ function displayHotel(hotel) {
 
     //Create rating paragraph.
     let ratingParagraph = document.createElement("p");
-    
+
     if (hotel.rating) {
         ratingParagraph.innerHTML = `<p>Rating: ${hotel.rating}</p>`;
         hotelRatingDiv.appendChild(ratingParagraph);
-        
+
         let starDiv = generateStarDiv(hotel.rating);
         hotelRatingDiv.appendChild(starDiv);
     } else {
@@ -268,7 +265,7 @@ function displayHotel(hotel) {
     bookmarkCheck.type = "checkbox";
 
     //check if the hotel is already bookmarked. If this is the case change the checkstate of the element to checked.
-    if(bookmarkedHotels.some(bookmarkedHotel => bookmarkedHotel.hotelId === hotel.place_id)) {
+    if (bookmarkedHotels.some(bookmarkedHotel => bookmarkedHotel.hotelId === hotel.place_id)) {
         bookmarkCheck.checked = true;
     } else {
         bookmarkCheck.checked = false;
@@ -327,9 +324,9 @@ function generateStarDiv(hotelRating) {
 
     let rating = Math.floor(hotelRating) - 1;
 
-    for(let i = 0; i < 5; i++) {
+    for (let i = 0; i < 5; i++) {
         let star = document.createElement("span");
-        if(i <= rating) {
+        if (i <= rating) {
             star.classList.add("fa", "fa-star", "star-checked");
         } else {
             star.classList.add("fa", "fa-star");
@@ -362,8 +359,8 @@ function createMarker(hotel) {
 //Create infowindow for the marker.
 function createInfoWindow(hotel) {
 
-    const hotelContent = 
-    '<div class="hotel-infowindow">' +
+    const hotelContent =
+        '<div class="hotel-infowindow">' +
 
         '<div class="hotel-infowindow-header">' +
         `<h3>${hotel.name}</h3>` +
@@ -373,12 +370,12 @@ function createInfoWindow(hotel) {
         '<p>Click here to view in google maps!</p>' +
         '</div>' +
 
-    '</div>'
+        '</div>'
 
-    const infoWindow  = new google.maps.InfoWindow({
+    const infoWindow = new google.maps.InfoWindow({
         content: hotelContent
     });
-    
+
     return infoWindow;
 }
 
@@ -392,7 +389,7 @@ function showHotelDetails(hotelId) {
     };
 
     service.getDetails(request, (place, status) => {
-        if(status === google.maps.places.PlacesServiceStatus.OK) {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
             createHotelDetailsContainer(place);
         } else {
             console.log("Couldn't gather the hotel details.")
@@ -430,13 +427,13 @@ function createHotelDetailsContainer(hotel) {
     //Create the details header.
     let hotelheader = document.createElement("div");
     hotelheader.classList.add("hotel-details-header");
-    hotelheader.innerHTML =`<h1>${hotel.name}</h1>`;
+    hotelheader.innerHTML = `<h1>${hotel.name}</h1>`;
     hotelInfoContainer.appendChild(hotelheader);
 
     //Create the details body.
     let hotelBody = document.createElement("div");
     hotelBody.classList.add("hotel-details-body");
-    hotelBody.innerHTML = `<h2>Hey mom!</h2>`;
+    hotelBody.innerHTML = `<h2>Check booking.com for more details</h2>`;
 
     hotelInfoContainer.appendChild(hotelBody);
 
@@ -449,7 +446,7 @@ function createHotelDetailsContainer(hotel) {
 
     //Create close button.
     let closeButton = document.createElement("button");
-    closeButton.onclick = function() {
+    closeButton.onclick = function () {
         destroyDetailsContainer(hotelDetailsContainer);
     };
 
@@ -482,7 +479,7 @@ function createHotelDetailsContainer(hotel) {
     }, 500)
 
     document.body.appendChild(hotelDetailsContainer);
-    
+
     overlay.style.display = "block";
     setTimeout(() => {
         overlay.classList.toggle("darken")
