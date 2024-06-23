@@ -34,6 +34,12 @@ class Router
     {
         $uri = strtok($_SERVER['REQUEST_URI'], '?');
         $method = $_SERVER['REQUEST_METHOD'];
+        
+        /*
+        if(!str_contains($uri, "/Travelime")) {
+            $uri = "/Travelime" . $uri;
+        }
+        */
 
         foreach (array_keys($this->routes[$method]) as $route) {
             if (preg_match("#^" . $route . "$#", $uri, $matches)) {

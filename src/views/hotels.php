@@ -37,7 +37,7 @@ if (isset($countryAdvice)) {
         <div class="row gx-5 text-center">
             <div class="col-lg-4 mb-5">
                 <div class="card h-100 shadow border-0">
-                    <img class="card-img-top" src="/Travelime/src/IMG/Hotels1.jpg" alt="...">
+                    <img class="card-img-top" src="/src/IMG/Hotels1.jpg" alt="...">
                     <div class="card-body p-4">
                         <h5 class="card-title mb-3">DEFINE YOUR OWN RADIUS!</h5>
                         <p class="card-text mb-0">Decide wether you want to be close to the heart of a city or perhaps far away!</p>
@@ -46,7 +46,7 @@ if (isset($countryAdvice)) {
             </div>
             <div class="col-lg-4 mb-5">
                 <div class="card h-100 shadow border-0">
-                    <img class="card-img-top" src="/Travelime/src/IMG/Hotels2.jpg" alt="...">
+                    <img class="card-img-top" src="/src/IMG/Hotels2.jpg" alt="...">
                     <div class="card-body p-4">
                         <h5 class="card-title mb-3">BOOKMARK YOUR HOTELS!</h5>
                         <p class="card-text mb-0">Found a hotel you really like? Bookmark it so you can look back on it later!</p>
@@ -55,7 +55,7 @@ if (isset($countryAdvice)) {
             </div>
             <div class="col-lg-4 mb-5">
                 <div class="card h-100 shadow border-0">
-                    <img class="card-img-top" src="/Travelime/src/IMG/Hotels3.jpg" alt="...">
+                    <img class="card-img-top" src="/src/IMG/Hotels3.jpg" alt="...">
                     <div class="card-body p-4">
                         <h5 class="card-title mb-3">SELECT A COUNTRY!</h5>
                         <p class="card-text mb-0">Select the country and region your looking for and receive recommendations!</p>
@@ -85,7 +85,7 @@ if (isset($countryAdvice)) {
         <?php } ?>
     </div>
 
-    <div id="change-country-container">
+    <div class="change-country-container">
         <h2><?php if (isset($countryAdvice)) echo "CHANGE COUNTRY";
             else echo "SELECT A COUNTRY"; ?></h2>
         <div class="searchContainer d-flex flex-column me-auto">
@@ -105,12 +105,11 @@ if (isset($countryAdvice)) {
         </div>
     </div>
 
-    <div id="change-country-container">
+    <div class="change-country-container" id="autocomplete-container">
         <h2 for="city-search">LOCATION</h2>
-        <input class="inputLocation" type="text" name="city-search" id="pac-input" placeholder="Enter a location">
     </div>
 
-    <div id="change-country-container">
+    <div class="change-country-container">
         <h2 for="radius">RADIUS</h2>
         <select class="inputRadius" name="radius" id="radius-select">
             <option value="5000">5KM</option>
@@ -126,7 +125,7 @@ if (isset($countryAdvice)) {
         </select>
     </div>
 
-    <div id="change-country-container">
+    <div class="change-country-container">
         <!-- <h2 for="hotel-search">Search</h2> -->
         <div>
             <button id="hotel-search-button"><i class="fa-solid fa-magnifying-glass fa-lg"></i></button>
@@ -152,5 +151,28 @@ if (isset($countryAdvice)) {
 
 </div>
 
+<div id="place-details">
+    
+    <gmpx-place-overview id="place-overview" place="ChIJ39Y-tdg1fYcRQcZcBb499do"></gmpx-place-overview>
+    
+    <div class="summary-map-container">
+        <div id="selected-location-map"></div>
+
+        <div class="hotel-summary-container">
+        <h4>Summary</h4>
+        <p id="hotel-summary">A pretty cool hotel pretty awesome very cool!</p>
+        </div>
+        
+    </div>
+
+    <gmpx-icon-button icon="close" variant="filled" id="close-button">
+    Close
+    </gmpx-icon-button>  
+    
+</div>
+
+    
+
+
 <?php
-includeFooter(["hotels"]);
+includeFooter(["hotels2"]);

@@ -27,9 +27,20 @@ function includeHeader($optionalScripts = [])
             foreach ($optionalScripts as $optionalScript) {
                 if ($optionalScript == "hotelmap") {
                 ?>
-                    <!-- Google maps api script. -->
+                    <!-- Start old places script. 
                     <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzabKtWQq9f72-mTg661g_KQQGdgO7Sq8&loading=async&libraries=places,marker&callback=initAutocomplete">
                     </script>
+                    End old places script. -->
+
+                    <!-- Libraries/dependencies for the new places api. -->
+                    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+                    <script type="module" src="https://unpkg.com/@googlemaps/extended-component-library"></script>
+
+                    <script>(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
+                    ({key: "AIzaSyAzabKtWQq9f72-mTg661g_KQQGdgO7Sq8", v: "beta"});</script>
+
+                    <gmpx-api-loader key="AIzaSyAzabKtWQq9f72-mTg661g_KQQGdgO7Sq8"></gmpx-api-loader>
                 <?php
                 } else {
                 ?>
@@ -179,12 +190,17 @@ function includeFooter($optionalScripts = [])
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-aTmCaqDl6M5GzAVrV+OXC5eXZOpjno9vZ7vByc4dPpPZR10a5+C49HE42V6uNOZn" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-b21VaE9r9GY4nEJN/Axpx9QTEB3+P9oU1veH3J8QzojN1VHlme/JY58Kb5nfmm9v" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="/Travelime/src/JS/main.js"></script>
+    <script src="/src/JS/main.js"></script>
     <?php
     if ($optionalScripts != []) {
         foreach ($optionalScripts as $optionalScript) {
-    ?>          
-            <script src="/Travelime/src/JS/<?php echo $optionalScript; ?>.js"></script><?php
+            if($optionalScript == "hotels2") {
+                ?>
+                <script type="module" src="/Travelime/src/JS/<?php echo $optionalScript; ?>.js"></script><?php
+            } else {
+                ?>
+                <script src="/Travelime/src/JS/<?php echo $optionalScript; ?>.js"></script><?php
+            }     
         }
     }
     ?>

@@ -75,6 +75,7 @@ class HotelController extends Controller
 
             if($hotelsArray == []) {
                 $hotelsArray[] = $incomingHotel;
+                echo json_encode("bookmarked");
             } else {
                 foreach($hotelsArray as $key => $hotel) {
                 if($hotel['hotelId'] == $incomingHotel['hotelId']) {
@@ -86,11 +87,13 @@ class HotelController extends Controller
                 if($hotelFound) {
                     unset($hotelsArray[$keyToRemove]);
                     $hotelsArray = array_values($hotelsArray);
+                    echo json_encode("removed");
                 } else {
                     $hotelsArray[] = $incomingHotel;
+                    echo json_encode("bookmarked");
                 }
             }
-
+                
             $hotelsJSON = json_encode($hotelsArray);
             $User->updateBookMarkStateHotel($hotelsJSON, $userId);
         

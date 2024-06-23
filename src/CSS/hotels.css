@@ -158,6 +158,10 @@
 //Hotel search bar css.
 */
 
+#autocomplete-container {
+    width: 200px;
+}
+
 #hotel-logging-text {
     width: 100%;
 }
@@ -397,9 +401,10 @@
 .hotel-rating {
     color: white;
     width: 45%;
-    justify-content: space-between;
     height: 100%;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
@@ -461,20 +466,63 @@
 //Hotel information css.
 */
 
-.hotel-details-container {
+#place-details {
     color: var(--White);
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
     width: 100%;
-    max-width: 90%;
+    height: fit-content;
+    height: 100%;
+    max-width: 80%;
     max-height: 80%;
-    border-radius: 20px;
-    padding: 20px;
     position: fixed;
+    overflow: hidden;
+    display: none;
+    justify-content: space-between;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+
+#place-overview {
+    width: 30%;
+    overflow-y: auto;
+}
+
+#selected-location-map {
+    width: 100%;
+    height: 60%;
+}
+
+.hotel-summary-container {
+    background-color: white;
+    width: fit-content;
+    max-width: 100%;
+    height: 30%;
+    color: black;
+    overflow-y: auto;
+    padding: 20px;
+    font-family: sans-serif;
+    font-weight: normal;
+}
+
+.hotel-summary-container h4 {
+    border-bottom: 1px solid black;
+}
+
+.summary-map-container {
+    width: 50%;
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#close-button {
+    --gmpx-color-primary: red;
+    border-radius: 0%;
 }
 
 .hotel-images {
@@ -564,7 +612,7 @@
 }
 
 .fade-in {
-    animation: FadeIn .5s ease;
+    animation: FadeIn 1s ease;
 }
 
 .move-down-appear {
