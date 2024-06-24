@@ -22,6 +22,7 @@ require "src/controllers/accountcontroller.php";
 //Models.
 require "src/models/users.php";
 require "src/models/traveladvice.php";
+require "src/models/feedback.php";
 
 use App\Router;
 use App\Database;
@@ -38,6 +39,7 @@ use App\controllers\Accountcontroller;
 
 use App\Models\User;
 use App\Models\TravelAdvice;
+use App\Models\Feedback;
 
 $router = new Router();
 
@@ -57,6 +59,7 @@ $router->post('/Travelime/register/createuser', RegisterController::class, 'regi
 
 //Routes related to home.
 $router->get('/Travelime/home', HomeController::class, 'index');
+$router->get('/Travelime/home/getFeedbackData', HomeController::class, 'getFeedbackData');
 
 //Routes related to traveladvice.
 $router->get('/Travelime/traveladvice', TravelAdviceController::class, 'index');

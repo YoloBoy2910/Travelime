@@ -20,7 +20,6 @@ $ageGroup = isset($_SESSION['age-group']) ? $_SESSION['age-group'] : '';
     <div style="height:auto;">
         <div class="content">
             <?php
-
             if (isset($countryAdvice)) {
                 if ($countryAdvice != "404") {
             ?>
@@ -67,16 +66,40 @@ $ageGroup = isset($_SESSION['age-group']) ? $_SESSION['age-group'] : '';
 
                             <p>Currency: <span class="badge badge-secondary"><?php echo $countryAdvice['countryCurrency']; ?></span></p>
                             <a class="checkHotels" href="/Travelime/hotels/<?php echo $countryAdvice['countryName']; ?>">Check for hotels</a>
+                            <!-- Close button using an 'X' -->
+                            <button class="closeButton" onclick="closeDialog()">X</button>
                         </div>
                     </div>
             <?php
                 } else {
-                    echo "No advice available for this country/country doesn't exist";
+                    echo "<dialog id='noAdviceDialog' open>No advice available for this country/country doesn't exist!</dialog>";
                 }
             }
             ?>
         </div>
     </div>
+
+    <script>
+        function closeDialog() {
+            var dialog = document.getElementById('noAdviceDialog');
+            if (dialog) {
+                dialog.close(); // Close the dialog
+            }
+        }
+
+        // Automatically close dialog after 2 seconds
+        document.addEventListener('DOMContentLoaded', function() {
+            var dialog = document.getElementById('noAdviceDialog');
+            if (dialog) {
+                setTimeout(function() {
+                    dialog.close(); // Close the dialog after 3 seconds
+                }, 3000);
+            }
+        });
+    </script>
+
+
+
     <!-- End traveladvice container. -->
 
     <!-- Start search bar traveladvice. -->

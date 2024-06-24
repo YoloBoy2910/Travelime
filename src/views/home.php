@@ -56,9 +56,39 @@ $ageGroup = isset($_SESSION['age-group']) ? $_SESSION['age-group'] : '';
         </div>
     </section>
 
-    <!-- <div style="background: white; height: 80vh;"></div> -->
+    <section class="container feedback-section">
+        <h1>GIVE FEEDBACK FROM THE ARDUINO</h1>
+        <div id="feedback-container">
+            <?php
+            if (isset($feedbacks)) {
+            ?>
+                <ul>
+                    <?php
+                    foreach ($feedbacks as $feedback) {
+                        if ($feedback['feedbackname'] == "Positive") {
+                    ?>
+                            <li><span id="feedbackcount-positive"><?php echo $feedback['feedbackcount']; ?></span><i class="ratingGood fa-solid fa-face-smile"></i></li>
+                        <?php
+                        } else if ($feedback['feedbackname'] == "Neutral") {
+                        ?>
+                            <li><span id="feedbackcount-neutral"><?php echo $feedback['feedbackcount']; ?></span><i class="ratingRegular fa-solid fa-face-meh"></i></li>
+                        <?php
+                        } else {
+                        ?>
+                            <li><span id="feedbackcount-negative"><?php echo $feedback['feedbackcount']; ?></span><i class="ratingBad fa-solid fa-face-frown"></i></li>
+                    <?php
+                        }
+                    }
+                    ?>
+                </ul>
+            <?php
+            }
+            ?>
 
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+        </div>
+    </section>
+
+    <!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places&callback=initAutocomplete" async defer></script>
     <script>
         var ageGroup = "<?php echo isset($_SESSION['guest-age-group']) ? $_SESSION['guest-age-group'] : ''; ?>";
@@ -96,7 +126,8 @@ $ageGroup = isset($_SESSION['age-group']) ? $_SESSION['age-group'] : '';
                 });
             });
         }
-    </script>
+    </script> -->
+
     <?php
-    includeFooter(["account"]);
+    includeFooter(["account", "websocket"]);
     ?>

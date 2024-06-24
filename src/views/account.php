@@ -1,5 +1,6 @@
 <?php
 include("src/INC/includes.php");
+
 includeHeader();
 includeNavbar();
 
@@ -28,7 +29,7 @@ if (isset($_POST["submit"])) {
 
             if (move_uploaded_file($tmpName, $destinationPath)) {
                 $query = "UPDATE users SET image = ? WHERE username = ?";
-                $stmt = $connection->prepare($query);
+                $stmt = $conn->prepare($query);
                 $stmt->bind_param("ss", $newImageName, $username);
                 $stmt->execute();
                 $stmt->close();
@@ -68,13 +69,6 @@ if (isset($_POST["submit"])) {
                             </div>
                         </form>
                     </div>
-                    <div class="col-6">
-                        <div class="container">
-                            <label for="username">Username :</label>
-                            <span id="username"><?php if (isset($_SESSION['username'])) echo $_SESSION["username"]; ?></span>
-                            <label for="password">
-                        </div>
-                    </div>
                 </div>
             </div>
         <?php
@@ -86,17 +80,17 @@ if (isset($_POST["submit"])) {
         <?php
         }
         ?>
-        <div class="accountBox">
+        <div class="bookmarksBox">
             <h2>Your bookmarks</h2>
-            <div id=bookmarks>
+            <div id="bookmarks" class="bookmarks">
                 <?php
                 if (isset($hotels) && count($hotels) > 0) {
                     foreach ($hotels as $hotel) {
                 ?>
-                        <div>
+                        <div class="bookmark col-md-3">
                             <h4><?php echo $hotel['hotelName']; ?></h4>
                             <img src="<?php echo $hotel['hotelImage']; ?>" alt="" width="300" height="200">
-                            <p><?php echo $hotel['hotelRating']; ?></p>
+                            <p><?php echo !empty($hotel['hotelRating']) ? $hotel['hotelRating'] . "⭐" : "No ratings found"; ?></p>
                             <button class="remove-hotel-button" id="<?php echo $hotel['hotelId']; ?>">Remove bookmark</button>
                         </div>
                     <?php

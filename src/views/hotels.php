@@ -37,7 +37,16 @@ if (isset($countryAdvice)) {
         <div class="row gx-5 text-center">
             <div class="col-lg-4 mb-5">
                 <div class="card h-100 shadow border-0">
-                    <img class="card-img-top" src="/src/IMG/Hotels1.jpg" alt="...">
+                    <img class="card-img-top" src="/Travelime/src/IMG/Hotels3.jpg" alt="...">
+                    <div class="card-body p-4">
+                        <h5 class="card-title mb-3">SELECT A COUNTRY!</h5>
+                        <p class="card-text mb-0">Select the country and region your looking for and receive recommendations!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-5">
+                <div class="card h-100 shadow border-0">
+                    <img class="card-img-top" src="/Travelime/src/IMG/Hotels1.jpg" alt="...">
                     <div class="card-body p-4">
                         <h5 class="card-title mb-3">DEFINE YOUR OWN RADIUS!</h5>
                         <p class="card-text mb-0">Decide wether you want to be close to the heart of a city or perhaps far away!</p>
@@ -46,22 +55,14 @@ if (isset($countryAdvice)) {
             </div>
             <div class="col-lg-4 mb-5">
                 <div class="card h-100 shadow border-0">
-                    <img class="card-img-top" src="/src/IMG/Hotels2.jpg" alt="...">
+                    <img class="card-img-top" src="/Travelime/src/IMG/Hotels2.jpg" alt="...">
                     <div class="card-body p-4">
                         <h5 class="card-title mb-3">BOOKMARK YOUR HOTELS!</h5>
                         <p class="card-text mb-0">Found a hotel you really like? Bookmark it so you can look back on it later!</p>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 mb-5">
-                <div class="card h-100 shadow border-0">
-                    <img class="card-img-top" src="/src/IMG/Hotels3.jpg" alt="...">
-                    <div class="card-body p-4">
-                        <h5 class="card-title mb-3">SELECT A COUNTRY!</h5>
-                        <p class="card-text mb-0">Select the country and region your looking for and receive recommendations!</p>
-                    </div>
-                </div>
-            </div>
+
         </div>
     </div>
 </div>
@@ -152,26 +153,26 @@ if (isset($countryAdvice)) {
 </div>
 
 <div id="place-details">
-    
+
     <gmpx-place-overview id="place-overview" place="ChIJ39Y-tdg1fYcRQcZcBb499do"></gmpx-place-overview>
-    
+
     <div class="summary-map-container">
         <div id="selected-location-map"></div>
 
         <div class="hotel-summary-container">
-        <h4>Summary</h4>
-        <p id="hotel-summary">A pretty cool hotel pretty awesome very cool!</p>
+            <h4>Summary</h4>
+            <p id="hotel-summary">A pretty cool hotel pretty awesome very cool!</p>
         </div>
-        
+
     </div>
 
     <gmpx-icon-button icon="close" variant="filled" id="close-button">
-    Close
-    </gmpx-icon-button>  
-    
+        Close
+    </gmpx-icon-button>
+
 </div>
 
-    
+
 
 
 <?php

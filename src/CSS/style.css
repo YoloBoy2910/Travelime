@@ -880,6 +880,58 @@ img {
     margin-bottom: -1px;
 }
 
+/*#region Feedback*/
+
+.feedback-section {
+    background: var(--Gray);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4);
+    border-radius: 25px;
+    padding: 20px;
+    margin-bottom: 50px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.feedback-section h1 {
+    background: var(--NGreen);
+    color: var(--LGreen);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4);
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    width: fit-content;
+}
+
+#feedback-container {
+    background: var(--White);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4) inset;
+    border-radius: 25px;
+    padding: 15px 25px;
+    font-size: 3rem;
+    width: fit-content;
+    text-align: center;
+}
+
+.ratingGood {
+    color: green;
+    padding: 0 15px;
+}
+
+.ratingRegular {
+    color: orange;
+    padding: 0 15px;
+}
+
+.ratingBad {
+    color: red;
+    padding: 0 15px;
+}
+
+/*#endregion Feedback*/
+
 /*#endregion Home*/
 
 /*#region Travel Advice*/
@@ -1089,6 +1141,25 @@ img {
 
 /*#endregion Scroll Text*/
 
+/*#region Dialog*/
+
+dialog {
+    background: var(--White);
+    outline: var(--Purple) 2px solid;
+    border-radius: 25px;
+    font-size: 2rem;
+    border: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-transform: uppercase;
+    text-align: center;
+    z-index: 9999;
+}
+
+/*#endregion Dialog*/
+
 /*#endregion Travel Advice*/
 
 /*#region Account*/
@@ -1109,14 +1180,14 @@ img {
     background: var(--NGreen);
     color: var(--Gray);
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4) inset;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    text-transform: uppercase;
-    border-radius: 5px;
-    width: fit-content;
     padding: 10px;
     margin-bottom: 20px;
+    border-radius: 5px;
+    width: fit-content;
+    display: flex;
+    justify-content: start;
+    text-align: center;
+    text-transform: uppercase;
 }
 
 .account button {
@@ -1163,6 +1234,37 @@ img {
     padding: 20px;
     transition: 0.4s;
 }
+
+.bookmarksBox {
+    background: var(--White);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4);
+    border-radius: 5px;
+    margin: 20px 0;
+    padding: 20px;
+    transition: 0.4s;
+    height: 75vh;
+    overflow-y: auto;
+}
+
+.bookmarks {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.bookmark {
+    background: var(--Gray);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4);
+    padding: 10px;
+    margin: 15px;
+    border-radius: 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 
 /*#endregion Account*/
 
