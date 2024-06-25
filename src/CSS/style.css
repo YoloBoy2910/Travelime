@@ -82,8 +82,8 @@
 
 .profilePicture {
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4);
-    height:50px;
-    width:50px;
+    height: 50px;
+    width: 50px;
     border-radius: 50%;
     margin-right: 25px;
 }
@@ -167,7 +167,7 @@
     max-height: 250px;
     overflow-y: auto;
     position: relative;
-    width: calc(100% - 20px); 
+    width: calc(100% - 20px);
     z-index: 99;
     left: 0;
     right: 0;
@@ -430,7 +430,7 @@
     margin: 6px 10px 6px auto;
 }
 
-.form-control:focus{
+.form-control:focus {
     box-shadow: none;
 }
 
@@ -809,42 +809,6 @@ img {
     height: 75vh;
 }
 
-.searchBar {
-    background: var(--Gray);
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
-    padding: 5px 10px;
-    border-radius: 20px;
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60%;
-    margin-bottom: 10px;
-}
-
-.searchBar select,
-.searchBar input,
-.searchBar button {
-    border: none;
-    height: 50px;
-    width: 100%;
-    border-radius: 20px;
-    margin: 5px 0;
-}
-
-.searchBar button {
-    background: var(--Purple);
-    color: var(--White);
-    cursor: pointer;
-    transition: 0.3s ease-in-out;
-}
-
-.searchBar button:hover {
-    background: var(--White);
-    color: var(--Purple);
-    border: var(--Purple) 2px solid;
-}
-
 .greenCurve {
     background: var(--DGreen);
     height: 75vh;
@@ -886,9 +850,10 @@ img {
     background: var(--Gray);
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4);
     border-radius: 25px;
-    padding: 20px;
+    padding: 40px;
     margin-bottom: 50px;
     height: fit-content;
+    width: fit-content;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -901,17 +866,47 @@ img {
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4);
     padding: 10px;
     border-radius: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     width: fit-content;
+    text-align: center;
 }
 
 #feedback-container {
-    background: var(--White);
+    background-image: linear-gradient(to right, var(--NGreen) , var(--DGreen));
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4) inset;
     border-radius: 25px;
     padding: 15px 25px;
     font-size: 3rem;
+    width: 100%;
+    height: fit-content;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.feedback-box {
+    padding: 5px;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
     width: fit-content;
+}
+
+.feedback-box li {
+    background: var(--Gray);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4);
+    margin: 15px;
+    padding-bottom: 15px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
 }
 
@@ -1012,7 +1007,7 @@ img {
 }
 
 .checkHotels {
-    text-decoration: none; 
+    text-decoration: none;
     color: var(--Purple);
     padding: 20px;
 }
@@ -1167,6 +1162,7 @@ dialog {
 .account {
     background: var(--White);
     height: fit-content;
+    padding: 20px;
 }
 
 .account h1 {
@@ -1239,10 +1235,11 @@ dialog {
     background: var(--White);
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4);
     border-radius: 5px;
-    margin: 20px 0;
     padding: 20px;
+    margin-top: 20px;
     transition: 0.4s;
-    height: 75vh;
+    max-height: 75vh;
+    height: fit-content;
     overflow-y: auto;
 }
 
@@ -1421,7 +1418,7 @@ dialog {
 }
 
 .elder .travelAdviceContent {
-    background: rgb(255,255,255,0.6);
+    background: rgb(255, 255, 255, 0.6);
     border-radius: 5px;
     width: fit-content;
     padding: 10px;

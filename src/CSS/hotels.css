@@ -77,9 +77,13 @@
     justify-content: space-evenly;
 }
 
+#feedback-container ul{
+    list-style: none;
+}
+
 #results-div {
-    background: var(--DGreen);
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4);
+    background: var(--Gray);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4) inset;
     width: 40%;
     height: 60vh;
     border-radius: 20px;
@@ -89,13 +93,18 @@
 }
 
 #container-map {
-    background: var(--DGreen);
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4);
+    background: var(--Gray);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4) inset;
     width: 40%;
     height: 60vh;
     border-radius: 20px;
     padding: 10px;
     text-align: center;
+}
+
+#container-map #map {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4);
+
 }
 
 /*
@@ -149,9 +158,9 @@
 #country-selection-container {
     background: var(--Gray);
     color: var(--NGreen);
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4);
-    border-top-left-radius: 100px;
-    border-top-right-radius: 100px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4) inset;
+    border-radius: 25px;
+    margin: 0 40px;
 }
 
 /*
@@ -284,6 +293,116 @@
     box-sizing: border-box;
 }
 
+/*Test region input field*/
+
+/* Style for the dialog */
+dialog[aria-label="Search For a Place"] {
+    outline: none;
+    border: none;
+  }
+  
+  /* Style for the widget container */
+  .widget-container {
+    position: relative;
+    width: 100%;
+  }
+  
+  /* Style for the input container */
+  .input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Style for the autocomplete icon */
+  .autocomplete-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Style for the input field */
+  .input-container input[aria-autocomplete="list"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+  }
+  
+  .input-container input[aria-autocomplete="list"]:focus {
+    border-color: #1a73e8;
+  }
+  
+  /* Style for the focus ring */
+  .focus-ring {
+    pointer-events: none;
+    box-sizing: border-box;
+    position: absolute;
+    z-index: 1000002;
+    opacity: 0;
+    border: 2px solid #1a73e8;
+  }
+  
+  /* Style for the predictions anchor */
+  .predictions-anchor {
+    position: relative;
+  }
+  
+  /* Style for the dropdown */
+  .dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000003;
+  }
+  
+  /* Style for the listbox */
+  .dropdown ul[role="listbox"] {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Style for the attributions */
+  .attributions {
+    padding: 8px;
+    text-align: right;
+    font-size: 9px;
+    color: #5f6368;
+  }
+  
+  /* Style for the Google view */
+  .KYVFJM-maps-built-with-google-view {
+    display: inline-block;
+    font-family: 'Google Sans', Roboto, Arial, sans-serif;
+    font-feature-settings: "liga";
+    letter-spacing: normal;
+    line-height: 1.1em;
+    white-space: nowrap;
+  }
+  
+  /* Style for the built-with text */
+  .RmJKKc-maps-built-with-google-view--built-with {
+    font-size: 9px;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+  
+  /* Hide the extra span */
+  .RmJKKc-maps-built-with-google-view--built-with + span {
+    display: none;
+  }
+  
+
+/*Test region input field*
+
 /*#endregion City Input*/
 
 /*
@@ -321,6 +440,7 @@
 */
 
 .hotel {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4);
     border-radius: 20px;
     margin-bottom: 10px;
     display: flex;
@@ -341,9 +461,12 @@
     background: #02fe85;
     height: 50%;
     width: 100%;
+    padding: 10px;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
+
 
 .hotel-info {
     background: #123634;
@@ -443,7 +566,7 @@
 }
 
 .intro-text-container  {
-    padding: 40px;
+    padding: 20px;
     display: flex;
     align-items: center;
     text-align: center;

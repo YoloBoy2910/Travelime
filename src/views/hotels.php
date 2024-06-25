@@ -6,6 +6,7 @@ includeHeader(["hotelmap", "hotels"]);
 includeNavbar($travelAdvices);
 ?>
 
+
 <div id="overlay"></div>
 
 <?php
@@ -106,10 +107,6 @@ if (isset($countryAdvice)) {
         </div>
     </div>
 
-    <div class="change-country-container" id="autocomplete-container">
-        <h2 for="city-search">LOCATION</h2>
-    </div>
-
     <div class="change-country-container">
         <h2 for="radius">RADIUS</h2>
         <select class="inputRadius" name="radius" id="radius-select">
@@ -126,12 +123,15 @@ if (isset($countryAdvice)) {
         </select>
     </div>
 
-    <div class="change-country-container">
-        <!-- <h2 for="hotel-search">Search</h2> -->
+    <div class="change-country-container" id="autocomplete-container">
+        <h2 for="city-search">LOCATION</h2>
+    </div>
+
+    <!-- <div class="change-country-container">
         <div>
             <button id="hotel-search-button"><i class="fa-solid fa-magnifying-glass fa-lg"></i></button>
         </div>
-    </div>
+    </div> -->
 
     <!-- Start search bar within the country selection container. -->
 </section>
@@ -171,9 +171,6 @@ if (isset($countryAdvice)) {
     </gmpx-icon-button>
 
 </div>
-
-
-
 
 <?php
 includeFooter(["hotels2"]);

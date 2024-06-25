@@ -1,5 +1,5 @@
 //For making a websocket connection with a local node js server.
-const url = 'ws://localhost:3000';
+const url = 'wss://webtoarduino.com';
 const positiveContainer = document.getElementById("feedbackcount-positive");
 const neutralContainer = document.getElementById("feedbackcount-neutral");
 const negativeContainer = document.getElementById("feedbackcount-negative");

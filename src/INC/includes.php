@@ -26,7 +26,7 @@ function includeHeader($optionalScripts = [])
         if ($optionalScripts != []) {
             foreach ($optionalScripts as $optionalScript) {
                 if ($optionalScript == "hotelmap") {
-                ?>
+        ?>
                     <!-- Start old places script. 
                     <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzabKtWQq9f72-mTg661g_KQQGdgO7Sq8&loading=async&libraries=places,marker&callback=initAutocomplete">
                     </script>
@@ -37,18 +37,46 @@ function includeHeader($optionalScripts = [])
 
                     <script type="module" src="https://unpkg.com/@googlemaps/extended-component-library"></script>
 
-                    <script>(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
-                    ({key: "AIzaSyAzabKtWQq9f72-mTg661g_KQQGdgO7Sq8", v: "beta"});</script>
+                    <script>
+                        (g => {
+                            var h, a, k, p = "The Google Maps JavaScript API",
+                                c = "google",
+                                l = "importLibrary",
+                                q = "__ib__",
+                                m = document,
+                                b = window;
+                            b = b[c] || (b[c] = {});
+                            var d = b.maps || (b.maps = {}),
+                                r = new Set,
+                                e = new URLSearchParams,
+                                u = () => h || (h = new Promise(async (f, n) => {
+                                    await (a = m.createElement("script"));
+                                    e.set("libraries", [...r] + "");
+                                    for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]);
+                                    e.set("callback", c + ".maps." + q);
+                                    a.src = `https://maps.${c}apis.com/maps/api/js?` + e;
+                                    d[q] = f;
+                                    a.onerror = () => h = n(Error(p + " could not load."));
+                                    a.nonce = m.querySelector("script[nonce]")?.nonce || "";
+                                    m.head.append(a)
+                                }));
+                            d[l] ? console.warn(p + " only loads once. Ignoring:", g) : d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n))
+                        })
+                        ({
+                            key: "AIzaSyAzabKtWQq9f72-mTg661g_KQQGdgO7Sq8",
+                            v: "beta"
+                        });
+                    </script>
 
                     <gmpx-api-loader key="AIzaSyAzabKtWQq9f72-mTg661g_KQQGdgO7Sq8"></gmpx-api-loader>
                 <?php
                 } else {
                 ?>
                     <link rel="stylesheet" href="/Travelime/src/CSS/<?php echo $optionalScript; ?>.css"><?php
-                }
-            }
-        }
-        ?>
+                                                                                                    }
+                                                                                                }
+                                                                                            }
+                                                                                                        ?>
 
         <!-- Favicon -->
         <link rel="icon" href="/Travelime/src/IMG/Logo.ico">
@@ -61,7 +89,7 @@ function includeHeader($optionalScripts = [])
             @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
             body {
-                background: var(--white);
+                background: var(--White);
                 font-family: "Kanit", sans-serif;
                 font-weight: 500;
                 font-style: italic;
@@ -194,16 +222,16 @@ function includeFooter($optionalScripts = [])
     <?php
     if ($optionalScripts != []) {
         foreach ($optionalScripts as $optionalScript) {
-            if($optionalScript == "hotels2") {
-                ?>
-                <script type="module" src="/Travelime/src/JS/<?php echo $optionalScript; ?>.js"></script><?php
-            } else {
-                ?>
-                <script src="/Travelime/src/JS/<?php echo $optionalScript; ?>.js"></script><?php
-            }     
-        }
-    }
+            if ($optionalScript == "hotels2") {
     ?>
+                <script type="module" src="/Travelime/src/JS/<?php echo $optionalScript; ?>.js"></script><?php
+                                                                                                        } else {
+                                                                                                            ?>
+                <script src="/Travelime/src/JS/<?php echo $optionalScript; ?>.js"></script><?php
+                                                                                                        }
+                                                                                                    }
+                                                                                                }
+                                                                                            ?>
     </body>
 
     </html>

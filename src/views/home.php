@@ -26,7 +26,7 @@ $ageGroup = isset($_SESSION['age-group']) ? $_SESSION['age-group'] : '';
         </div>
     </div>
 
-    <section class="py-5" id="features" style="background: white;">
+    <section id="features" style="background: white;">
         <div class="container px-5 my-5">
             <div class="row gx-5">
                 <div class="col-lg-4 mb-5 mb-lg-0">
@@ -34,19 +34,19 @@ $ageGroup = isset($_SESSION['age-group']) ? $_SESSION['age-group'] : '';
                 </div>
                 <div class="col-lg-8">
                     <div class="row gx-5 row-cols-1 row-cols-md-2">
-                        <div class="col mb-4 h-100">
+                        <div class="col mb-4 h-100 home-introduction-item">
                             <h5>Open the chatbot</h5>
                             <p class="mb-0">Open the chatbot by clicking the circle in the bottomleft corner.</p>
                         </div>
-                        <div class="col mb-4 h-100">
+                        <div class="col mb-4 h-100 home-introduction-item">
                             <h5>Give it a prompt</h5>
                             <p class="mb-0">Send a prompt to the chatbot about your wishes for your perfect vacation.</p>
                         </div>
-                        <div class="col mb-4 mb-md-0 h-100">
+                        <div class="col mb-4 h-100 home-introduction-item">
                             <h5>Check the countries</h5>
                             <p class="mb-0">Check the countries that the chatbot returns in Travel Advice</p>
                         </div>
-                        <div class="col h-100">
+                        <div class="col mb-4 h-100 home-introduction-item">
                             <h5>Find hotels</h5>
                             <p class="mb-0">Click the "Check for hotels" button, and find the place that suits you the best.</p>
                         </div>
@@ -62,7 +62,7 @@ $ageGroup = isset($_SESSION['age-group']) ? $_SESSION['age-group'] : '';
             <?php
             if (isset($feedbacks)) {
             ?>
-                <ul>
+                <ul class="feedback-box">
                     <?php
                     foreach ($feedbacks as $feedback) {
                         if ($feedback['feedbackname'] == "Positive") {

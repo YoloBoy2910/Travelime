@@ -23,9 +23,9 @@ class IndexController extends Controller
             $age = $_POST['age'];
             $ageGroup = '';
 
-            if ($age >= 16 && $age <= 35) {
+            if ($age >= 16 && $age <= 25) {
                 $ageGroup = 'Young';
-            } elseif ($age > 35 && $age <= 65) {
+            } elseif ($age > 26 && $age <= 65) {
                 $ageGroup = 'Adult';
             } elseif ($age > 65 && $age <= 120) {
                 $ageGroup = 'Elder';
