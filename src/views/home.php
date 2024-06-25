@@ -26,35 +26,40 @@ $ageGroup = isset($_SESSION['age-group']) ? $_SESSION['age-group'] : '';
         </div>
     </div>
 
-    <section id="features" style="background: white;">
-        <div class="container px-5 my-5">
-            <div class="row gx-5">
-                <div class="col-lg-4 mb-5 mb-lg-0">
-                    <h2 class="fw-bolder mb-0">Steps to finding your perfect destination</h2>
-                </div>
-                <div class="col-lg-8">
-                    <div class="row gx-5 row-cols-1 row-cols-md-2">
-                        <div class="col mb-4 h-100 home-introduction-item">
-                            <h5>Open the chatbot</h5>
-                            <p class="mb-0">Open the chatbot by clicking the circle in the bottomleft corner.</p>
-                        </div>
-                        <div class="col mb-4 h-100 home-introduction-item">
-                            <h5>Give it a prompt</h5>
-                            <p class="mb-0">Send a prompt to the chatbot about your wishes for your perfect vacation.</p>
-                        </div>
-                        <div class="col mb-4 h-100 home-introduction-item">
-                            <h5>Check the countries</h5>
-                            <p class="mb-0">Check the countries that the chatbot returns in Travel Advice</p>
-                        </div>
-                        <div class="col mb-4 h-100 home-introduction-item">
-                            <h5>Find hotels</h5>
-                            <p class="mb-0">Click the "Check for hotels" button, and find the place that suits you the best.</p>
-                        </div>
+    <section class="home-introduction">
+    <div class="container px-5 my-5">
+        <div class="row gx-5">
+            <div class="col-lg-4 mb-5 mb-lg-0">
+                <h2 class="fw-bolder mb-0">Steps to finding your perfect destination</h2>
+            </div>
+            <div class="col-lg-8">
+                <div class="row gx-5 row-cols-1 row-cols-md-2">
+                    <div class="col mb-4 h-100 home-introduction-item">
+                        <h5>Open the chatbot</h5>
+                        <p class="mb-0">Open the chatbot by clicking the circle in the bottomleft corner.</p>
+                    </div>
+                    <div class="col mb-4 h-100 home-introduction-item">
+                        <h5>Give it a prompt</h5>
+                        <p class="mb-0">Send a prompt to the chatbot about your wishes for your perfect vacation.</p>
+                    </div>
+                    <div class="col mb-4 h-100 home-introduction-item">
+                        <h5>Check the countries</h5>
+                        <p class="mb-0">Check the countries that the chatbot returns in Travel Advice</p>
+                    </div>
+                    <div class="col mb-4 h-100 home-introduction-item">
+                        <h5>Find hotels</h5>
+                        <p class="mb-0">Click the "Check for hotels" button, and find the place that suits you the best.</p>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+
+</section>
+<svg id="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path fill-opacity="1" d="M0,96L30,112C60,128,120,160,180,154.7C240,149,300,107,360,85.3C420,64,480,64,540,69.3C600,75,660,85,720,112C780,139,840,181,900,181.3C960,181,1020,139,1080,122.7C1140,107,1200,117,1260,122.7C1320,128,1380,128,1410,128L1440,128L1440,320L1410,320C1380,320,1320,320,1260,320C1200,320,1140,320,1080,320C1020,320,960,320,900,320C840,320,780,320,720,320C660,320,600,320,540,320C480,320,420,320,360,320C300,320,240,320,180,320C120,320,60,320,30,320L0,320Z"></path>
+    </svg>
+
 
     <section class="container feedback-section">
         <h1>GIVE FEEDBACK FROM THE ARDUINO</h1>
