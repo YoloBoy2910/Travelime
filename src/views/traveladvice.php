@@ -66,8 +66,6 @@ $ageGroup = isset($_SESSION['age-group']) ? $_SESSION['age-group'] : '';
 
                             <p>Currency: <span class="badge badge-secondary"><?php echo $countryAdvice['countryCurrency']; ?></span></p>
                             <a class="checkHotels" href="/Travelime/hotels/<?php echo $countryAdvice['countryName']; ?>">Check for hotels</a>
-                            <!-- Close button using an 'X' -->
-                            <button class="closeButton" onclick="closeDialog()">X</button>
                         </div>
                     </div>
             <?php

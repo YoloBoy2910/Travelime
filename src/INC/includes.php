@@ -132,7 +132,7 @@ function includeNavbar()
                             <a class="nav-link" href="/Travelime/register">Register</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/Travelime/account"><img class="profilePicture" src="/Travelime/src/IMG/HotelPlaceholder.png"></a>
+                            <a href="/Travelime/account"><img class="profilePicture" src="/Travelime/src/IMG/PROFILEIMG/account.jpg"></a>
                         </li>
                     </ul>
                 <?php } else if (isset($_SESSION['username'])) {
